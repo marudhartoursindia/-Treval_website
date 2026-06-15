@@ -236,7 +236,7 @@ const MOCK_PACKAGES: TravelPackage[] = [
     title: { rendered: "Royal Rajasthan Heritage Tour" },
     excerpt: { rendered: "A classic luxury journey covering the grand palaces of Jaipur, Blue City Jodhpur, and City of Lakes Udaipur." },
     content: { rendered: "<p>Live like royalty on this handcrafted luxury tour across Rajasthan's most iconic cities. Stay in authentic palace hotels, enjoy private guided fort tours, and feast on traditional Rajasthani cuisine.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=1200",
+    featured_media_url: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1200",
     categories_names: ["Rajasthan", "Royal Heritage"],
     meta: {
       duration: "8 Days / 7 Nights",
@@ -283,7 +283,7 @@ const MOCK_PACKAGES: TravelPackage[] = [
       map_location: "Rajasthan, India",
       booking_cta: "Book Royal Tour",
       gallery_images: [
-        "https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=800",
+        "https://images.unsplash.com/photo-16030262110263-fb0112e7cc33?q=80&w=800",
         "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800"
       ],
       seo_title: "Royal Rajasthan Heritage Tour Package - 8 Days Custom Itinerary",
@@ -358,7 +358,7 @@ const MOCK_PACKAGES: TravelPackage[] = [
     title: { rendered: "Thar Desert & Jaisalmer Explorer" },
     excerpt: { rendered: "An adventure into Jaisalmer's golden desert, Jodhpur's blue fortresses, and Bikaner's camel tracks." },
     content: { rendered: "<p>Journey into the heart of the Thar Desert. Explore the legendary sandstone castles, enjoy a luxury camping experience under the desert stars, and visit Bikaner's historical palaces.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=1200",
+    featured_media_url: "https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=1200",
     categories_names: ["Desert Safari", "Adventure", "Rajasthan"],
     meta: {
       duration: "6 Days / 5 Nights",
@@ -402,8 +402,8 @@ const MOCK_PACKAGES: TravelPackage[] = [
       map_location: "Jaisalmer, Bikaner, Jodhpur",
       booking_cta: "Book Desert Adventure",
       gallery_images: [
-        "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=800",
-        "https://images.unsplash.com/photo-1627448888764-92716035f299?q=80&w=800"
+        "https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=800",
+        "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800"
       ],
       seo_title: "Thar Desert Jaisalmer & Bikaner Safari Tour - 6 Days",
       seo_description: "Explore Rajasthan's Thar Desert. Book our 6-day package featuring luxury camping, camel safaris, and historic forts in Jaisalmer, Jodhpur, and Bikaner."
