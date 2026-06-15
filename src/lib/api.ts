@@ -101,10 +101,10 @@ const MOCK_DESTINATIONS: Destination[] = [
     title: { rendered: "Jaipur, Rajasthan" },
     excerpt: { rendered: "The legendary Pink City, famed for its royal palaces, imposing forts, and vibrant gemstone bazaars." },
     content: { rendered: "<p>Jaipur is the capital of India's Rajasthan state. It evokes the royal family that once ruled the region and that, in 1727, founded what is now called the Old City, or \"Pink City\" for its trademark building color.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=1200",
+    featured_media_url: "https://images.unsplash.com/photo-16030262110263-fb0112e7cc33?q=80&w=1200",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=800",
+        "https://images.unsplash.com/photo-16030262110263-fb0112e7cc33?q=80&w=800",
         "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800"
       ],
       popular_attractions: ["Hawa Mahal", "Amber Fort", "City Palace", "Jantar Mantar"],
@@ -122,7 +122,7 @@ const MOCK_DESTINATIONS: Destination[] = [
     meta: {
       gallery: [
         "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800",
-        "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=800"
+        "https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=800"
       ],
       popular_attractions: ["Mehrangarh Fort", "Jaswant Thada", "Umaid Bhawan Palace", "Sardar Market"],
       best_time_to_visit: "October to March",
@@ -135,10 +135,10 @@ const MOCK_DESTINATIONS: Destination[] = [
     title: { rendered: "Udaipur, Rajasthan" },
     excerpt: { rendered: "The City of Lakes and Venice of the East, showcasing romantic floating palaces and lush hills." },
     content: { rendered: "<p>Udaipur, formerly the capital of the Mewar Kingdom, is a city in the western Indian state of Rajasthan. Founded by Maharana Udai Singh II in 1559, it's set around a series of artificial lakes and is known for its lavish royal residences.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1562280963-8a5475740a10?q=80&w=1200",
+    featured_media_url: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1200",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-1562280963-8a5475740a10?q=80&w=800",
+        "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=800",
         "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800"
       ],
       popular_attractions: ["Lake Palace", "City Palace", "Jag Mandir", "Lake Pichola"],
@@ -152,10 +152,10 @@ const MOCK_DESTINATIONS: Destination[] = [
     title: { rendered: "Jaisalmer, Rajasthan" },
     excerpt: { rendered: "The Golden City, rising from the Thar desert sands with sandstone architecture and sand dune safaris." },
     content: { rendered: "<p>Jaisalmer is a former medieval trading center and a princely state in the western Indian state of Rajasthan, in the heart of the Thar Desert. Known as the \"Golden City,\" it's distinguished by its yellow sandstone architecture.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=1200",
+    featured_media_url: "https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=1200",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=800",
+        "https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=800",
         "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800"
       ],
       popular_attractions: ["Jaisalmer Fort", "Sam Sand Dunes", "Patwon Ki Haveli", "Gadisar Lake"],
