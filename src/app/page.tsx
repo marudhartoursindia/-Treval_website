@@ -86,68 +86,128 @@ export default async function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {destinations.slice(0, 4).map((dest) => (
-            <DestinationCard key={dest.id} destination={dest} />
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+          {destinations[0] && (
+            <div className="md:col-span-8 h-[400px]">
+              <DestinationCard destination={destinations[0]} />
+            </div>
+          )}
+          {destinations[1] && (
+            <div className="md:col-span-4 h-[400px]">
+              <DestinationCard destination={destinations[1]} />
+            </div>
+          )}
+          {destinations[2] && (
+            <div className="md:col-span-4 h-[400px]">
+              <DestinationCard destination={destinations[2]} />
+            </div>
+          )}
+          {destinations[3] && (
+            <div className="md:col-span-8 h-[400px]">
+              <DestinationCard destination={destinations[3]} />
+            </div>
+          )}
         </div>
       </section>
 
-      {/* 3. Why Choose Us */}
+      {/* 3. Why Choose Us (Split-Screen Premium Layout) */}
       <section className="bg-stone-50 dark:bg-stone-900/10 py-24 px-6 border-y border-[var(--border-color)]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-20 space-y-4">
-            <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold">
-              The Marudhar Standard
-            </span>
-            <h2 className="font-playfair text-3xl md:text-5xl font-bold tracking-wide">
-              The Spirit of Royal Hospitality
-            </h2>
-            <p className="text-sm text-foreground/60 font-light">
-              We define luxury not just by stay, but by the exclusive heritage access, deep cultural connections, and seamless ease we provide.
-            </p>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left: Beautiful Decorative Image */}
+          <div className="lg:col-span-6 relative aspect-[4/3] w-full overflow-hidden border-2 border-accent/20 p-2 bg-stone-100">
+            <div className="relative w-full h-full overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=1200"
+                alt="Marudhar Desert Experience"
+                fill
+                className="object-cover transition-transform duration-700 hover:scale-105"
+              />
+            </div>
+            {/* Absolute badge */}
+            <div className="absolute top-6 left-6 bg-primary text-white text-[10px] uppercase tracking-widest px-4 py-2 font-semibold border border-accent/30 shadow-md">
+              Land of the Kings
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="bg-[var(--card-bg)] border border-[var(--border-color)] p-8 space-y-4 text-center">
-              <div className="mx-auto w-12 h-12 flex items-center justify-center bg-accent/10 rounded-full text-accent">
-                <Compass size={24} />
-              </div>
-              <h3 className="font-playfair text-lg font-bold text-foreground">Bespoke Curation</h3>
-              <p className="text-xs text-foreground/70 leading-relaxed font-light">
-                Tailored itineraries designed down to the smallest detail. You decide the destinations; we arrange the perfect trip.
+          {/* Right: Premium Value Content */}
+          <div className="lg:col-span-6 space-y-8">
+            <div className="space-y-4">
+              <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
+                The Marudhar Standard
+              </span>
+              <h2 className="font-playfair text-3xl md:text-4xl font-bold tracking-wide">
+                The Spirit of Royal Indian Hospitality
+              </h2>
+              <p className="text-sm text-foreground/60 font-light leading-relaxed">
+                We define luxury not just by stay, but by the exclusive heritage access, deep cultural connections, and seamless ease we provide throughout India.
               </p>
             </div>
 
-            <div className="bg-[var(--card-bg)] border border-[var(--border-color)] p-8 space-y-4 text-center">
-              <div className="mx-auto w-12 h-12 flex items-center justify-center bg-accent/10 rounded-full text-accent">
-                <ShieldCheck size={24} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2 text-accent">
+                  <Compass size={18} />
+                  <h4 className="font-playfair text-sm font-bold text-foreground">Bespoke Curation</h4>
+                </div>
+                <p className="text-xs text-foreground/70 leading-relaxed font-light">
+                  Tailored itineraries designed down to the smallest detail. You set the pace; we arrange it.
+                </p>
               </div>
-              <h3 className="font-playfair text-lg font-bold text-foreground">Palaces & Haveli Stays</h3>
-              <p className="text-xs text-foreground/70 leading-relaxed font-light">
-                Handpicked premium heritage properties and palace resorts that let you live and breathe India's royal history.
-              </p>
-            </div>
 
-            <div className="bg-[var(--card-bg)] border border-[var(--border-color)] p-8 space-y-4 text-center">
-              <div className="mx-auto w-12 h-12 flex items-center justify-center bg-accent/10 rounded-full text-accent">
-                <Map size={24} />
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2 text-accent">
+                  <ShieldCheck size={18} />
+                  <h4 className="font-playfair text-sm font-bold text-foreground">Palaces & Heritage Stays</h4>
+                </div>
+                <p className="text-xs text-foreground/70 leading-relaxed font-light">
+                  Handpicked premium heritage properties and palace resorts that let you live like royalty.
+                </p>
               </div>
-              <h3 className="font-playfair text-lg font-bold text-foreground">Local Heritage Guides</h3>
-              <p className="text-xs text-foreground/70 leading-relaxed font-light">
-                Walk through forts, temples, and bazaars with native guides who bring local history, legends, and craft secrets to life.
-              </p>
-            </div>
 
-            <div className="bg-[var(--card-bg)] border border-[var(--border-color)] p-8 space-y-4 text-center">
-              <div className="mx-auto w-12 h-12 flex items-center justify-center bg-accent/10 rounded-full text-accent">
-                <Users size={24} />
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2 text-accent">
+                  <Map size={18} />
+                  <h4 className="font-playfair text-sm font-bold text-foreground">Local Guides</h4>
+                </div>
+                <p className="text-xs text-foreground/70 leading-relaxed font-light">
+                  Walk through forts, temples, and bazaars with native guides who bring local history to life.
+                </p>
               </div>
-              <h3 className="font-playfair text-lg font-bold text-foreground">24/7 Dedicated Care</h3>
-              <p className="text-xs text-foreground/70 leading-relaxed font-light">
-                Enjoy complete peace of mind. Our local representatives and dedicated chauffeurs stand ready to support you at any moment.
-              </p>
+
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2 text-accent">
+                  <Users size={18} />
+                  <h4 className="font-playfair text-sm font-bold text-foreground">24/7 Dedicated Care</h4>
+                </div>
+                <p className="text-xs text-foreground/70 leading-relaxed font-light">
+                  Enjoy complete peace of mind. Our local chauffeurs and coordinators stand ready to support you.
+                </p>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3.5 Custom Itinerary Planner CTA Section */}
+      <section className="py-20 px-6 bg-gradient-to-r from-primary to-primary-light text-white text-center border-y border-accent/10">
+        <div className="max-w-3xl mx-auto space-y-6">
+          <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
+            Tailor-Made Expeditions
+          </span>
+          <h2 className="font-playfair text-2xl md:text-4xl font-bold tracking-wide">
+            Don't want standard packages? <br />
+            Design a custom itinerary with our experts.
+          </h2>
+          <p className="text-xs text-white/70 max-w-xl mx-auto font-light leading-relaxed">
+            Select your preferred cities (within or outside Rajasthan), accommodation standards, and travel dates. We will build a customized day-wise plan for you.
+          </p>
+          <div className="pt-4">
+            <Link href="/custom-package">
+              <Button variant="accent" size="lg" className="px-8 font-semibold uppercase tracking-wider text-xs">
+                Launch Custom Planner
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

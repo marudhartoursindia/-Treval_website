@@ -9,7 +9,7 @@ interface DestinationCardProps {
 
 export function DestinationCard({ destination }: DestinationCardProps) {
   return (
-    <Link href={`/destinations/${destination.slug}`} className="group relative block aspect-[4/5] overflow-hidden bg-stone-900 border border-[var(--border-color)]">
+    <Link href={`/destinations/${destination.slug}`} className="group relative block w-full h-full min-h-[350px] overflow-hidden bg-stone-900 border border-[var(--border-color)]">
       {/* Background Image */}
       {destination.featured_media_url ? (
         <Image
