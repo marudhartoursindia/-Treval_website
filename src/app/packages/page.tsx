@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTravelPackages, getDestinations } from "@/lib/api";
 import { PackagesClient } from "@/components/package/PackagesClient";
 
-export const revalidate = 3600; // ISR cache
+export const revalidate = 0; // Dynamic rendering, no caching
 
 export const metadata: Metadata = {
   title: "Travel Packages & Custom Safaris",

@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/Button";
 import { Accordion } from "@/components/ui/Accordion";
 import { formatPrice } from "@/lib/utils";
 
-export const revalidate = 3600; // Revalidate every hour (ISR)
+export const revalidate = 0; // Dynamic rendering, no caching
 
 export default async function HomePage() {
   const [packages, destinations, testimonials, faqs, blogs] = await Promise.all([
@@ -113,7 +113,7 @@ export default async function HomePage() {
           <div className="lg:col-span-6 relative aspect-[4/3] w-full overflow-hidden border-2 border-accent/20 p-2 bg-stone-100">
             <div className="relative w-full h-full overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=1200"
+                src="https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=1200"
                 alt="Marudhar Desert Experience"
                 fill
                 className="object-cover transition-transform duration-700 hover:scale-105"

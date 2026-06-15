@@ -101,11 +101,11 @@ const MOCK_DESTINATIONS: Destination[] = [
     title: { rendered: "Jaipur, Rajasthan" },
     excerpt: { rendered: "The legendary Pink City, famed for its royal palaces, imposing forts, and vibrant gemstone bazaars." },
     content: { rendered: "<p>Jaipur is the capital of India's Rajasthan state. It evokes the royal family that once ruled the region and that, in 1727, founded what is now called the Old City, or \"Pink City\" for its trademark building color.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-16030262110263-fb0112e7cc33?q=80&w=1200",
+    featured_media_url: "https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=1200",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-16030262110263-fb0112e7cc33?q=80&w=800",
-        "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800"
+        "https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=1200",
+        "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=1200"
       ],
       popular_attractions: ["Hawa Mahal", "Amber Fort", "City Palace", "Jantar Mantar"],
       best_time_to_visit: "October to March",
@@ -118,11 +118,11 @@ const MOCK_DESTINATIONS: Destination[] = [
     title: { rendered: "Jodhpur, Rajasthan" },
     excerpt: { rendered: "The Sun City, characterized by blue-washed houses nestled beneath the towering Mehrangarh Fort." },
     content: { rendered: "<p>Jodhpur is a city in the Thar Desert of the northwest Indian state of Rajasthan. Its 15th-century Mehrangarh Fort is a former palace that's now a museum, displaying weapons, paintings and elaborate royal palanquins.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=1200",
+    featured_media_url: "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=1200",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800",
-        "https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=800"
+        "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=1200",
+        "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=1200"
       ],
       popular_attractions: ["Mehrangarh Fort", "Jaswant Thada", "Umaid Bhawan Palace", "Sardar Market"],
       best_time_to_visit: "October to March",
@@ -135,11 +135,11 @@ const MOCK_DESTINATIONS: Destination[] = [
     title: { rendered: "Udaipur, Rajasthan" },
     excerpt: { rendered: "The City of Lakes and Venice of the East, showcasing romantic floating palaces and lush hills." },
     content: { rendered: "<p>Udaipur, formerly the capital of the Mewar Kingdom, is a city in the western Indian state of Rajasthan. Founded by Maharana Udai Singh II in 1559, it's set around a series of artificial lakes and is known for its lavish royal residences.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1200",
+    featured_media_url: "https://images.unsplash.com/photo-1504705740206-c8a4d4851831?q=80&w=1200",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=800",
-        "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800"
+        "https://images.unsplash.com/photo-1504705740206-c8a4d4851831?q=80&w=1200",
+        "https://images.unsplash.com/photo-1598977123418-45f04b016423?q=80&w=1200"
       ],
       popular_attractions: ["Lake Palace", "City Palace", "Jag Mandir", "Lake Pichola"],
       best_time_to_visit: "September to March",
@@ -155,8 +155,8 @@ const MOCK_DESTINATIONS: Destination[] = [
     featured_media_url: "https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=1200",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=800",
-        "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800"
+        "https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=1200",
+        "https://images.unsplash.com/photo-1542796708-9188bca6835a?q=80&w=1200"
       ],
       popular_attractions: ["Jaisalmer Fort", "Sam Sand Dunes", "Patwon Ki Haveli", "Gadisar Lake"],
       best_time_to_visit: "October to March",
@@ -169,10 +169,10 @@ const MOCK_DESTINATIONS: Destination[] = [
     title: { rendered: "Bikaner, Rajasthan" },
     excerpt: { rendered: "Famous for Junagarh Fort, camel breeding farm, and delicious spicy Bikaneri Bhujia." },
     content: { rendered: "<p>Bikaner is a city in the north of Rajasthan state. It is surrounded by the Thar Desert. The city is known for the 16th-century Junagarh Fort, a huge complex of ornate buildings and halls.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1627448888764-92716035f299?q=80&w=1200",
+    featured_media_url: "https://images.unsplash.com/photo-16030262110263-fb0112e7cc33?q=80&w=1200",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-1627448888764-92716035f299?q=80&w=800"
+        "https://images.unsplash.com/photo-16030262110263-fb0112e7cc33?q=80&w=1200"
       ],
       popular_attractions: ["Junagarh Fort", "Lallgarh Palace", "Karni Mata Temple", "National Research Centre on Camel"],
       best_time_to_visit: "October to March",
@@ -188,7 +188,7 @@ const MOCK_DESTINATIONS: Destination[] = [
     featured_media_url: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800"
+        "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200"
       ],
       popular_attractions: ["Taj Mahal", "Agra Fort", "Fatehpur Sikri", "Mehtab Bagh"],
       best_time_to_visit: "October to March",
@@ -204,7 +204,7 @@ const MOCK_DESTINATIONS: Destination[] = [
     featured_media_url: "https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=1200",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=800"
+        "https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=1200"
       ],
       popular_attractions: ["Qutub Minar", "Red Fort", "India Gate", "Humayun's Tomb"],
       best_time_to_visit: "October to March",
@@ -220,7 +220,7 @@ const MOCK_DESTINATIONS: Destination[] = [
     featured_media_url: "https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=1200",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=800"
+        "https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=1200"
       ],
       popular_attractions: ["Kashi Vishwanath Temple", "Dashashwamedh Ghat", "Assi Ghat", "Sarnath"],
       best_time_to_visit: "October to March",
@@ -236,7 +236,7 @@ const MOCK_PACKAGES: TravelPackage[] = [
     title: { rendered: "Royal Rajasthan Heritage Tour" },
     excerpt: { rendered: "A classic luxury journey covering the grand palaces of Jaipur, Blue City Jodhpur, and City of Lakes Udaipur." },
     content: { rendered: "<p>Live like royalty on this handcrafted luxury tour across Rajasthan's most iconic cities. Stay in authentic palace hotels, enjoy private guided fort tours, and feast on traditional Rajasthani cuisine.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1200",
+    featured_media_url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200",
     categories_names: ["Rajasthan", "Royal Heritage"],
     meta: {
       duration: "8 Days / 7 Nights",
@@ -283,8 +283,9 @@ const MOCK_PACKAGES: TravelPackage[] = [
       map_location: "Rajasthan, India",
       booking_cta: "Book Royal Tour",
       gallery_images: [
-        "https://images.unsplash.com/photo-16030262110263-fb0112e7cc33?q=80&w=800",
-        "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800"
+        "https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=1200",
+        "https://images.unsplash.com/photo-1504705740206-c8a4d4851831?q=80&w=1200",
+        "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=1200"
       ],
       seo_title: "Royal Rajasthan Heritage Tour Package - 8 Days Custom Itinerary",
       seo_description: "Explore Rajasthan's royal heritage. Book our 8-day luxury tour covering Jaipur, Jodhpur, and Udaipur with heritage hotels and private guides."
@@ -345,8 +346,9 @@ const MOCK_PACKAGES: TravelPackage[] = [
       map_location: "Delhi, Agra, Jaipur, Varanasi",
       booking_cta: "Enquire India Tour",
       gallery_images: [
-        "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800",
-        "https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=800"
+        "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200",
+        "https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=1200",
+        "https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=1200"
       ],
       seo_title: "Golden Triangle & Varanasi Tour Package - 10 Days India Itinerary",
       seo_description: "Explore Delhi, Agra, Jaipur, and Varanasi in 10 days. Book this luxury Golden Triangle and Spiritual Varanasi package with private transfers and domestic flights."
@@ -402,8 +404,8 @@ const MOCK_PACKAGES: TravelPackage[] = [
       map_location: "Jaisalmer, Bikaner, Jodhpur",
       booking_cta: "Book Desert Adventure",
       gallery_images: [
-        "https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=800",
-        "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800"
+        "https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=1200",
+        "https://images.unsplash.com/photo-16030262110263-fb0112e7cc33?q=80&w=1200"
       ],
       seo_title: "Thar Desert Jaisalmer & Bikaner Safari Tour - 6 Days",
       seo_description: "Explore Rajasthan's Thar Desert. Book our 6-day package featuring luxury camping, camel safaris, and historic forts in Jaisalmer, Jodhpur, and Bikaner."
@@ -419,7 +421,7 @@ const MOCK_TESTIMONIALS: Testimonial[] = [
     meta: {
       rating: 5,
       location: "Mumbai, India",
-      photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200"
+      photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200"
     }
   },
   {
@@ -429,7 +431,7 @@ const MOCK_TESTIMONIALS: Testimonial[] = [
     meta: {
       rating: 5,
       location: "San Francisco, USA",
-      photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200"
+      photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200"
     }
   },
   {
@@ -439,7 +441,7 @@ const MOCK_TESTIMONIALS: Testimonial[] = [
     meta: {
       rating: 5,
       location: "Delhi, India",
-      photo: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200"
+      photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200"
     }
   }
 ];
@@ -479,7 +481,7 @@ const MOCK_BLOGS: Blog[] = [
     excerpt: { rendered: "Discover the best sandstone forts, luxury camps, and desert sunset spots in Jaisalmer away from the tourist crowd." },
     content: { rendered: "<p>Jaisalmer, the Golden City, rises like a sandcastle from the Thar Desert. Here is how you can make the most of your trip, from camel safaris to cultural folk music...</p><h5>1. The Living Golden Fort</h5><p>Unlike most forts, Jaisalmer Fort is a living city with houses, shops, and temples inside. Take a guided walking tour at sunrise for the best light.</p><h5>2. Luxury Camping under the Stars</h5><p>Stay at Sam Sand Dunes in a luxury Swiss tent. Enjoy traditional Rajasthani Kalbeliya dance and fireside dinners under a clear desert sky.</p>" },
     date: "2026-05-12T08:00:00",
-    featured_media_url: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=800",
+    featured_media_url: "https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=1200",
     categories_names: ["Guides", "Rajasthan"],
     tags_names: ["Desert Safari", "Jaisalmer", "Travel Tips"],
     meta: {
@@ -494,7 +496,7 @@ const MOCK_BLOGS: Blog[] = [
     excerpt: { rendered: "Our comprehensive guide covers the best ghat positions, timing, and boat hires to watch Varanasi's evening fire ceremonies." },
     content: { rendered: "<p>The Ganga Aarti at Dashashwamedh Ghat is one of India's most powerful spiritual ceremonies. Here is how to plan your evening...</p><h5>Hire a Private Boat</h5><p>To view the ceremony from the river, hire a private wooden boat 45 minutes before sunset. This gives you the best seat for the synchronized fire rituals.</p>" },
     date: "2026-06-02T10:30:00",
-    featured_media_url: "https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=800",
+    featured_media_url: "https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=1200",
     categories_names: ["Guides", "Spiritual"],
     tags_names: ["Varanasi", "Ganga Aarti", "North India"],
     meta: {
@@ -517,7 +519,7 @@ async function fetchFromWP<T>(endpoint: string, tags?: string[]): Promise<T> {
 
   const res = await fetch(url, {
     next: {
-      revalidate: 3600, // 1 hour cache
+      revalidate: 0, // No caching for live updates
       tags: tags,
     },
   });

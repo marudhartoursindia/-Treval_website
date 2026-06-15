@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getDestinations } from "@/lib/api";
 import { DestinationCard } from "@/components/destination/DestinationCard";
 
-export const revalidate = 3600;
+export const revalidate = 0; // Dynamic rendering, no caching
 
 export const metadata: Metadata = {
   title: "Luxury Travel Destinations",
