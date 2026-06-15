@@ -97,110 +97,134 @@ export interface FAQ {
 const MOCK_DESTINATIONS: Destination[] = [
   {
     id: 101,
-    slug: "kyoto-japan",
-    title: { rendered: "Kyoto, Japan" },
-    excerpt: { rendered: "Experience the timeless beauty of historic shrines, bamboo forests, and traditional tea ceremonies." },
-    content: { rendered: "<p>Kyoto, once the capital of Japan, is a city on the island of Honshu. It's famous for its thousands of classical Buddhist temples, as well as gardens, imperial palaces, Shinto shrines and traditional wooden houses.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200",
+    slug: "jaipur",
+    title: { rendered: "Jaipur, Rajasthan" },
+    excerpt: { rendered: "The legendary Pink City, famed for its royal palaces, imposing forts, and vibrant gemstone bazaars." },
+    content: { rendered: "<p>Jaipur is the capital of India's Rajasthan state. It evokes the royal family that once ruled the region and that, in 1727, founded what is now called the Old City, or \"Pink City\" for its trademark building color.</p>" },
+    featured_media_url: "https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=1200",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-1542044896530-05d85be9b11a?q=80&w=800",
-        "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=800",
-        "https://images.unsplash.com/photo-1490806905543-ef4c7868903c?q=80&w=800"
+        "https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=800",
+        "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800"
       ],
-      popular_attractions: [
-        "Fushimi Inari Shrine",
-        "Kinkaku-ji (Golden Pavilion)",
-        "Arashiyama Bamboo Grove",
-        "Gion District"
-      ],
-      best_time_to_visit: "October to November (Autumn Leaves) or April (Cherry Blossoms)",
-      travel_tips: [
-        "Purchase a Kansai Thru Pass for easy transit.",
-        "Respect local photography restrictions in Gion.",
-        "Book temple visits in advance during peak seasons."
-      ]
+      popular_attractions: ["Hawa Mahal", "Amber Fort", "City Palace", "Jantar Mantar"],
+      best_time_to_visit: "October to March",
+      travel_tips: ["Hire a certified local guide at Amber Fort.", "Enjoy authentic Dal Baati Churma at Chokhi Dhani."]
     }
   },
   {
     id: 102,
-    slug: "serengeti-tanzania",
-    title: { rendered: "Serengeti National Park, Tanzania" },
-    excerpt: { rendered: "Witness the Great Migration, endless savannahs, and the breathtaking African Big Five." },
-    content: { rendered: "<p>The Serengeti National Park is a Tanzanian national park in the Serengeti ecosystem in the Mara and Simiyu regions. It is famous for its annual migration of over 1.5 million white-bearded wildebeest.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1200",
+    slug: "jodhpur",
+    title: { rendered: "Jodhpur, Rajasthan" },
+    excerpt: { rendered: "The Sun City, characterized by blue-washed houses nestled beneath the towering Mehrangarh Fort." },
+    content: { rendered: "<p>Jodhpur is a city in the Thar Desert of the northwest Indian state of Rajasthan. Its 15th-century Mehrangarh Fort is a former palace that's now a museum, displaying weapons, paintings and elaborate royal palanquins.</p>" },
+    featured_media_url: "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=1200",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800",
-        "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=800",
-        "https://images.unsplash.com/photo-1523805009345-7448845a9e53?q=80&w=800"
+        "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800",
+        "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=800"
       ],
-      popular_attractions: [
-        "Grumeti River (Migration crossing)",
-        "Seronera Valley (Leopard spotting)",
-        "Lobo Valley",
-        "Ngorongoro Crater (nearby)"
-      ],
-      best_time_to_visit: "June to October (Dry season & Migration)",
-      travel_tips: [
-        "Bring a camera with a good optical zoom lens.",
-        "Take yellow fever vaccinations prior to arrival.",
-        "Dress in neutral colors (khakis and olives)."
-      ]
+      popular_attractions: ["Mehrangarh Fort", "Jaswant Thada", "Umaid Bhawan Palace", "Sardar Market"],
+      best_time_to_visit: "October to March",
+      travel_tips: ["Try the local Makhaniya Lassi.", "Zip-line over the fort walls for an adrenaline rush."]
     }
   },
   {
     id: 103,
-    slug: "swiss-alps",
-    title: { rendered: "Swiss Alps, Switzerland" },
-    excerpt: { rendered: "Revel in alpine luxury, pristine snow slopes, crystal-clear lakes, and majestic peaks." },
-    content: { rendered: "<p>The Alps are the highest and most extensive mountain range system that lies entirely in Europe, stretching approximately 1,200 km across eight alpine countries, with Switzerland offering some of the most dramatic vistas.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200",
+    slug: "udaipur",
+    title: { rendered: "Udaipur, Rajasthan" },
+    excerpt: { rendered: "The City of Lakes and Venice of the East, showcasing romantic floating palaces and lush hills." },
+    content: { rendered: "<p>Udaipur, formerly the capital of the Mewar Kingdom, is a city in the western Indian state of Rajasthan. Founded by Maharana Udai Singh II in 1559, it's set around a series of artificial lakes and is known for its lavish royal residences.</p>" },
+    featured_media_url: "https://images.unsplash.com/photo-1562280963-8a5475740a10?q=80&w=1200",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800",
-        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800",
-        "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800"
+        "https://images.unsplash.com/photo-1562280963-8a5475740a10?q=80&w=800",
+        "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800"
       ],
-      popular_attractions: [
-        "The Matterhorn (Zermatt)",
-        "Jungfraujoch (Top of Europe)",
-        "Lake Geneva",
-        "Interlaken Adventure Zone"
-      ],
-      best_time_to_visit: "December to March (Skiing) or June to September (Hiking)",
-      travel_tips: [
-        "Invest in a Swiss Travel Pass for unlimited train travel.",
-        "Layers are essential; alpine weather changes rapidly.",
-        "Always carry cash as some high-altitude refuges don't accept cards."
-      ]
+      popular_attractions: ["Lake Palace", "City Palace", "Jag Mandir", "Lake Pichola"],
+      best_time_to_visit: "September to March",
+      travel_tips: ["Take a sunset boat cruise on Lake Pichola.", "Attend the cultural Dharohar dance show at Bagore Ki Haveli."]
     }
   },
   {
     id: 104,
-    slug: "maldives",
-    title: { rendered: "The Maldives" },
-    excerpt: { rendered: "Escape to private overwater villas, vibrant coral reefs, and pristine turquoise lagoons." },
-    content: { rendered: "<p>The Maldives is a tropical nation in the Indian Ocean composed of 26 ring-shaped atolls, which are made up of more than 1,000 coral islands. It's known for its beaches, blue lagoons and extensive reefs.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1200",
+    slug: "jaisalmer",
+    title: { rendered: "Jaisalmer, Rajasthan" },
+    excerpt: { rendered: "The Golden City, rising from the Thar desert sands with sandstone architecture and sand dune safaris." },
+    content: { rendered: "<p>Jaisalmer is a former medieval trading center and a princely state in the western Indian state of Rajasthan, in the heart of the Thar Desert. Known as the \"Golden City,\" it's distinguished by its yellow sandstone architecture.</p>" },
+    featured_media_url: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=1200",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=800",
-        "https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=800",
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800"
+        "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=800",
+        "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800"
       ],
-      popular_attractions: [
-        "Male City (Cultural tour)",
-        "Banana Reef (Diving)",
-        "Bioluminescent Beach (Vaadhoo Island)",
-        "Ari Atoll (Manta Ray spotting)"
+      popular_attractions: ["Jaisalmer Fort", "Sam Sand Dunes", "Patwon Ki Haveli", "Gadisar Lake"],
+      best_time_to_visit: "October to March",
+      travel_tips: ["Stay overnight in a luxury desert camp.", "Go on a camel safari at sunset in Sam Sand Dunes."]
+    }
+  },
+  {
+    id: 105,
+    slug: "bikaner",
+    title: { rendered: "Bikaner, Rajasthan" },
+    excerpt: { rendered: "Famous for Junagarh Fort, camel breeding farm, and delicious spicy Bikaneri Bhujia." },
+    content: { rendered: "<p>Bikaner is a city in the north of Rajasthan state. It is surrounded by the Thar Desert. The city is known for the 16th-century Junagarh Fort, a huge complex of ornate buildings and halls.</p>" },
+    featured_media_url: "https://images.unsplash.com/photo-1627448888764-92716035f299?q=80&w=1200",
+    meta: {
+      gallery: [
+        "https://images.unsplash.com/photo-1627448888764-92716035f299?q=80&w=800"
       ],
-      best_time_to_visit: "November to April (Dry monsoon season)",
-      travel_tips: [
-        "Respect local Islamic traditions when visiting inhabited local islands.",
-        "Speedboat transfers are faster and cheaper than seaplanes.",
-        "Pack coral-safe sunscreen to protect marine life."
-      ]
+      popular_attractions: ["Junagarh Fort", "Lallgarh Palace", "Karni Mata Temple", "National Research Centre on Camel"],
+      best_time_to_visit: "October to March",
+      travel_tips: ["Try the world-famous Bikaneri Bhujia sweets.", "Experience the annual Camel Festival in January."]
+    }
+  },
+  {
+    id: 106,
+    slug: "agra",
+    title: { rendered: "Agra, Uttar Pradesh" },
+    excerpt: { rendered: "Home of the Taj Mahal, the ultimate monument of eternal love and architectural perfection." },
+    content: { rendered: "<p>Agra is a city on the banks of the Yamuna river in the Indian state of Uttar Pradesh. It is famous for the Taj Mahal, Agra Fort, and Fatehpur Sikri, all of which are UNESCO World Heritage Sites.</p>" },
+    featured_media_url: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200",
+    meta: {
+      gallery: [
+        "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800"
+      ],
+      popular_attractions: ["Taj Mahal", "Agra Fort", "Fatehpur Sikri", "Mehtab Bagh"],
+      best_time_to_visit: "October to March",
+      travel_tips: ["Visit the Taj Mahal at sunrise to beat the crowd.", "Vehicles aren't allowed near the Taj Mahal; use electric rickshaws."]
+    }
+  },
+  {
+    id: 107,
+    slug: "delhi",
+    title: { rendered: "Delhi (NCR)" },
+    excerpt: { rendered: "India's capital city, balancing ancient history in Old Delhi with modern metropolitan life." },
+    content: { rendered: "<p>Delhi, India's capital territory, is a massive metropolitan area in the country's north. In Old Delhi, a neighborhood dating to the 1600s, stands the imposing Mughal-era Red Fort, a symbol of India.</p>" },
+    featured_media_url: "https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=1200",
+    meta: {
+      gallery: [
+        "https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=800"
+      ],
+      popular_attractions: ["Qutub Minar", "Red Fort", "India Gate", "Humayun's Tomb"],
+      best_time_to_visit: "October to March",
+      travel_tips: ["Use the Delhi Metro for fast transit.", "Enjoy street food in Chandni Chowk with a guided tour."]
+    }
+  },
+  {
+    id: 108,
+    slug: "varanasi",
+    title: { rendered: "Varanasi, Uttar Pradesh" },
+    excerpt: { rendered: "The spiritual heart of India, one of the oldest continuously inhabited cities in the world." },
+    content: { rendered: "<p>Varanasi is a city on the Ganges river in northern India that has a central place in pilgrimage, mysticism and poetry. It is regarded as the spiritual capital of India.</p>" },
+    featured_media_url: "https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=1200",
+    meta: {
+      gallery: [
+        "https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=800"
+      ],
+      popular_attractions: ["Kashi Vishwanath Temple", "Dashashwamedh Ghat", "Assi Ghat", "Sarnath"],
+      best_time_to_visit: "October to March",
+      travel_tips: ["Experience the spectacular Ganga Aarti at sunset.", "Take a morning boat ride along the ghats for sunrise views."]
     }
   }
 ];
@@ -208,182 +232,181 @@ const MOCK_DESTINATIONS: Destination[] = [
 const MOCK_PACKAGES: TravelPackage[] = [
   {
     id: 201,
-    slug: "luxury-japan-cultural-odyssey",
-    title: { rendered: "Luxury Japan Cultural Odyssey" },
-    excerpt: { rendered: "A bespoke, immersive journey exploring the historic imperial temples of Kyoto, bustling Tokyo, and hot spring ryokans." },
-    content: { rendered: "<p>Immerse yourself in Japan's delicate balance of ancient traditions and futuristic innovation. This premium package offers hand-selected 5-star accommodations, private temple tours, and Michelin-starred dining.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200",
-    categories_names: ["Culture", "Luxury"],
+    slug: "rajasthan-royal-heritage-tour",
+    title: { rendered: "Royal Rajasthan Heritage Tour" },
+    excerpt: { rendered: "A classic luxury journey covering the grand palaces of Jaipur, Blue City Jodhpur, and City of Lakes Udaipur." },
+    content: { rendered: "<p>Live like royalty on this handcrafted luxury tour across Rajasthan's most iconic cities. Stay in authentic palace hotels, enjoy private guided fort tours, and feast on traditional Rajasthani cuisine.</p>" },
+    featured_media_url: "https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=1200",
+    categories_names: ["Rajasthan", "Royal Heritage"],
     meta: {
-      duration: "9 Days / 8 Nights",
-      price: 6499,
-      discount_price: 5899,
+      duration: "8 Days / 7 Nights",
+      price: 2499,
+      discount_price: 2199,
       destination_id: 101,
       highlights: [
-        "Private guided tour of Fushimi Inari Shrine at sunrise",
-        "Michelin-star Kaiseki dinner in Gion, Kyoto",
-        "Stay at a premium Ryokan with private hot springs (Onsen)",
-        "Bullet train Green Car transfers between Tokyo and Kyoto",
-        "Bespoke sushi making masterclass with a master chef"
+        "Private VIP tour of Amber Fort in Jaipur",
+        "Stay at a premium heritage Haveli in Udaipur",
+        "Sunset boat cruise on Lake Pichola in Udaipur",
+        "Private heritage walk and dining experience in Jodhpur",
+        "Chauffeur-driven luxury vehicle throughout the tour"
       ],
-      overview: "Experience Japan in absolute style. From the neon high-rises of Tokyo to the tranquil temple gardens of Kyoto, you will enjoy private luxury vehicle transfers, English-speaking local historians as guides, and access to exclusive imperial cultural activities.",
+      overview: "Travel through the royal heart of Rajasthan in absolute comfort. From the bustling pink bazaars of Jaipur to the majestic Mehrangarh Fort in Jodhpur and the romantic lake views of Udaipur, you will experience the rich history and hospitality of the Land of Kings.",
       day_wise_itinerary: [
-        { day: 1, title: "Arrival in Tokyo & Luxury Transfer", description: "Land at Haneda/Narita airport. Meet your private chauffeur and check into the Aman Tokyo. Enjoy a welcome cocktail overlooking the Tokyo skyline." },
-        { day: 2, title: "Modern Tokyo Highlights", description: "Explore Shibuya, Harajuku, and the Meiji Shrine with a private guide. Cap off the night with an exclusive sushi omakase tasting." },
-        { day: 3, title: "Mount Fuji & Ryokan Onsen Stay", description: "Travel to Hakone. Stay in an ultra-luxury Ryokan. Bathe in sulfur-rich hot springs and savor a multi-course Kaiseki dinner." },
-        { day: 4, title: "Bullet Train to Ancient Kyoto", description: "Board the Shinkansen Bullet Train (First Class). Arrive in Kyoto and check into the Ritz-Carlton. Afternoon stroll in the historic Gion district." },
-        { day: 5, title: "Golden Pavilion & Bamboo Groves", description: "Beat the crowds at Kinkaku-ji and wander the towering bamboo pathways of Arashiyama. Relax with a traditional tea ceremony." },
-        { day: 6, title: "Bespoke Cultural Crafting", description: "Participate in a private pottery masterclass or Zen meditation session guided by a resident Buddhist monk." },
-        { day: 7, title: "Nara Deer Park Excursion", description: "Take a short private drive to Nara. Marvel at the giant bronze Buddha statue at Todai-ji Temple and feed the bowing sika deer." },
-        { day: 8, title: "Kyoto Farewell Kaiseki", description: "Spend your final day shopping for premium lacquerware and silk. Enjoy a celebratory farewell banquet with a private Geisha performance." },
-        { day: 9, title: "Departure", description: "Private luxury vehicle transfer to Osaka Kansai or Tokyo Haneda Airport for your return flight." }
+        { day: 1, title: "Arrival in Jaipur (The Pink City)", description: "Arrive in Jaipur. Check into your luxury hotel. Enjoy a traditional Rajasthani welcome dinner." },
+        { day: 2, title: "Exploring Jaipur's Royal Forts", description: "Visit Amber Fort, Hawa Mahal, and the City Palace. Explore local markets for block prints and jewelry." },
+        { day: 3, title: "Drive to Jodhpur (The Blue City)", description: "Travel to Jodhpur. Check in and relax. In the evening, visit Jaswant Thada monument." },
+        { day: 4, title: "Mehrangarh Fort Conquest", description: "Explore the massive Mehrangarh Fort. Take a private walking tour of Jodhpur's blue streets." },
+        { day: 5, title: "Journey to Udaipur", description: "Drive to Udaipur, visiting the historic Ranakpur Jain Temple en route. Check into your lakeside resort." },
+        { day: 6, title: "Udaipur Palaces & Lake Pichola", description: "Visit Udaipur City Palace and Saheliyon-ki-Bari. Take a private sunset boat ride on Lake Pichola." },
+        { day: 7, title: "Cultural Mewar Experience", description: "Wander through local crafts bazaars. Attend a traditional puppet and folk dance show at Bagore ki Haveli." },
+        { day: 8, title: "Departure from Udaipur", description: "Enjoy a final royal breakfast, then transfer to Udaipur Airport for your onward journey." }
       ],
       included_services: [
-        "5-star luxury accommodations throughout",
-        "All breakfast meals plus 4 specialty dining banquets",
-        "Private bilingual guides and modern luxury vehicles",
-        "First-class bullet train ticket transfers",
-        "All temple and workshop entry fees"
+        "5-star heritage hotel accommodations",
+        "All breakfast meals and specialty welcome dinner",
+        "Private air-conditioned SUV with professional English-speaking driver",
+        "Local expert guides in each city",
+        "Boat cruise fees on Lake Pichola"
       ],
       excluded_services: [
-        "International flights to/from Japan",
-        "Personal travel insurance",
-        "Alcoholic beverages outside scheduled dinners",
-        "Gratuities for guides and drivers"
+        "Domestic and international flights",
+        "Camera and monument entrance fees",
+        "Personal laundry and tips",
+        "Meals not specified in itinerary"
       ],
-      hotel_information: "Aman Tokyo (Deluxe Room), Gora Kadan Hakone (Onsen suite), The Ritz-Carlton Kyoto (Garden Terrace Room). All hotels represent the highest tier of international hospitality.",
-      transportation_information: "Private luxury Alphard MPV for transfers. JR Shinkansen Bullet Train (Green Car). Private airport meet-and-greet.",
+      hotel_information: "Taj Rambagh Palace / ITC Rajputana (Jaipur), Ajit Bhawan Heritage Hotel (Jodhpur), Taj Lake Palace / Trident Udaipur (Udaipur).",
+      transportation_information: "Private luxury SUV (Toyota Innova Crysta) with dedicated chauffeur.",
       faq: [
-        { question: "Is this tour suitable for families?", answer: "Yes, we can customize the itinerary with family-friendly activities like anime workshops or interactive digital art museums." },
-        { question: "What is the luggage policy?", answer: "We arrange luggage forwarding services between Tokyo and Kyoto so you can travel light on the bullet train." }
+        { question: "Is this package customizable?", answer: "Yes, we can add cities like Bikaner or Jaisalmer to make a longer itinerary." },
+        { question: "What should I wear on temple tours?", answer: "Modest clothing covering shoulders and knees is recommended. Shoes must be removed before entering." }
       ],
-      map_location: "Kyoto, Japan",
-      booking_cta: "Reserve Cultural Odyssey",
+      map_location: "Rajasthan, India",
+      booking_cta: "Book Royal Tour",
       gallery_images: [
-        "https://images.unsplash.com/photo-1542044896530-05d85be9b11a?q=80&w=800",
-        "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=800",
-        "https://images.unsplash.com/photo-1490806905543-ef4c7868903c?q=80&w=800"
+        "https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=800",
+        "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800"
       ],
-      seo_title: "Luxury Japan Cultural Odyssey Tour - 9 Days Custom Package",
-      seo_description: "Book an ultra-luxury customized 9-day cultural trip to Japan. Experience private temple tours, Michelin sushi, and luxury ryokans in Tokyo & Kyoto."
+      seo_title: "Royal Rajasthan Heritage Tour Package - 8 Days Custom Itinerary",
+      seo_description: "Explore Rajasthan's royal heritage. Book our 8-day luxury tour covering Jaipur, Jodhpur, and Udaipur with heritage hotels and private guides."
     }
   },
   {
     id: 202,
-    slug: "serengeti-exclusive-wildlife-safari",
-    title: { rendered: "Serengeti Exclusive Wildlife Safari" },
-    excerpt: { rendered: "An intimate, eco-luxury safari journey through the heart of the Serengeti with premium tented camp stays." },
-    content: { rendered: "<p>Venture deep into the wilderness. Experience game drives with professional trackers, gourmet bush dining, and luxury glamping tents with plunge pools overlooking the savannah.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1200",
-    categories_names: ["Safari", "Adventure"],
+    slug: "golden-triangle-and-spiritual-india",
+    title: { rendered: "Golden Triangle & Spiritual Varanasi" },
+    excerpt: { rendered: "The ultimate cultural experience covering Delhi, the Taj Mahal in Agra, Pink City Jaipur, and spiritual Varanasi." },
+    content: { rendered: "<p>Discover the landmarks that define India's history. Experience the Mughal grandeur of Delhi and Agra, the royal palaces of Jaipur, and the ancient, spiritual riverfront ghats of Varanasi.</p>" },
+    featured_media_url: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200",
+    categories_names: ["India", "Spiritual", "Golden Triangle"],
     meta: {
-      duration: "6 Days / 5 Nights",
-      price: 4999,
-      destination_id: 102,
+      duration: "10 Days / 9 Nights",
+      price: 2999,
+      discount_price: 2799,
+      destination_id: 106,
       highlights: [
-        "Daily game drives in custom open-sided 4x4 Land Cruisers",
-        "Stunning hot-air balloon safari at sunrise over the plains",
-        "Private bush dinners under the star-lit African sky",
-        "Luxury glamping tents at Four Seasons Safari Lodge Serengeti",
-        "Expert Maasai-guided walking safaris"
+        "Sunrise tour of the Taj Mahal in Agra",
+        "Explore Delhi's Red Fort and Qutub Minar Complex",
+        "Elephant/Jeep ride at Amber Fort, Jaipur",
+        "Experiencing Ganga Aarti and morning boat ride in Varanasi",
+        "Domestic flights between Delhi/Jaipur and Varanasi included"
       ],
-      overview: "Witness nature's greatest theater. This exclusive wildlife safari focuses on game viewing away from crowds, with expert drivers who know the subtle animal tracks. Look forward to capturing lions, elephants, leopards, rhinos, and buffaloes in their native habitats.",
+      overview: "A journey through the soul of India. Start in the historic capital of Delhi, marvel at the Taj Mahal, explore Jaipur's grand architecture, and fly to Varanasi to witness Hindu ceremonies on the banks of the Ganges.",
       day_wise_itinerary: [
-        { day: 1, title: "Arusha to Serengeti Fly-in", description: "Board your private charter flight from Arusha to Seronera Airstrip. Check into the luxury lodge and embark on an afternoon game drive." },
-        { day: 2, title: "Full Day Wildlife Tracking", description: "Search for predators at dawn. Enjoy a luxury picnic lunch near a hippo pool, followed by an evening sundowner drink." },
-        { day: 3, title: "Sunrise Hot Air Balloon Ride", description: "Float silently above the migration herd. Toast with a champagne breakfast upon landing on the savannah." },
-        { day: 4, title: "Maasai Cultural Walk", description: "Walk with native warriors. Learn about tracking, medicinal plants, and local conservation efforts." },
-        { day: 5, title: "River Crossings & Big Cats", description: "Observe crocodiles and hippos along the Mara River, looking for migration crossings. Dinner under the stars." },
-        { day: 6, title: "Charter Flight back to Arusha", description: "Morning short game drive, followed by checkout and flight transfer back to Kilimanjaro International Airport." }
+        { day: 1, title: "Arrival in Delhi", description: "Land in Delhi. Meet our representative and transfer to your luxury hotel." },
+        { day: 2, title: "Old & New Delhi Tour", description: "Explore the Red Fort, Jama Masjid, Qutub Minar, and drive past the India Gate and Parliament House." },
+        { day: 3, title: "Drive to Agra", description: "Travel to Agra. In the afternoon, explore the grand Agra Fort and visit Mehtab Bagh for Taj sunset views." },
+        { day: 4, title: "Taj Mahal Sunrise & Drive to Jaipur", description: "Witness the Taj Mahal at sunrise. Afterwards, drive to Jaipur, visiting Fatehpur Sikri on the way." },
+        { day: 5, title: "Royal Jaipur Highlights", description: "Visit Amber Fort, Jal Mahal, Hawa Mahal, and the Jantar Mantar observatory." },
+        { day: 6, title: "Fly to Varanasi", description: "Check out and fly to Varanasi. Check in. In the evening, witness the mystical Ganga Aarti at Dashashwamedh Ghat." },
+        { day: 7, title: "Varanasi Ghat Boat Ride & Sarnath", description: "Take a sunrise boat ride on the Ganges. Visit Sarnath, where Lord Buddha gave his first sermon." },
+        { day: 8, title: "Spiritual Varanasi Exploration", description: "Explore historic Varanasi temples, markets, and silk-weaving heritage." },
+        { day: 9, title: "Fly back to Delhi", description: "Fly from Varanasi back to Delhi. Spend the evening shopping or relaxing." },
+        { day: 10, title: "Departure", description: "Transfer to Delhi International Airport for your return flight." }
       ],
       included_services: [
-        "All luxury airstrip transfers and local charter flights",
-        "Full board meals, including premium beer and wines",
-        "Park fees and conservation levies",
-        "Sunrise hot air balloon flight",
-        "Maasai guide fees"
+        "All luxury hotel stays on twin-sharing basis",
+        "Daily buffet breakfasts",
+        "Domestic flight tickets (Delhi/Jaipur - Varanasi - Delhi)",
+        "All city transfers and tours in private air-conditioned sedan",
+        "English speaking local guides and boat ride fees"
       ],
       excluded_services: [
-        "International flights",
-        "Tanzania tourist visa ($50-$100)",
-        "Tips for camp staff and guides",
-        "Personal spa services"
+        "International flight tickets",
+        "Visa fees",
+        "Any monument entrance tickets",
+        "Gratuities for drivers and guides"
       ],
-      hotel_information: "Four Seasons Safari Lodge Serengeti (Savannah Waterhole View Room) and Singita Sabora Tented Camp.",
-      transportation_information: "Bespoke safari-modified 4x4 Land Cruiser. Regional Cessna grand caravan charter flights.",
+      hotel_information: "The Leela Palace Delhi, The Oberoi Amarvilas (Agra), Taj Jai Mahal Palace (Jaipur), Taj Nadesar Palace (Varanasi).",
+      transportation_information: "Private air-conditioned sedan for ground travel. Domestic economy flights for long distances.",
       faq: [
-        { question: "Is malaria prophylaxis recommended?", answer: "Yes, Serengeti is a malaria-prone zone; consult your travel physician prior to travel." },
-        { question: "What is the best month for the Wildebeest Migration?", answer: "Typically June and July for Northern Serengeti river crossings, and January to March for calving in the Southern plains." }
+        { question: "Is Varanasi suitable for first-time visitors?", answer: "Yes, Varanasi is highly spiritual and busy. Having our private guide with you ensures a comfortable and informative experience." },
+        { question: "Is the Taj Mahal closed on any day?", answer: "Yes, the Taj Mahal is closed to tourists every Friday." }
       ],
-      map_location: "Serengeti National Park, Tanzania",
-      booking_cta: "Enquire Safari Booking",
+      map_location: "Delhi, Agra, Jaipur, Varanasi",
+      booking_cta: "Enquire India Tour",
       gallery_images: [
-        "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800",
-        "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=800",
-        "https://images.unsplash.com/photo-1523805009345-7448845a9e53?q=80&w=800"
+        "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800",
+        "https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=800"
       ],
-      seo_title: "Premium Serengeti Wildlife Safari - 6 Days Eco-Luxury Tour",
-      seo_description: "Book an exclusive 6-day luxury safari in Serengeti National Park, Tanzania. Includes hot air balloon rides, five-star tented lodges, and private 4x4 game drives."
+      seo_title: "Golden Triangle & Varanasi Tour Package - 10 Days India Itinerary",
+      seo_description: "Explore Delhi, Agra, Jaipur, and Varanasi in 10 days. Book this luxury Golden Triangle and Spiritual Varanasi package with private transfers and domestic flights."
     }
   },
   {
     id: 203,
-    slug: "maldives-ultimate-overwater-escape",
-    title: { rendered: "Maldives Ultimate Overwater Escape" },
-    excerpt: { rendered: "Indulge in absolute tropical luxury with a private overwater villa, private pool, and marine reserve snorkeling." },
-    content: { rendered: "<p>Unwind in paradise. A secluded escape designed for couples, honeymooners, and luxury seekers, featuring direct lagoon access and personal butler services.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1200",
-    categories_names: ["Beaches", "Luxury"],
+    slug: "thar-desert-explorer",
+    title: { rendered: "Thar Desert & Jaisalmer Explorer" },
+    excerpt: { rendered: "An adventure into Jaisalmer's golden desert, Jodhpur's blue fortresses, and Bikaner's camel tracks." },
+    content: { rendered: "<p>Journey into the heart of the Thar Desert. Explore the legendary sandstone castles, enjoy a luxury camping experience under the desert stars, and visit Bikaner's historical palaces.</p>" },
+    featured_media_url: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=1200",
+    categories_names: ["Desert Safari", "Adventure", "Rajasthan"],
     meta: {
-      duration: "7 Days / 6 Nights",
-      price: 7800,
-      discount_price: 7200,
+      duration: "6 Days / 5 Nights",
+      price: 1800,
+      discount_price: 1599,
       destination_id: 104,
       highlights: [
-        "Stay in a sunset-facing overwater pool villa",
-        "Dedicated 24/7 personal island butler service",
-        "Private yacht cruise with dolphin watching at sunset",
-        "Undersea restaurant dinner reservation included",
-        "Couples signature massage at an overwater spa pavilion"
+        "Overnight stay in a luxury Swiss tent at Sam Sand Dunes",
+        "Camel safari and jeep dune bashing in Jaisalmer",
+        "Private guided tour of the living Jaisalmer Fort",
+        "Explore the Camel Breeding Farm in Bikaner",
+        "Sunset dining on the dunes with folk music and dance"
       ],
-      overview: "Surrender to the rhythm of the ocean. Suspended over crystal waters, your private villa features glass floor viewing panels, an infinity pool, and steps leading straight into a coral reef teeming with exotic sea life.",
+      overview: "Experience the magic of the Thar Desert. This package combines the royal heritage of Jodhpur, the golden sand dunes of Jaisalmer, and the camel country of Bikaner for an unforgettable desert adventure.",
       day_wise_itinerary: [
-        { day: 1, title: "Seaplane Arrival", description: "Arrive in Male. Board your scenic seaplane to the resort. Enjoy a chilled coconut water greeting from your private butler." },
-        { day: 2, title: "Lagoon Exploration & Snorkeling", description: "Snorkel in the house reef. Discover clownfish, sea turtles, and baby blacktip sharks. Enjoy a beachside barbecue." },
-        { day: 3, title: "Overwater Spa & Wellness", description: "Indulge in a 90-minute therapeutic massage. Spend the afternoon paddleboarding or kayaking." },
-        { day: 4, title: "Private Yacht Sunset Cruise", description: "Board a luxury catamaran. Sip premium champagne as spinner dolphins jump alongside the boat." },
-        { day: 5, title: "Undersea Dinner Feast", description: "Dine five meters below the surface surrounded by panoramic views of coral gardens and marine life." },
-        { day: 6, title: "Sandbar Picnic Escape", description: "Be cast away on a completely private sandbar for a luxury chef-catered picnic lunch and swimming." },
-        { day: 7, title: "Depart Maldives", description: "Take a final morning dip, check out, and take the return seaplane flight to Male International Airport." }
+        { day: 1, title: "Jodhpur to Jaisalmer Drive", description: "Arrive in Jodhpur and drive straight to Jaisalmer (The Golden City). Check into your boutique hotel." },
+        { day: 2, title: "Golden Fort & Havelis", description: "Explore Jaisalmer Fort (Sone Kila), Patwon ki Haveli, and Gadisar Lake. Take in the beautiful yellow sandstone carvings." },
+        { day: 3, title: "Sam Dunes Desert Camping", description: "Transfer to a luxury desert camp in Sam Sand Dunes. Go on a camel ride, watch folk dances, and sleep in air-conditioned tents." },
+        { day: 4, title: "Travel to Bikaner", description: "Drive from Jaisalmer to Bikaner. Check into your hotel. In the afternoon, visit the Camel Research Farm." },
+        { day: 5, title: "Junagarh Fort & Karni Mata Temple", description: "Explore the imposing Junagarh Fort. Optionally visit the unique Deshnok Karni Mata Temple." },
+        { day: 6, title: "Return to Jodhpur & Departure", description: "Drive back to Jodhpur. Visit Mehrangarh Fort before transferring to the airport/station for departure." }
       ],
       included_services: [
-        "Round-trip seaplane transfers from Male Airport",
-        "Half-board meals (Breakfast & Gourmet Dinners)",
-        "Premium snorkeling equipment rental",
-        "Daily sunset yoga classes",
-        "Complimentary non-motorized water sports"
+        "Heritage hotel stays and 1 night in luxury desert camp",
+        "All breakfasts, lunches, and traditional desert camp dinners",
+        "Camel ride and desert safari fees",
+        "Dedicated private SUV with driver for the loop",
+        "Local guides in Jaisalmer and Bikaner"
       ],
       excluded_services: [
-        "International flights",
-        "Motorized water sports (jet ski, flyboard)",
-        "Premium spirits and cigars",
-        "Green tax ($6 per night per person, paid at resort)"
+        "Flights or rail tickets to Jodhpur",
+        "Personal expenses, laundry, and drinks",
+        "Tips for guides and camel handlers"
       ],
-      hotel_information: "Soneva Jani or Anantara Kihavah Maldives Villas (Overwater Pool Villa).",
-      transportation_information: "Trans Maldivian Airways twin-otter seaplane. Resort golf buggies and custom wooden dhoni boats.",
+      hotel_information: "Suryagarh Jaisalmer (Luxury Heritage), Serai Desert Camp (Sam), Narendra Bhawan Bikaner.",
+      transportation_information: "Dedicated private SUV (Toyota Innova) for desert terrain.",
       faq: [
-        { question: "Are children allowed in overwater villas?", answer: "Yes, though safety nets can be installed upon request for toddlers." },
-        { question: "Is all-inclusive dining available?", answer: "We can upgrade this package to full all-inclusive dining for an additional fee." }
+        { question: "What is the best time for a desert safari?", answer: "Winter months (October to March) are ideal as summers get extremely hot in the Thar Desert." },
+        { question: "Are the desert tents comfortable?", answer: "Yes, our luxury partner camps feature private en-suite bathrooms, comfortable beds, and full air conditioning." }
       ],
-      map_location: "Maldives",
-      booking_cta: "Inquire Overwater Villa",
+      map_location: "Jaisalmer, Bikaner, Jodhpur",
+      booking_cta: "Book Desert Adventure",
       gallery_images: [
-        "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=800",
-        "https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=800",
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800"
+        "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=800",
+        "https://images.unsplash.com/photo-1627448888764-92716035f299?q=80&w=800"
       ],
-      seo_title: "Maldives Luxury Overwater Escape Package - 7 Days Honeymoon Tour",
-      seo_description: "Book an ultimate 7-day tropical luxury getaway in the Maldives. Experience overwater villas with private pools, undersea dining, and luxury yacht cruises."
+      seo_title: "Thar Desert Jaisalmer & Bikaner Safari Tour - 6 Days",
+      seo_description: "Explore Rajasthan's Thar Desert. Book our 6-day package featuring luxury camping, camel safaris, and historic forts in Jaisalmer, Jodhpur, and Bikaner."
     }
   }
 ];
@@ -391,31 +414,31 @@ const MOCK_PACKAGES: TravelPackage[] = [
 const MOCK_TESTIMONIALS: Testimonial[] = [
   {
     id: 301,
-    title: { rendered: "Sarah & David Jenkins" },
-    content: { rendered: "<p>Our honeymoon in the Maldives was absolutely flawless. The Soneva overwater villa was spectacular, and the personalized details arranged by the travel agency were unforgettable. Highly recommended!</p>" },
+    title: { rendered: "Rajesh & Meera Sharma" },
+    content: { rendered: "<p>Our custom family trip to Udaipur and Jaisalmer with Marudhar Tours India was absolutely outstanding. The heritage stays, camel safaris, and seamless luxury transport made it unforgettable. Their local guide in Udaipur had incredible stories!</p>" },
     meta: {
       rating: 5,
-      location: "London, UK",
+      location: "Mumbai, India",
       photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200"
     }
   },
   {
     id: 302,
-    title: { rendered: "Marcus Vance" },
-    content: { rendered: "<p>The Serengeti safari exceeded all my expectations. Our guide had an uncanny ability to find wildlife, and falling asleep to the sounds of the African bush in a luxury tent was incredible.</p>" },
+    title: { rendered: "Thomas K. Vance" },
+    content: { rendered: "<p>Varanasi and Agra were mind-blowing. Seeing the Taj Mahal at sunrise is a memory my wife and I will cherish forever. MTI organized everything flawlessly, including our flights and guide details.</p>" },
     meta: {
       rating: 5,
-      location: "New York, USA",
+      location: "San Francisco, USA",
       photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200"
     }
   },
   {
     id: 303,
-    title: { rendered: "Elena Rostova" },
-    content: { rendered: "<p>Kyoto in autumn is breathtaking. The private temple access and geisha performance were cultural masterpieces. The attention to detail and luxury transfers were highly appreciated.</p>" },
+    title: { rendered: "Sanjay Singhania" },
+    content: { rendered: "<p>We requested a custom itinerary to cover both Rajasthan and a quick escape to Kerala. The team at Marudhar Tours India handled the out-of-state coordination beautifully. Truly a bespoke service!</p>" },
     meta: {
       rating: 5,
-      location: "Munich, Germany",
+      location: "Delhi, India",
       photo: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200"
     }
   }
@@ -424,26 +447,26 @@ const MOCK_TESTIMONIALS: Testimonial[] = [
 const MOCK_FAQS: FAQ[] = [
   {
     id: 401,
-    title: { rendered: "What is included in the package price?" },
+    title: { rendered: "What is included in Marudhar Tours India packages?" },
     meta: {
-      answer: "Generally, our luxury packages include premium 5-star accommodations, regional airport transfers, guided private tours, entrance tickets, and select specialty meals. International airfare is excluded to give you flexibility.",
+      answer: "Our premium packages typically include stays at 5-star or luxury heritage properties, private AC vehicle with dedicated driver, certified local guides, custom activities (like boat cruises, camel safaris, and cultural shows), and daily breakfasts.",
       category: "Booking & Pricing"
     }
   },
   {
     id: 402,
-    title: { rendered: "Can I customize an itinerary?" },
+    title: { rendered: "Can we request a fully custom package?" },
     meta: {
-      answer: "Absolutely. All our travel itineraries serve as inspiration. As a premium agency, we tailor every travel plan to your interests, pacing, diet, and dates. Speak with our curators to build your bespoke vacation.",
+      answer: "Absolutely. Marudhar Tours India specializes in bespoke itineraries. You can specify which cities you want to visit, your budget, preferred accommodation level, and type of experiences, and we will build a unique itinerary for you.",
       category: "Customization"
     }
   },
   {
     id: 403,
-    title: { rendered: "What safety protocols are in place?" },
+    title: { rendered: "Do you offer tours outside of Rajasthan?" },
     meta: {
-      answer: "We only partner with fully certified local operators, premium transport providers, and reputable hospitality brands. Additionally, we provide 24/7 emergency concierge support during your travel.",
-      category: "Safety & Support"
+      answer: "Yes. While our primary focus is Rajasthan, we regularly organize luxury tours to Delhi, Agra, Varanasi, Khajuraho, and other major tourist circuits across India based on customer preferences.",
+      category: "Destinations"
     }
   }
 ];
@@ -451,32 +474,32 @@ const MOCK_FAQS: FAQ[] = [
 const MOCK_BLOGS: Blog[] = [
   {
     id: 501,
-    slug: "insiders-guide-kyoto-autumn-colors",
-    title: { rendered: "An Insider's Guide to Kyoto's Autumn Colors" },
-    excerpt: { rendered: "Discover the best temples, gardens, and hidden scenic spots to witness the crimson momiji leaves away from crowds." },
-    content: { rendered: "<p>Autumn in Kyoto is a season of pure magic. The maple leaves turn shades of fiery red and gold, framing centuries-old temples. In this guide, we share our favorite secret photography spots, night illumination events, and traditional dining tips...</p><h5>1. Arashiyama at Sunrise</h5><p>To avoid massive crowds, arrive at the bamboo path and Togetsukyo bridge by 6:30 AM. The morning light hitting the foliage is breathtaking.</p><h5>2. Kodaiji Night Illumination</h5><p>Many temples light up their gardens at night. Kodaiji offers a stunning projection mapping show reflecting on the pond.</p>" },
+    slug: "local-guide-to-jaisalmer-thar-desert",
+    title: { rendered: "A Local's Guide to Exploring Jaisalmer & The Thar Desert" },
+    excerpt: { rendered: "Discover the best sandstone forts, luxury camps, and desert sunset spots in Jaisalmer away from the tourist crowd." },
+    content: { rendered: "<p>Jaisalmer, the Golden City, rises like a sandcastle from the Thar Desert. Here is how you can make the most of your trip, from camel safaris to cultural folk music...</p><h5>1. The Living Golden Fort</h5><p>Unlike most forts, Jaisalmer Fort is a living city with houses, shops, and temples inside. Take a guided walking tour at sunrise for the best light.</p><h5>2. Luxury Camping under the Stars</h5><p>Stay at Sam Sand Dunes in a luxury Swiss tent. Enjoy traditional Rajasthani Kalbeliya dance and fireside dinners under a clear desert sky.</p>" },
     date: "2026-05-12T08:00:00",
-    featured_media_url: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=800",
-    categories_names: ["Guides", "Japan"],
-    tags_names: ["Autumn", "Kyoto", "Luxury Travel"],
+    featured_media_url: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=800",
+    categories_names: ["Guides", "Rajasthan"],
+    tags_names: ["Desert Safari", "Jaisalmer", "Travel Tips"],
     meta: {
-      seo_title: "Guide to Kyoto Autumn Leaves - Best Scenic Spots",
-      seo_description: "Explore the ultimate local guide to experiencing Kyoto in autumn. Learn about temple light-ups, best photography spots, and avoiding crowds."
+      seo_title: "Jaisalmer & Thar Desert Luxury Travel Guide",
+      seo_description: "Explore the ultimate local guide to Jaisalmer. Learn about desert camping, fort walks, and experiencing Rajasthan's heritage."
     }
   },
   {
     id: 502,
-    slug: "what-to-pack-luxury-african-safari",
-    title: { rendered: "What to Pack for a Luxury African Safari" },
-    excerpt: { rendered: "Our comprehensive packing list covers the essential gear, clothing color codes, and camera suggestions for Serengeti." },
-    content: { rendered: "<p>Packing for a safari is unique because you must balance luggage weight restrictions on light aircraft with the need for functional, layered clothing. Here is our expert guide on what to bring...</p><h5>Color Code: Neutral Colors Only</h5><p>Avoid blue or black clothing (they attract tsetse flies) and bright whites (which spook wildlife). Neutral tans, khakis, and olive greens are perfect.</p>" },
+    slug: "experience-the-spiritual-ganga-aarti-varanasi",
+    title: { rendered: "How to Experience the Ganga Aarti in Varanasi" },
+    excerpt: { rendered: "Our comprehensive guide covers the best ghat positions, timing, and boat hires to watch Varanasi's evening fire ceremonies." },
+    content: { rendered: "<p>The Ganga Aarti at Dashashwamedh Ghat is one of India's most powerful spiritual ceremonies. Here is how to plan your evening...</p><h5>Hire a Private Boat</h5><p>To view the ceremony from the river, hire a private wooden boat 45 minutes before sunset. This gives you the best seat for the synchronized fire rituals.</p>" },
     date: "2026-06-02T10:30:00",
-    featured_media_url: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800",
-    categories_names: ["Travel Tips", "Safari"],
-    tags_names: ["Packing Guide", "Serengeti", "Africa"],
+    featured_media_url: "https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=800",
+    categories_names: ["Guides", "Spiritual"],
+    tags_names: ["Varanasi", "Ganga Aarti", "North India"],
     meta: {
-      seo_title: "Bespoke Safari Packing List - Luxury Travel Tips",
-      seo_description: "The ultimate luxury safari packing checklist. Find out which colors to wear, essential safari gear, camera recommendations, and health tips."
+      seo_title: "Varanasi Ganga Aarti Experience Guide",
+      seo_description: "The complete guide to experiencing the Ganga Aarti ceremony in Varanasi, including boat hire tips and timings."
     }
   }
 ];

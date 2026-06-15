@@ -20,25 +20,25 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Bespoke Luxury Travels",
-    default: "Bespoke Luxury Travels - Tailored Voyages & Safaris",
+    template: "%s | Marudhar Tours India",
+    default: "Marudhar Tours India - Custom Rajasthan & India Tour Packages",
   },
-  description: "Curators of bespoke luxury tours, custom safaris, and tropical overwater bungalow getaways worldwide. Experience 5-star tailored travel.",
-  metadataBase: new URL("https://premiumtravels.com"),
+  description: "Premium travel agency specializing in custom Rajasthan tour packages, desert safaris, and luxury itineraries across India.",
+  metadataBase: new URL("https://marudhartours.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Bespoke Luxury Travels",
-    description: "Curating bespoke travel itineraries & private tours to the world's most beautiful destinations.",
-    url: "https://premiumtravels.com",
-    siteName: "Bespoke Luxury Travels",
+    title: "Marudhar Tours India",
+    description: "Bespoke travel itineraries, private tours & desert safaris to Rajasthan and major Indian destinations.",
+    url: "https://marudhartours.com",
+    siteName: "Marudhar Tours India",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200",
+        url: "https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=1200",
         width: 1200,
         height: 630,
-        alt: "Bespoke Luxury Travels",
+        alt: "Marudhar Tours India",
       },
     ],
     locale: "en_US",
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bespoke Luxury Travels",
-    description: "Curating bespoke travel itineraries & private tours to the world's most beautiful destinations.",
-    images: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200"],
+    title: "Marudhar Tours India",
+    description: "Bespoke travel itineraries, private tours & desert safaris to Rajasthan and major Indian destinations.",
+    images: ["https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=1200"],
   },
 };
 

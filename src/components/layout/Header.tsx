@@ -4,6 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, PhoneCall } from "lucide-react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/Button";
 
@@ -11,6 +12,7 @@ const NAVIGATION_ITEMS = [
   { label: "Home", href: "/" },
   { label: "Destinations", href: "/destinations" },
   { label: "Packages", href: "/packages" },
+  { label: "Custom Package", href: "/custom-package" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -37,25 +39,35 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-6",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4",
         scrolled
-          ? "bg-[var(--background)]/90 backdrop-blur-md border-b border-[var(--border-color)] py-4 shadow-sm"
+          ? "bg-[var(--background)]/90 backdrop-blur-md border-b border-[var(--border-color)] py-3 shadow-sm"
           : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="group flex flex-col">
-          <span className="font-playfair text-xl md:text-2xl font-bold tracking-widest text-foreground group-hover:text-accent transition-colors">
-            BESPOKE
-          </span>
-          <span className="text-[9px] tracking-[0.4em] uppercase text-accent font-semibold -mt-1 pl-0.5">
-            Travels & Safaris
-          </span>
+        <Link href="/" className="group flex items-center space-x-3">
+          <div className="relative w-12 h-12 overflow-hidden rounded-full border border-accent/20 bg-stone-900 flex-shrink-0">
+            <Image
+              src="/mti-logo.jpg"
+              alt="Marudhar Tours India Logo"
+              fill
+              className="object-cover scale-105"
+            />
+          </div>
+          <div className="flex flex-col">
+            <span className="font-playfair text-base md:text-lg font-bold tracking-widest text-foreground group-hover:text-accent transition-colors leading-none">
+              MARUDHAR
+            </span>
+            <span className="text-[9px] tracking-[0.3em] uppercase text-accent font-semibold leading-none mt-1">
+              Tours India
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden xl:flex items-center space-x-6">
           {NAVIGATION_ITEMS.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -63,7 +75,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-xs uppercase tracking-widest transition-colors relative py-2",
+                  "text-[10px] uppercase tracking-widest transition-colors relative py-2",
                   isActive
                     ? "text-accent font-semibold"
                     : scrolled
@@ -81,9 +93,9 @@ export function Header() {
 
         {/* Call to Action */}
         <div className="hidden md:flex items-center space-x-4">
-          <Link href="/contact">
+          <Link href="/custom-package">
             <Button variant={scrolled ? "primary" : "outline"} size="sm" className="border-accent hover:border-accent hover:bg-accent hover:text-primary">
-              Plan A Trip
+              Plan Custom Trip
             </Button>
           </Link>
         </div>
@@ -127,9 +139,9 @@ export function Header() {
               <PhoneCall size={18} className="text-accent" />
               <span>+1-800-555-0199</span>
             </div>
-            <Link href="/contact" className="block w-full">
+            <Link href="/custom-package" className="block w-full">
               <Button variant="accent" className="w-full text-center">
-                Plan A Trip
+                Plan Custom Trip
               </Button>
             </Link>
           </div>

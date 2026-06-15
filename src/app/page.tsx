@@ -45,23 +45,23 @@ export default async function HomePage() {
         {/* Background visual */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/80 z-10" />
         <Image
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000"
-          alt="Luxury Voyage Background"
+          src="https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=2000"
+          alt="Royal Rajasthan Background"
           fill
           priority
-          className="object-cover object-center scale-105 select-none"
+          className="object-cover object-center scale-105 select-none animate-fade-in"
         />
 
         <div className="relative z-20 max-w-5xl mx-auto text-center space-y-8">
           <span className="text-[10px] md:text-xs tracking-[0.6em] uppercase text-accent font-semibold block animate-pulse">
-            Bespoke Luxury Curators
+            Royal Indian Heritage Curators
           </span>
           <h1 className="font-playfair text-4xl md:text-7xl font-bold text-white tracking-wide leading-tight">
-            Discover the <br className="hidden md:inline" />
-            <span className="text-accent italic font-normal">Extraordinary</span> World
+            Discover Royal <br className="hidden md:inline" />
+            <span className="text-accent italic font-normal">Rajasthan</span> & India
           </h1>
           <p className="text-sm md:text-base text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
-            Unveiling handcrafted itineraries, custom African safaris, and secluded tropical villa escapes tailored precisely to your sense of adventure.
+            Experience bespoke luxury tours, Thar desert camel safaris, and custom itineraries curated by Marudhar Tours India. Tailored entirely to your choices.
           </p>
 
           <div className="pt-6">
@@ -82,7 +82,7 @@ export default async function HomePage() {
             </h2>
           </div>
           <p className="text-sm text-foreground/60 max-w-md font-light leading-relaxed mt-4 md:mt-0">
-            Immerse yourself in our favorite hand-selected locales, ranging from historic Japanese shrines to pristine overwater coral reefs.
+            Immerse yourself in India's most iconic heritage sites, from the sand desert forts of Rajasthan to the holy ghats of Varanasi.
           </p>
         </div>
 
@@ -98,13 +98,13 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-20 space-y-4">
             <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold">
-              The Bespoke Standard
+              The Marudhar Standard
             </span>
             <h2 className="font-playfair text-3xl md:text-5xl font-bold tracking-wide">
-              The Art of Luxury Travel
+              The Spirit of Royal Hospitality
             </h2>
             <p className="text-sm text-foreground/60 font-light">
-              We define luxury not just by 5-star lodging, but by the exclusive access, profound insights, and seamless ease we provide.
+              We define luxury not just by stay, but by the exclusive heritage access, deep cultural connections, and seamless ease we provide.
             </p>
           </div>
 
@@ -115,7 +115,7 @@ export default async function HomePage() {
               </div>
               <h3 className="font-playfair text-lg font-bold text-foreground">Bespoke Curation</h3>
               <p className="text-xs text-foreground/70 leading-relaxed font-light">
-                Tailored voyages designed down to the minute. You set the pace; our curators arrange the absolute ideal itinerary.
+                Tailored itineraries designed down to the smallest detail. You decide the destinations; we arrange the perfect trip.
               </p>
             </div>
 
@@ -123,9 +123,9 @@ export default async function HomePage() {
               <div className="mx-auto w-12 h-12 flex items-center justify-center bg-accent/10 rounded-full text-accent">
                 <ShieldCheck size={24} />
               </div>
-              <h3 className="font-playfair text-lg font-bold text-foreground">Elite Accommodations</h3>
+              <h3 className="font-playfair text-lg font-bold text-foreground">Palaces & Haveli Stays</h3>
               <p className="text-xs text-foreground/70 leading-relaxed font-light">
-                Every single villa, private ryokan, and safari tent is inspected personally to ensure top-tier comforts.
+                Handpicked premium heritage properties and palace resorts that let you live and breathe India's royal history.
               </p>
             </div>
 
@@ -133,9 +133,9 @@ export default async function HomePage() {
               <div className="mx-auto w-12 h-12 flex items-center justify-center bg-accent/10 rounded-full text-accent">
                 <Map size={24} />
               </div>
-              <h3 className="font-playfair text-lg font-bold text-foreground">Local Guides</h3>
+              <h3 className="font-playfair text-lg font-bold text-foreground">Local Heritage Guides</h3>
               <p className="text-xs text-foreground/70 leading-relaxed font-light">
-                Walk with resident historians, wildlife biologists, and cultural gatekeepers for profound destination insights.
+                Walk through forts, temples, and bazaars with native guides who bring local history, legends, and craft secrets to life.
               </p>
             </div>
 
@@ -143,9 +143,9 @@ export default async function HomePage() {
               <div className="mx-auto w-12 h-12 flex items-center justify-center bg-accent/10 rounded-full text-accent">
                 <Users size={24} />
               </div>
-              <h3 className="font-playfair text-lg font-bold text-foreground">24/7 VIP Safeguards</h3>
+              <h3 className="font-playfair text-lg font-bold text-foreground">24/7 Dedicated Care</h3>
               <p className="text-xs text-foreground/70 leading-relaxed font-light">
-                Enjoy complete peace of mind. Our local representatives and global concierges stand ready to assist at any moment.
+                Enjoy complete peace of mind. Our local representatives and dedicated chauffeurs stand ready to support you at any moment.
               </p>
             </div>
           </div>
@@ -349,18 +349,18 @@ export default async function HomePage() {
           </span>
           <h2 className="font-playfair text-3xl md:text-5xl font-bold tracking-wide leading-tight">
             Ready to Plan Your <br />
-            Next Tailored Escape?
+            Next Custom Itinerary?
           </h2>
           <p className="text-sm text-white/70 font-light leading-relaxed">
-            Connect directly with our luxury curators today to customize your personal itinerary, select premium stays, and finalize your travel coordinates.
+            Connect directly with our travel designers today to customize your personal Rajasthan or India tour, select premium heritage stays, and configure your travel coordinates.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
-            <Link href="/contact">
+            <Link href="/custom-package">
               <Button variant="accent" size="lg">
                 Request Custom Itinerary
               </Button>
             </Link>
-            <a href="https://wa.me/18005550199" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/919829012345" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="lg" className="border-white/20 hover:border-white text-white hover:bg-white hover:text-primary">
                 Chat on WhatsApp
               </Button>

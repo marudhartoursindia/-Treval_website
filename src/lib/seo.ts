@@ -1,28 +1,28 @@
 import { TravelPackage, Destination, Blog, FAQ } from "./api";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://premiumtravels.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://marudhartours.com";
 
 export function getTravelAgencySchema() {
   return {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
-    "name": "Bespoke Luxury Travels",
-    "image": `${SITE_URL}/images/logo.png`,
+    "name": "Marudhar Tours India",
+    "image": `${SITE_URL}/mti-logo.jpg`,
     "@id": `${SITE_URL}/#agency`,
     "url": SITE_URL,
-    "telephone": "+1-800-555-0199",
+    "telephone": "+91-98290-12345",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "100 Luxury Way, Suite 500",
-      "addressLocality": "Beverly Hills",
-      "addressRegion": "CA",
-      "postalCode": "90210",
-      "addressCountry": "US"
+      "streetAddress": "MTI Plaza, Near Hawa Mahal",
+      "addressLocality": "Jaipur",
+      "addressRegion": "Rajasthan",
+      "postalCode": "302002",
+      "addressCountry": "IN"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 34.0736,
-      "longitude": -118.4004
+      "latitude": 26.9124,
+      "longitude": 75.7873
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
@@ -38,9 +38,9 @@ export function getTravelAgencySchema() {
       "closes": "18:00"
     },
     "sameAs": [
-      "https://www.facebook.com/bespokeluxurytravels",
-      "https://www.instagram.com/bespokeluxurytravels",
-      "https://twitter.com/lux_travels"
+      "https://www.facebook.com/marudhartoursindia",
+      "https://www.instagram.com/marudhartoursindia",
+      "https://twitter.com/marudhartours"
     ]
   };
 }
@@ -116,14 +116,14 @@ export function getBlogSchema(post: Blog) {
     "datePublished": post.date,
     "author": {
       "@type": "Organization",
-      "name": "Bespoke Luxury Travels"
+      "name": "Marudhar Tours India"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Bespoke Luxury Travels",
+      "name": "Marudhar Tours India",
       "logo": {
         "@type": "ImageObject",
-        "url": `${SITE_URL}/images/logo.png`
+        "url": `${SITE_URL}/mti-logo.jpg`
       }
     },
     "description": post.excerpt.rendered.replace(/<[^>]*>/g, "")

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, Compass } from "lucide-react";
+import Image from "next/image";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -7,16 +8,26 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* Column 1: Brand & Intro */}
         <div className="space-y-6">
-          <Link href="/" className="flex flex-col">
-            <span className="font-playfair text-2xl font-bold tracking-widest text-white">
-              BESPOKE
-            </span>
-            <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold -mt-1 pl-0.5">
-              Travels & Safaris
-            </span>
+          <Link href="/" className="group flex items-center space-x-3">
+            <div className="relative w-12 h-12 overflow-hidden rounded-full border border-accent/20 bg-stone-900 flex-shrink-0">
+              <Image
+                src="/mti-logo.jpg"
+                alt="Marudhar Tours India Logo"
+                fill
+                className="object-cover scale-105"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-playfair text-base font-bold tracking-widest text-white group-hover:text-accent transition-colors leading-none">
+                MARUDHAR
+              </span>
+              <span className="text-[9px] tracking-[0.3em] uppercase text-accent font-semibold leading-none mt-1">
+                Tours India
+              </span>
+            </div>
           </Link>
           <p className="text-sm text-white/70 leading-relaxed font-light">
-            Crafting tailored high-end voyages, custom safaris, and luxury escapes to the world's most breathtaking destinations.
+            Crafting tailored royal heritage voyages, custom desert safaris, and luxury tours across Rajasthan and extraordinary Indian destinations.
           </p>
           <div className="flex space-x-4">
             <a href="#" className="p-2 bg-white/5 hover:bg-accent hover:text-primary transition-all duration-300 rounded-none" aria-label="Instagram">
@@ -54,6 +65,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/custom-package" className="hover:text-accent transition-colors">
+                Custom Itinerary
+              </Link>
+            </li>
+            <li>
               <Link href="/about" className="hover:text-accent transition-colors">
                 Our Story
               </Link>
@@ -73,18 +89,18 @@ export function Footer() {
           </h4>
           <ul className="space-y-3 text-sm font-light text-white/70">
             <li>
-              <Link href="/packages/luxury-japan-cultural-odyssey" className="hover:text-accent transition-colors">
-                Japan Cultural Odyssey
+              <Link href="/packages/rajasthan-royal-heritage-tour" className="hover:text-accent transition-colors">
+                Royal Rajasthan Heritage Tour
               </Link>
             </li>
             <li>
-              <Link href="/packages/serengeti-exclusive-wildlife-safari" className="hover:text-accent transition-colors">
-                Serengeti Wildlife Safari
+              <Link href="/packages/thar-desert-explorer" className="hover:text-accent transition-colors">
+                Thar Desert Explorer
               </Link>
             </li>
             <li>
-              <Link href="/packages/maldives-ultimate-overwater-escape" className="hover:text-accent transition-colors">
-                Maldives Overwater Escape
+              <Link href="/packages/golden-triangle-and-spiritual-india" className="hover:text-accent transition-colors">
+                Golden Triangle & Varanasi
               </Link>
             </li>
           </ul>
@@ -98,22 +114,22 @@ export function Footer() {
           <ul className="space-y-4 text-sm font-light text-white/70">
             <li className="flex items-start space-x-3">
               <MapPin size={18} className="text-accent shrink-0 mt-0.5" />
-              <span>100 Luxury Way, Suite 500, Beverly Hills, CA 90210</span>
+              <span>MTI Plaza, Near Hawa Mahal, Jaipur, Rajasthan, India - 302002</span>
             </li>
             <li className="flex items-center space-x-3">
               <Phone size={18} className="text-accent shrink-0" />
-              <span>+1-800-555-0199</span>
+              <span>+91 98290 12345</span>
             </li>
             <li className="flex items-center space-x-3">
               <Mail size={18} className="text-accent shrink-0" />
-              <span>curator@bespokeluxury.com</span>
+              <span>info@marudhartours.com</span>
             </li>
           </ul>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-white/45 font-light">
-        <p>© {new Date().getFullYear()} Bespoke Luxury Travels. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Marudhar Tours India. All rights reserved.</p>
         <div className="flex space-x-6 mt-4 md:mt-0">
           <a href="#" className="hover:text-accent transition-colors">
             Privacy Policy
