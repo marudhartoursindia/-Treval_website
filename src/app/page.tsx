@@ -11,6 +11,7 @@ import {
 import { PackageCard } from "@/components/package/PackageCard";
 import { DestinationCard } from "@/components/destination/DestinationCard";
 import { HeroSearch } from "@/components/layout/HeroSearch";
+import { HeroSlideshow } from "@/components/layout/HeroSlideshow";
 import { Button } from "@/components/ui/Button";
 import { Accordion } from "@/components/ui/Accordion";
 import { formatPrice } from "@/lib/utils";
@@ -44,13 +45,7 @@ export default async function HomePage() {
       <section className="relative min-h-[90vh] flex items-center justify-center bg-stone-950 py-20 px-6 -mt-[85px] overflow-hidden">
         {/* Background visual */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/80 z-10" />
-        <Image
-          src="https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=2000"
-          alt="Royal Rajasthan Background"
-          fill
-          priority
-          className="object-cover object-center scale-105 select-none animate-fade-in"
-        />
+        <HeroSlideshow />
 
         <div className="relative z-20 max-w-5xl mx-auto text-center space-y-8">
           <span className="text-[10px] md:text-xs tracking-[0.6em] uppercase text-accent font-semibold block animate-pulse">
