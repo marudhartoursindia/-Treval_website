@@ -59,17 +59,17 @@ export function PackageCard({ pkg }: PackageCardProps) {
           <Link href={`/packages/${pkg.slug}`}>{pkg.title.rendered}</Link>
         </h3>
 
-        <p className="text-xs text-foreground/75 line-clamp-2 mb-4 leading-relaxed font-light">
+        <p className="text-sm text-foreground/80 line-clamp-2 mb-4 leading-relaxed font-light">
           {pkg.excerpt.rendered.replace(/<[^>]*>/g, "")}
         </p>
 
         {/* Highlights summary */}
         {highlights.length > 0 && (
           <div className="mt-auto pt-4 border-t border-[var(--border-color)]">
-            <span className="text-[9px] uppercase tracking-wider text-accent font-semibold block mb-2">
+            <span className="text-[11px] tracking-wider text-accent font-semibold block mb-2">
               Key Highlights
             </span>
-            <ul className="text-[10px] text-foreground/70 space-y-1 font-light">
+            <ul className="text-xs text-foreground/75 space-y-1 font-light">
               {highlights.slice(0, 2).map((hl, i) => (
                 <li key={i} className="line-clamp-1">
                   • {hl}
@@ -84,26 +84,26 @@ export function PackageCard({ pkg }: PackageCardProps) {
           <div>
             {discount_price ? (
               <div className="flex items-center space-x-2">
-                <span className="text-sm font-semibold text-accent">
+                <span className="text-base font-semibold text-accent">
                   {formatPrice(discount_price)}
                 </span>
-                <span className="text-xs text-foreground/45 line-through font-light">
+                <span className="text-sm text-foreground/45 line-through font-light">
                   {formatPrice(price)}
                 </span>
               </div>
             ) : (
-              <span className="text-sm font-semibold text-foreground">
+              <span className="text-base font-semibold text-foreground">
                 {formatPrice(price)}
               </span>
             )}
-            <span className="text-[9px] text-foreground/45 uppercase tracking-wider block -mt-1">
+            <span className="text-[10px] text-foreground/45 uppercase tracking-wider block -mt-1">
               per person
             </span>
           </div>
 
           <Link
             href={`/packages/${pkg.slug}`}
-            className="text-xs uppercase tracking-widest text-foreground font-semibold hover:text-accent transition-colors flex items-center space-x-1"
+            className="text-sm uppercase tracking-widest text-foreground font-semibold hover:text-accent transition-colors flex items-center space-x-1"
           >
             <span>Details</span>
             <span>→</span>

@@ -24,7 +24,7 @@ export default async function DestinationsPage() {
         <h1 className="font-playfair text-4xl md:text-5xl font-bold tracking-wide">
           Breathtaking Destinations
         </h1>
-        <p className="text-sm text-foreground/60 font-light leading-relaxed">
+        <p className="text-base text-foreground/75 font-light leading-relaxed">
           Embark on unforgettable, handpicked adventures in the world's most spectacular places. Select a destination to see dedicated itineraries and local guides.
         </p>
       </div>

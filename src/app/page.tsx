@@ -55,7 +55,7 @@ export default async function HomePage() {
             Discover Royal <br className="hidden md:inline" />
             <span className="text-accent italic font-normal">Rajasthan</span> & India
           </h1>
-          <p className="text-sm md:text-base text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-base md:text-lg text-white/85 max-w-2xl mx-auto font-light leading-relaxed">
             Experience bespoke luxury tours, Thar desert camel safaris, and custom itineraries curated by Marudhar Tours India. Tailored entirely to your choices.
           </p>
 
@@ -76,7 +76,7 @@ export default async function HomePage() {
               Top Destinations
             </h2>
           </div>
-          <p className="text-sm text-foreground/60 max-w-md font-light leading-relaxed mt-4 md:mt-0">
+          <p className="text-base text-foreground/75 max-w-md font-light leading-relaxed mt-4 md:mt-0">
             Immerse yourself in India's most iconic heritage sites, from the sand desert forts of Rajasthan to the holy ghats of Varanasi.
           </p>
         </div>
@@ -134,7 +134,7 @@ export default async function HomePage() {
               <h2 className="font-playfair text-3xl md:text-4xl font-bold tracking-wide">
                 The Spirit of Royal Indian Hospitality
               </h2>
-              <p className="text-sm text-foreground/60 font-light leading-relaxed">
+              <p className="text-base text-foreground/75 font-light leading-relaxed">
                 We define luxury not just by stay, but by the exclusive heritage access, deep cultural connections, and seamless ease we provide throughout India.
               </p>
             </div>
@@ -194,7 +194,7 @@ export default async function HomePage() {
             Don't want standard packages? <br />
             Design a custom itinerary with our experts.
           </h2>
-          <p className="text-xs text-white/70 max-w-xl mx-auto font-light leading-relaxed">
+          <p className="text-sm md:text-base text-white/80 max-w-xl mx-auto font-light leading-relaxed">
             Select your preferred cities (within or outside Rajasthan), accommodation standards, and travel dates. We will build a customized day-wise plan for you.
           </p>
           <div className="pt-4">
@@ -406,7 +406,7 @@ export default async function HomePage() {
             Ready to Plan Your <br />
             Next Custom Itinerary?
           </h2>
-          <p className="text-sm text-white/70 font-light leading-relaxed">
+          <p className="text-base text-white/80 font-light leading-relaxed">
             Connect directly with our travel designers today to customize your personal Rajasthan or India tour, select premium heritage stays, and configure your travel coordinates.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">

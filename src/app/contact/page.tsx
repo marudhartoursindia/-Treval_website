@@ -51,7 +51,9 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={18} className="text-accent shrink-0" />
-                <span>curator@bespokeluxury.com</span>
+                <a href="mailto:yuvraj.kilawat@gmail.com" className="hover:text-accent transition-colors">
+                  yuvraj.kilawat@gmail.com
+                </a>
               </div>
             </div>
           </div>

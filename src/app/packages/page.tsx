@@ -28,7 +28,7 @@ export default async function PackagesPage() {
         <h1 className="font-playfair text-4xl md:text-5xl font-bold tracking-wide">
           Our Travel Catalog
         </h1>
-        <p className="text-sm text-foreground/60 font-light leading-relaxed">
+        <p className="text-base text-foreground/75 font-light leading-relaxed">
           Filter by destination, style, duration, or price to discover your ideal bespoke vacation. Every tour is fully customisable.
         </p>
       </div>

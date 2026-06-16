@@ -4,10 +4,10 @@ import * as React from "react";
 import Image from "next/image";
 
 const IMAGES = [
-  "https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=2000", // Jaipur Amber Fort
-  "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=2000", // Taj Mahal Agra
-  "https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=2000", // Jaisalmer Desert
-  "https://images.unsplash.com/photo-1504705740206-c8a4d4851831?q=80&w=2000"  // Udaipur Lake Pichola
+  "/jaipur.avif",
+  "/jodhpur.avif",
+  "/udaipur.avif",
+  "/bikaner.jpg"
 ];
 
 export function HeroSlideshow() {

@@ -122,7 +122,9 @@ export function Footer() {
             </li>
             <li className="flex items-center space-x-3">
               <Mail size={18} className="text-accent shrink-0" />
-              <span>info@marudhartours.com</span>
+              <a href="mailto:yuvraj.kilawat@gmail.com" className="hover:text-accent transition-colors">
+                yuvraj.kilawat@gmail.com
+              </a>
             </li>
           </ul>
         </div>

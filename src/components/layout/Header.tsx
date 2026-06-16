@@ -36,16 +36,26 @@ export function Header() {
     setMobileMenuOpen(false);
   }, [pathname]);
 
+  // Determine if the current page has a dark header overlay (Home page & Destination details)
+  const hasDarkHero = React.useMemo(() => {
+    return (
+      pathname === "/" ||
+      (pathname.startsWith("/destinations/") && pathname !== "/destinations")
+    );
+  }, [pathname]);
+
+  const isTransparent = !scrolled && hasDarkHero;
+
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4",
-        scrolled
-          ? "bg-[var(--background)]/90 backdrop-blur-md border-b border-[var(--border-color)] py-3 shadow-sm"
-          : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        isTransparent
+          ? "bg-transparent py-4"
+          : "bg-[var(--background)] backdrop-blur-md border-b border-[var(--border-color)] py-3 shadow-sm"
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-[1360px] mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="group flex items-center space-x-3">
           <div className="relative w-12 h-12 overflow-hidden rounded-full border border-accent/20 bg-stone-900 flex-shrink-0">
@@ -57,17 +67,20 @@ export function Header() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="font-playfair text-base md:text-lg font-bold tracking-widest text-foreground group-hover:text-accent transition-colors leading-none">
+            <span className={cn(
+              "font-playfair text-base md:text-lg font-bold tracking-widest transition-colors leading-none",
+              isTransparent ? "text-white group-hover:text-accent" : "text-foreground group-hover:text-accent"
+            )}>
               MARUDHAR
             </span>
-            <span className="text-[9px] tracking-[0.3em] uppercase text-accent font-semibold leading-none mt-1">
+            <span className="text-[11px] tracking-[0.3em] uppercase text-accent font-semibold leading-none mt-1">
               Tours India
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden xl:flex items-center space-x-6">
+        <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6 2xl:space-x-8">
           {NAVIGATION_ITEMS.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -75,12 +88,12 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-[10px] uppercase tracking-widest transition-colors relative py-2",
+                  "text-sm uppercase tracking-widest transition-colors relative py-2 font-medium",
                   isActive
                     ? "text-accent font-semibold"
-                    : scrolled
-                    ? "text-foreground/80 hover:text-accent"
-                    : "text-white hover:text-accent",
+                    : isTransparent
+                    ? "text-white/95 hover:text-accent"
+                    : "text-foreground/80 hover:text-accent",
                   // Underline animation
                   "after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left"
                 )}
@@ -92,9 +105,9 @@ export function Header() {
         </nav>
 
         {/* Call to Action */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden lg:flex items-center space-x-4">
           <Link href="/custom-package">
-            <Button variant={scrolled ? "primary" : "outline"} size="sm" className="border-accent hover:border-accent hover:bg-accent hover:text-primary">
+            <Button variant={isTransparent ? "outline" : "primary"} size="sm" className="border-accent hover:border-accent hover:bg-accent hover:text-primary">
               Plan Custom Trip
             </Button>
           </Link>
@@ -104,8 +117,8 @@ export function Header() {
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className={cn(
-            "md:hidden p-2 focus:outline-none transition-colors",
-            scrolled || pathname !== "/" ? "text-foreground" : "text-white"
+            "lg:hidden p-2 focus:outline-none transition-colors",
+            isTransparent ? "text-white" : "text-foreground"
           )}
           aria-label="Toggle menu"
         >
@@ -115,7 +128,7 @@ export function Header() {
 
       {/* Mobile Drawer Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 top-[65px] z-40 bg-[var(--background)]/98 backdrop-blur-lg md:hidden flex flex-col px-8 py-12 animate-fade-in border-t border-[var(--border-color)]">
+        <div className="fixed inset-x-0 bottom-0 top-[70px] z-40 bg-[var(--background)]/98 backdrop-blur-lg lg:hidden flex flex-col px-8 py-12 animate-fade-in border-t border-[var(--border-color)]">
           <div className="flex flex-col space-y-6">
             {NAVIGATION_ITEMS.map((item) => {
               const isActive = pathname === item.href;

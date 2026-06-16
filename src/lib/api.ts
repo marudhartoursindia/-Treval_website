@@ -101,10 +101,10 @@ const MOCK_DESTINATIONS: Destination[] = [
     title: { rendered: "Jaipur, Rajasthan" },
     excerpt: { rendered: "The legendary Pink City, famed for its royal palaces, imposing forts, and vibrant gemstone bazaars." },
     content: { rendered: "<p>Jaipur is the capital of India's Rajasthan state. It evokes the royal family that once ruled the region and that, in 1727, founded what is now called the Old City, or \"Pink City\" for its trademark building color.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=1200",
+    featured_media_url: "/jaipur.avif",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=1200",
+        "/jaipur.avif",
         "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=1200"
       ],
       popular_attractions: ["Hawa Mahal", "Amber Fort", "City Palace", "Jantar Mantar"],
@@ -118,10 +118,10 @@ const MOCK_DESTINATIONS: Destination[] = [
     title: { rendered: "Jodhpur, Rajasthan" },
     excerpt: { rendered: "The Sun City, characterized by blue-washed houses nestled beneath the towering Mehrangarh Fort." },
     content: { rendered: "<p>Jodhpur is a city in the Thar Desert of the northwest Indian state of Rajasthan. Its 15th-century Mehrangarh Fort is a former palace that's now a museum, displaying weapons, paintings and elaborate royal palanquins.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=1200",
+    featured_media_url: "/jodhpur.avif",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=1200",
+        "/jodhpur.avif",
         "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=1200"
       ],
       popular_attractions: ["Mehrangarh Fort", "Jaswant Thada", "Umaid Bhawan Palace", "Sardar Market"],
@@ -135,10 +135,10 @@ const MOCK_DESTINATIONS: Destination[] = [
     title: { rendered: "Udaipur, Rajasthan" },
     excerpt: { rendered: "The City of Lakes and Venice of the East, showcasing romantic floating palaces and lush hills." },
     content: { rendered: "<p>Udaipur, formerly the capital of the Mewar Kingdom, is a city in the western Indian state of Rajasthan. Founded by Maharana Udai Singh II in 1559, it's set around a series of artificial lakes and is known for its lavish royal residences.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1504705740206-c8a4d4851831?q=80&w=1200",
+    featured_media_url: "/udaipur.avif",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-1504705740206-c8a4d4851831?q=80&w=1200",
+        "/udaipur.avif",
         "https://images.unsplash.com/photo-1598977123418-45f04b016423?q=80&w=1200"
       ],
       popular_attractions: ["Lake Palace", "City Palace", "Jag Mandir", "Lake Pichola"],
@@ -169,10 +169,10 @@ const MOCK_DESTINATIONS: Destination[] = [
     title: { rendered: "Bikaner, Rajasthan" },
     excerpt: { rendered: "Famous for Junagarh Fort, camel breeding farm, and delicious spicy Bikaneri Bhujia." },
     content: { rendered: "<p>Bikaner is a city in the north of Rajasthan state. It is surrounded by the Thar Desert. The city is known for the 16th-century Junagarh Fort, a huge complex of ornate buildings and halls.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-16030262110263-fb0112e7cc33?q=80&w=1200",
+    featured_media_url: "/bikaner.jpg",
     meta: {
       gallery: [
-        "https://images.unsplash.com/photo-16030262110263-fb0112e7cc33?q=80&w=1200"
+        "/bikaner.jpg"
       ],
       popular_attractions: ["Junagarh Fort", "Lallgarh Palace", "Karni Mata Temple", "National Research Centre on Camel"],
       best_time_to_visit: "October to March",
@@ -236,7 +236,7 @@ const MOCK_PACKAGES: TravelPackage[] = [
     title: { rendered: "Royal Rajasthan Heritage Tour" },
     excerpt: { rendered: "A classic luxury journey covering the grand palaces of Jaipur, Blue City Jodhpur, and City of Lakes Udaipur." },
     content: { rendered: "<p>Live like royalty on this handcrafted luxury tour across Rajasthan's most iconic cities. Stay in authentic palace hotels, enjoy private guided fort tours, and feast on traditional Rajasthani cuisine.</p>" },
-    featured_media_url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200",
+    featured_media_url: "/jaipur.avif",
     categories_names: ["Rajasthan", "Royal Heritage"],
     meta: {
       duration: "8 Days / 7 Nights",
@@ -283,9 +283,9 @@ const MOCK_PACKAGES: TravelPackage[] = [
       map_location: "Rajasthan, India",
       booking_cta: "Book Royal Tour",
       gallery_images: [
-        "https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=1200",
-        "https://images.unsplash.com/photo-1504705740206-c8a4d4851831?q=80&w=1200",
-        "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=1200"
+        "/jaipur.avif",
+        "/udaipur.avif",
+        "/jodhpur.avif"
       ],
       seo_title: "Royal Rajasthan Heritage Tour Package - 8 Days Custom Itinerary",
       seo_description: "Explore Rajasthan's royal heritage. Book our 8-day luxury tour covering Jaipur, Jodhpur, and Udaipur with heritage hotels and private guides."
@@ -405,7 +405,7 @@ const MOCK_PACKAGES: TravelPackage[] = [
       booking_cta: "Book Desert Adventure",
       gallery_images: [
         "https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=1200",
-        "https://images.unsplash.com/photo-16030262110263-fb0112e7cc33?q=80&w=1200"
+        "/bikaner.jpg"
       ],
       seo_title: "Thar Desert Jaisalmer & Bikaner Safari Tour - 6 Days",
       seo_description: "Explore Rajasthan's Thar Desert. Book our 6-day package featuring luxury camping, camel safaris, and historic forts in Jaisalmer, Jodhpur, and Bikaner."
@@ -508,6 +508,112 @@ const MOCK_BLOGS: Blog[] = [
 
 // WordPress API Fetch Layer with Robust Fallbacks
 const WP_API_URL = process.env.NEXT_PUBLIC_WORDPRESS_URL || process.env.WORDPRESS_URL || "";
+const GOOGLE_SHEET_API = process.env.NEXT_PUBLIC_GOOGLE_SHEET_API || "";
+
+interface SheetsData {
+  packages: TravelPackage[];
+  destinations: Destination[];
+  blogs: Blog[];
+  testimonials: Testimonial[];
+  faqs: FAQ[];
+}
+
+let cachedSheetsData: SheetsData | null = null;
+
+async function getSheetsData(): Promise<SheetsData> {
+  if (cachedSheetsData) return cachedSheetsData;
+  if (!GOOGLE_SHEET_API) {
+    throw new Error("Google Sheet API URL is not defined.");
+  }
+  const res = await fetch(GOOGLE_SHEET_API, {
+    next: { revalidate: 10 } // Cache for 10 seconds
+  });
+  if (!res.ok) {
+    throw new Error(`Failed to fetch from Google Sheets API: ${res.statusText}`);
+  }
+  const rawData = await res.json();
+  
+  const formattedData: SheetsData = {
+    packages: (rawData.packages || []).map((p: any) => ({
+      id: Number(p.id),
+      slug: p.slug,
+      title: { rendered: p.title || "" },
+      content: { rendered: p.content || "" },
+      excerpt: { rendered: p.excerpt || "" },
+      featured_media_url: p.featured_media_url || "",
+      categories_names: Array.isArray(p.categories_names) ? p.categories_names : [],
+      meta: {
+        duration: p.duration || "",
+        price: Number(p.price || 0),
+        discount_price: p.discount_price ? Number(p.discount_price) : undefined,
+        highlights: Array.isArray(p.highlights) ? p.highlights : [],
+        overview: p.overview || "",
+        day_wise_itinerary: Array.isArray(p.day_wise_itinerary) ? p.day_wise_itinerary : [],
+        included_services: Array.isArray(p.included_services) ? p.included_services : [],
+        excluded_services: Array.isArray(p.excluded_services) ? p.excluded_services : [],
+        hotel_information: p.hotel_information || "",
+        transportation_information: p.transportation_information || "",
+        faq: Array.isArray(p.faq) ? p.faq : [],
+        map_location: p.map_location || "",
+        booking_cta: p.booking_cta || "",
+        gallery_images: Array.isArray(p.gallery_images) ? p.gallery_images : [],
+        destination_id: p.destination_id ? Number(p.destination_id) : undefined,
+        seo_title: p.seo_title || "",
+        seo_description: p.seo_description || ""
+      }
+    })),
+    destinations: (rawData.destinations || []).map((d: any) => ({
+      id: Number(d.id),
+      slug: d.slug,
+      title: { rendered: d.title || "" },
+      content: { rendered: d.content || "" },
+      excerpt: { rendered: d.excerpt || "" },
+      featured_media_url: d.featured_media_url || "",
+      meta: {
+        gallery: Array.isArray(d.gallery) ? d.gallery : [],
+        popular_attractions: Array.isArray(d.popular_attractions) ? d.popular_attractions : [],
+        best_time_to_visit: d.best_time_to_visit || "",
+        travel_tips: Array.isArray(d.travel_tips) ? d.travel_tips : []
+      }
+    })),
+    blogs: (rawData.blogs || []).map((b: any) => ({
+      id: Number(b.id),
+      slug: b.slug,
+      title: { rendered: b.title || "" },
+      content: { rendered: b.content || "" },
+      excerpt: { rendered: b.excerpt || "" },
+      date: b.date || "",
+      featured_media_url: b.featured_media_url || "",
+      categories_names: Array.isArray(b.categories_names) ? b.categories_names : [],
+      tags_names: Array.isArray(b.tags_names) ? b.tags_names : [],
+      meta: {
+        seo_title: b.seo_title || "",
+        seo_description: b.seo_description || ""
+      }
+    })),
+    testimonials: (rawData.testimonials || []).map((t: any) => ({
+      id: Number(t.id),
+      title: { rendered: t.title || "" },
+      content: { rendered: t.content || "" },
+      meta: {
+        rating: Number(t.rating || 5),
+        location: t.location || "",
+        photo: t.photo || ""
+      }
+    })),
+    faqs: (rawData.faqs || []).map((f: any) => ({
+      id: Number(f.id),
+      title: { rendered: f.title || "" },
+      meta: {
+        answer: f.answer || "",
+        category: f.category || ""
+      }
+    }))
+  };
+  
+  cachedSheetsData = formattedData;
+  return formattedData;
+}
 
 async function fetchFromWP<T>(endpoint: string, tags?: string[]): Promise<T> {
   if (!WP_API_URL) {
@@ -519,7 +625,7 @@ async function fetchFromWP<T>(endpoint: string, tags?: string[]): Promise<T> {
 
   const res = await fetch(url, {
     next: {
-      revalidate: 0, // No caching for live updates
+      revalidate: 0,
       tags: tags,
     },
   });
@@ -533,8 +639,11 @@ async function fetchFromWP<T>(endpoint: string, tags?: string[]): Promise<T> {
 
 export async function getDestinations(): Promise<Destination[]> {
   try {
+    if (GOOGLE_SHEET_API) {
+      const data = await getSheetsData();
+      return data.destinations;
+    }
     if (!WP_API_URL) return MOCK_DESTINATIONS;
-    // Map REST response if needed
     const data = await fetchFromWP<any[]>("destination", ["destinations"]);
     return data.map(item => ({
       id: item.id,
@@ -546,13 +655,17 @@ export async function getDestinations(): Promise<Destination[]> {
       meta: item.meta || { gallery: [], popular_attractions: [], best_time_to_visit: "", travel_tips: [] }
     }));
   } catch (error) {
-    console.warn("getDestinations: Failed fetching from WordPress. Falling back to mock data.", error);
+    console.warn("getDestinations: Failed fetching from API. Falling back to mock data.", error);
     return MOCK_DESTINATIONS;
   }
 }
 
 export async function getDestinationBySlug(slug: string): Promise<Destination | null> {
   try {
+    if (GOOGLE_SHEET_API) {
+      const data = await getSheetsData();
+      return data.destinations.find(d => d.slug === slug) || null;
+    }
     if (!WP_API_URL) {
       return MOCK_DESTINATIONS.find(d => d.slug === slug) || null;
     }
@@ -576,6 +689,10 @@ export async function getDestinationBySlug(slug: string): Promise<Destination | 
 
 export async function getTravelPackages(): Promise<TravelPackage[]> {
   try {
+    if (GOOGLE_SHEET_API) {
+      const data = await getSheetsData();
+      return data.packages;
+    }
     if (!WP_API_URL) return MOCK_PACKAGES;
     const data = await fetchFromWP<any[]>("travel-package", ["packages"]);
     return data.map(item => ({
@@ -589,13 +706,17 @@ export async function getTravelPackages(): Promise<TravelPackage[]> {
       meta: item.meta
     }));
   } catch (error) {
-    console.warn("getTravelPackages: Failed fetching from WordPress. Falling back to mock data.", error);
+    console.warn("getTravelPackages: Failed fetching from API. Falling back to mock data.", error);
     return MOCK_PACKAGES;
   }
 }
 
 export async function getTravelPackageBySlug(slug: string): Promise<TravelPackage | null> {
   try {
+    if (GOOGLE_SHEET_API) {
+      const data = await getSheetsData();
+      return data.packages.find(p => p.slug === slug) || null;
+    }
     if (!WP_API_URL) {
       return MOCK_PACKAGES.find(p => p.slug === slug) || null;
     }
@@ -620,6 +741,10 @@ export async function getTravelPackageBySlug(slug: string): Promise<TravelPackag
 
 export async function getTestimonials(): Promise<Testimonial[]> {
   try {
+    if (GOOGLE_SHEET_API) {
+      const data = await getSheetsData();
+      return data.testimonials;
+    }
     if (!WP_API_URL) return MOCK_TESTIMONIALS;
     const data = await fetchFromWP<any[]>("testimonial", ["testimonials"]);
     return data.map(item => ({
@@ -636,6 +761,10 @@ export async function getTestimonials(): Promise<Testimonial[]> {
 
 export async function getFAQs(): Promise<FAQ[]> {
   try {
+    if (GOOGLE_SHEET_API) {
+      const data = await getSheetsData();
+      return data.faqs;
+    }
     if (!WP_API_URL) return MOCK_FAQS;
     const data = await fetchFromWP<any[]>("faq", ["faqs"]);
     return data.map(item => ({
@@ -651,6 +780,10 @@ export async function getFAQs(): Promise<FAQ[]> {
 
 export async function getBlogs(): Promise<Blog[]> {
   try {
+    if (GOOGLE_SHEET_API) {
+      const data = await getSheetsData();
+      return data.blogs;
+    }
     if (!WP_API_URL) return MOCK_BLOGS;
     const data = await fetchFromWP<any[]>("posts", ["blogs"]);
     return data.map(item => ({
@@ -676,6 +809,10 @@ export async function getBlogs(): Promise<Blog[]> {
 
 export async function getBlogBySlug(slug: string): Promise<Blog | null> {
   try {
+    if (GOOGLE_SHEET_API) {
+      const data = await getSheetsData();
+      return data.blogs.find(b => b.slug === slug) || null;
+    }
     if (!WP_API_URL) {
       return MOCK_BLOGS.find(b => b.slug === slug) || null;
     }

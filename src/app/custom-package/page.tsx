@@ -61,11 +61,42 @@ export default function CustomPackagePage() {
     setErrorMsg("");
     setIsSubmitting(true);
     
-    // Simulate API request
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setSuccess(true);
+    try {
+      const endpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/placeholder";
+      const payload = {
+        fullName,
+        email,
+        phone,
+        travelDate,
+        duration,
+        guests,
+        hotelPref,
+        selectedTheme,
+        selectedCities: selectedCities.map(c => CITIES.find(ci => ci.id === c)?.name || c).join(", "),
+        notes,
+      };
+      
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        setSuccess(true);
+      } else {
+        const errData = await response.json();
+        setErrorMsg(errData.error || "Failed to submit request. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      setErrorMsg("Connection error. Please check your internet and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -80,7 +111,7 @@ export default function CustomPackagePage() {
           <h1 className="font-playfair text-4xl md:text-6xl font-bold text-foreground">
             Design Your Custom Itinerary
           </h1>
-          <p className="text-sm text-foreground/60 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-base text-foreground/75 max-w-2xl mx-auto font-light leading-relaxed">
             Tell us about your dream trip. Whether you want a royal Rajasthani getaway, a spiritual Varanasi experience, or a tour extending outside Rajasthan, our curators at Marudhar Tours India will build a tailor-made plan for you.
           </p>
         </div>
