@@ -519,19 +519,29 @@ interface SheetsData {
 }
 
 let cachedSheetsData: SheetsData | null = null;
+let lastFetchTime = 0;
+const CACHE_TTL = 10000; // 10 seconds
 
 async function getSheetsData(): Promise<SheetsData> {
-  if (cachedSheetsData) return cachedSheetsData;
+  console.log("getSheetsData called. API URL:", GOOGLE_SHEET_API);
+  const now = Date.now();
+  if (cachedSheetsData && (now - lastFetchTime < CACHE_TTL)) {
+    console.log("Returning cachedSheetsData (cache hit)");
+    return cachedSheetsData;
+  }
   if (!GOOGLE_SHEET_API) {
     throw new Error("Google Sheet API URL is not defined.");
   }
-  const res = await fetch(GOOGLE_SHEET_API, {
-    next: { revalidate: 10 } // Cache for 10 seconds
-  });
-  if (!res.ok) {
-    throw new Error(`Failed to fetch from Google Sheets API: ${res.statusText}`);
-  }
-  const rawData = await res.json();
+  try {
+    const res = await fetch(GOOGLE_SHEET_API, {
+      next: { revalidate: 10 } // Cache for 10 seconds
+    });
+    if (!res.ok) {
+      throw new Error(`Failed to fetch from Google Sheets API: ${res.statusText}`);
+    }
+    const rawData = await res.json();
+    console.log("Received rawData keys from sheets:", Object.keys(rawData));
+    console.log("Raw packages count:", rawData.packages?.length);
   
   const formattedData: SheetsData = {
     packages: (rawData.packages || []).map((p: any) => ({
@@ -612,7 +622,12 @@ async function getSheetsData(): Promise<SheetsData> {
   };
   
   cachedSheetsData = formattedData;
+  lastFetchTime = now;
   return formattedData;
+  } catch (error: any) {
+    console.error("Error in getSheetsData:", error);
+    throw error;
+  }
 }
 
 async function fetchFromWP<T>(endpoint: string, tags?: string[]): Promise<T> {

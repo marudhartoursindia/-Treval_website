@@ -37,6 +37,7 @@ export default function AdminPage() {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [formState, setFormState] = React.useState<FormState | null>(null);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [isUploadingImage, setIsUploadingImage] = React.useState(false);
 
   React.useEffect(() => {
     // Load config from environment or local storage
@@ -76,7 +77,7 @@ export default function AdminPage() {
     setIsLoading(true);
     setErrorMsg("");
     try {
-      const res = await fetch(url);
+      const res = await fetch(`/api/admin?endpoint=${encodeURIComponent(url)}`);
       if (!res.ok) throw new Error("Failed to load spreadsheet database");
       const data = await res.json();
       setDbData({
@@ -98,11 +99,10 @@ export default function AdminPage() {
     if (!formState || !apiEndpoint) return;
     setIsSubmitting(true);
     try {
-      const response = await fetch(apiEndpoint, {
+      const response = await fetch(`/api/admin?endpoint=${encodeURIComponent(apiEndpoint)}`, {
         method: "POST",
-        redirect: "follow",
         headers: {
-          "Content-Type": "text/plain;charset=utf-8",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           token: SECRET_TOKEN,
@@ -121,7 +121,7 @@ export default function AdminPage() {
       }
 
       if (resJson.error) {
-        alert("Error: " + resJson.error);
+        alert("Error: " + resJson.error + (resJson.details ? "\n\nDetails: " + resJson.details : ""));
       } else {
         alert("Operation successful!");
         setIsModalOpen(false);
@@ -185,11 +185,10 @@ export default function AdminPage() {
     if (!confirm(`Are you sure you want to delete "${item.title?.rendered || item.title || "this item"}"?`)) return;
     setIsLoading(true);
     try {
-      const response = await fetch(apiEndpoint, {
+      const response = await fetch(`/api/admin?endpoint=${encodeURIComponent(apiEndpoint)}`, {
         method: "POST",
-        redirect: "follow",
         headers: {
-          "Content-Type": "text/plain;charset=utf-8",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           token: SECRET_TOKEN,
@@ -546,21 +545,89 @@ export default function AdminPage() {
               {/* Image URL & content fields */}
               {formState.sheet !== "faqs" && (
                 <div className="space-y-1">
-                  <label className="text-[9px] uppercase tracking-wider text-foreground/50 font-bold block">Featured Image URL</label>
-                  <input
-                    type="text"
-                    value={formState.data.featured_media_url || formState.data.photo || ""}
-                    onChange={(e) => setFormState({
-                      ...formState,
-                      data: { 
-                        ...formState.data, 
-                        featured_media_url: e.target.value,
-                        photo: formState.sheet === "testimonials" ? e.target.value : undefined 
-                      }
-                    })}
-                    className="w-full bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground"
-                    placeholder="https://images.unsplash.com/... or /public/image.jpg"
-                  />
+                  <label className="text-[9px] uppercase tracking-wider text-foreground/50 font-bold block">Featured Image</label>
+                  <div className="flex gap-2 items-center">
+                    <input
+                      type="text"
+                      value={formState.data.featured_media_url || formState.data.photo || ""}
+                      onChange={(e) => setFormState({
+                        ...formState,
+                        data: { 
+                          ...formState.data, 
+                          featured_media_url: e.target.value,
+                          photo: formState.sheet === "testimonials" ? e.target.value : undefined 
+                        }
+                      })}
+                      className="flex-grow bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground"
+                      placeholder="https://images.unsplash.com/... or /uploads/... (or upload using button)"
+                    />
+                    <label className="cursor-pointer bg-accent hover:bg-accent/80 text-primary px-3 py-2 text-xs font-semibold uppercase tracking-wider transition-colors select-none flex items-center justify-center min-w-[100px] text-center">
+                      {isUploadingImage ? <Loader2 size={12} className="animate-spin text-primary" /> : "Upload Image"}
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={async (e) => {
+                          const file = e.target.files?.[0];
+                          if (!file) return;
+                          setIsUploadingImage(true);
+                          try {
+                            const formData = new FormData();
+                            formData.append("file", file);
+                            const res = await fetch("/api/upload", {
+                              method: "POST",
+                              body: formData,
+                            });
+                            if (!res.ok) throw new Error("Upload failed");
+                            const data = await res.json();
+                            if (data.url) {
+                              const updatedData = {
+                                ...formState.data,
+                                featured_media_url: data.url,
+                                photo: formState.sheet === "testimonials" ? data.url : undefined
+                              };
+                              
+                              setFormState({
+                                ...formState,
+                                data: updatedData
+                              });
+
+                              // If we are in UPDATE (edit) mode, save directly to Google Sheets immediately
+                              if (formState.action === "update") {
+                                setIsSubmitting(true);
+                                const saveRes = await fetch(`/api/admin?endpoint=${encodeURIComponent(apiEndpoint)}`, {
+                                  method: "POST",
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                  },
+                                  body: JSON.stringify({
+                                    token: SECRET_TOKEN,
+                                    action: "update",
+                                    sheet: formState.sheet,
+                                    data: updatedData
+                                  })
+                                });
+                                const saveJson = await saveRes.json();
+                                if (saveJson.error) {
+                                  alert("Image uploaded, but failed to auto-save to Google Sheets: " + saveJson.error);
+                                } else {
+                                  alert("Image uploaded and saved to Google Sheets successfully!");
+                                  setIsModalOpen(false);
+                                  setFormState(null);
+                                  fetchData(apiEndpoint); // Refresh the list
+                                }
+                              }
+                            }
+                          } catch (err: any) {
+                            alert("Upload failed: " + err.message);
+                          } finally {
+                            setIsUploadingImage(false);
+                            setIsSubmitting(false);
+                          }
+                        }}
+                      />
+                    </label>
+                  </div>
                 </div>
               )}
 

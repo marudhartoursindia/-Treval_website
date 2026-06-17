@@ -1,21 +1,9 @@
-/**
- * GOOGLE APPS SCRIPT FOR MARUDHAR TOURS DATABASE CMS
- * 
- * Instructions:
- * 1. Open your Google Sheet ("travelwebsite" or any name).
- * 2. Click Extensions > Apps Script.
- * 3. Delete all code in Code.gs and paste this entire code.
- * 4. Click Save (💾).
- * 5. Run the "setupDatabase" function once by selecting it in the toolbar and clicking "Run".
- *    This will automatically create all tabs (packages, destinations, etc.) and write the correct headers.
- * 6. Deploy as Web App: Click Deploy > New deployment. Select type: Web app.
- *    Set "Execute as" to "Me", and "Who has access" to "Anyone".
- * 7. Copy the Web App URL and paste it in your Next.js project's .env file as NEXT_PUBLIC_GOOGLE_SHEET_API.
- */
+const SECRET_TOKEN = "MarudharToursSecureToken2026";
 
-const SECRET_TOKEN = "MarudharToursSecureToken2026"; // Must match your Next.js admin SECRET_TOKEN
+// ====== PASTE YOUR GOOGLE SHEET ID HERE ======
+const SPREADSHEET_ID = "1JsZWZVX9YO-8c_AgxNdA_Zb02H8Vrhc7645CgeDCqZ4";
 
-// 1. Database Schema Definitions
+// ====== DATABASE SCHEMAS ======
 const SCHEMAS = {
   packages: [
     "id", "slug", "title", "content", "excerpt", "featured_media_url",
@@ -25,190 +13,302 @@ const SCHEMAS = {
     "map_location", "booking_cta", "gallery_images", "destination_id",
     "categories_names", "seo_title", "seo_description"
   ],
+
   destinations: [
     "id", "slug", "title", "content", "excerpt", "featured_media_url",
     "gallery", "popular_attractions", "best_time_to_visit", "travel_tips"
   ],
+
   blogs: [
     "id", "slug", "title", "content", "excerpt", "featured_media_url",
-    "date", "categories_names", "tags_names", "seo_title", "seo_description"
+    "date", "categories_names", "tags_names",
+    "seo_title", "seo_description"
   ],
+
   testimonials: [
     "id", "title", "content", "rating", "location", "photo"
   ],
+
   faqs: [
     "id", "title", "answer", "category"
   ]
 };
 
-/**
- * Run this function once to set up all sheet tabs and correct headers.
- */
-function setupDatabase() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  
-  Object.keys(SCHEMAS).forEach(sheetName => {
-    let sheet = ss.getSheetByName(sheetName);
-    if (!sheet) {
-      sheet = ss.insertSheet(sheetName);
-      Logger.log(`Created sheet: ${sheetName}`);
-    } else {
-      Logger.log(`Sheet already exists: ${sheetName}`);
-    }
-    
-    // Set headers in the first row
-    const headers = SCHEMAS[sheetName];
-    sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
-    
-    // Format headers (bold text)
-    sheet.getRange(1, 1, 1, headers.length).setFontWeight("bold");
-  });
-  
-  Logger.log("Database sheets initialized successfully!");
+// ====== GET SPREADSHEET ======
+function getSpreadsheet() {
+  return SpreadsheetApp.openById(SPREADSHEET_ID);
 }
 
-/**
- * Handle HTTP GET Requests (Retrieves data from all sheets)
- */
+// ====== INITIAL DATABASE SETUP ======
+function setupDatabase() {
+  const ss = getSpreadsheet();
+
+  Object.keys(SCHEMAS).forEach(sheetName => {
+
+    let sheet = ss.getSheetByName(sheetName);
+
+    if (!sheet) {
+      sheet = ss.insertSheet(sheetName);
+    }
+
+    const headers = SCHEMAS[sheetName];
+
+    sheet.clear();
+
+    sheet
+      .getRange(1, 1, 1, headers.length)
+      .setValues([headers]);
+
+    sheet
+      .getRange(1, 1, 1, headers.length)
+      .setFontWeight("bold");
+  });
+
+  Logger.log("Database initialized successfully.");
+}
+
+// ====== GET DATA ======
 function doGet(e) {
   try {
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
+
+    const ss = getSpreadsheet();
+
     const result = {};
 
     Object.keys(SCHEMAS).forEach(sheetName => {
+
       const sheet = ss.getSheetByName(sheetName);
+
       if (!sheet) {
         result[sheetName] = [];
         return;
       }
-      
+
       const data = sheet.getDataRange().getValues();
+
       if (data.length <= 1) {
         result[sheetName] = [];
         return;
       }
 
       const headers = data[0];
-      const rows = data.slice(1);
-      
-      result[sheetName] = rows.map(row => {
+
+      result[sheetName] = data.slice(1).map(row => {
+
         const obj = {};
+
         headers.forEach((header, index) => {
-          let val = row[index];
-          // Try parsing JSON structures or array strings
-          if (typeof val === 'string' && (val.startsWith('[') || val.startsWith('{'))) {
+
+          let value = row[index];
+
+          if (
+            typeof value === "string" &&
+            (value.startsWith("[") || value.startsWith("{"))
+          ) {
             try {
-              val = JSON.parse(val);
-            } catch(err) {}
-          } else if (typeof val === 'string' && val.includes('\n')) {
-            val = val.split('\n').map(item => item.trim()).filter(Boolean);
+              value = JSON.parse(value);
+            } catch (err) {}
           }
-          obj[header] = val;
+
+          obj[header] = value;
         });
+
         return obj;
       });
     });
 
-    return ContentService.createTextOutput(JSON.stringify(result))
+    return ContentService
+      .createTextOutput(JSON.stringify(result))
       .setMimeType(ContentService.MimeType.JSON);
 
-  } catch (err) {
-    return ContentService.createTextOutput(JSON.stringify({ error: err.toString() }))
+  } catch (error) {
+
+    return ContentService
+      .createTextOutput(
+        JSON.stringify({
+          success: false,
+          error: error.toString()
+        })
+      )
       .setMimeType(ContentService.MimeType.JSON);
   }
 }
 
-/**
- * Handle HTTP POST Requests (Create, Update, Delete)
- */
+// ====== POST DATA ======
 function doPost(e) {
   try {
-    const postData = JSON.parse(e.postData.contents);
-    
-    // Security check
-    if (postData.token !== SECRET_TOKEN) {
-      return ContentService.createTextOutput(JSON.stringify({ error: "Unauthorized access" }))
+
+    const payload = JSON.parse(e.postData.contents);
+
+    if (payload.token !== SECRET_TOKEN) {
+
+      return ContentService
+        .createTextOutput(
+          JSON.stringify({
+            success: false,
+            error: "Unauthorized"
+          })
+        )
         .setMimeType(ContentService.MimeType.JSON);
     }
 
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const sheet = ss.getSheetByName(postData.sheet);
+    const ss = getSpreadsheet();
+
+    const sheet = ss.getSheetByName(payload.sheet);
+
     if (!sheet) {
-      return ContentService.createTextOutput(JSON.stringify({ error: `Sheet tab '${postData.sheet}' not found` }))
+
+      return ContentService
+        .createTextOutput(
+          JSON.stringify({
+            success: false,
+            error: "Sheet not found"
+          })
+        )
         .setMimeType(ContentService.MimeType.JSON);
     }
 
-    const action = postData.action; // create, update, delete
-    const itemData = postData.data;
+    const values = sheet.getDataRange().getValues();
 
-    const dataRange = sheet.getDataRange();
-    const values = dataRange.getValues();
     const headers = values[0];
 
+    const action = payload.action;
+
+    const item = payload.data;
+
+    // ===== CREATE =====
     if (action === "create") {
-      // Auto-increment ID if empty or not provided
-      if (!itemData.id) {
+
+      if (!item.id) {
+
         let maxId = 0;
+
         for (let i = 1; i < values.length; i++) {
-          const id = Number(values[i][0]);
-          if (id > maxId) maxId = id;
+
+          const currentId = Number(values[i][0]);
+
+          if (currentId > maxId) {
+            maxId = currentId;
+          }
         }
-        itemData.id = maxId + 1;
+
+        item.id = maxId + 1;
       }
-      
-      const newRow = headers.map(header => {
-        let val = itemData[header];
-        if (val === undefined || val === null) return "";
-        if (typeof val === 'object') {
-          val = JSON.stringify(val);
+
+      const row = headers.map(header => {
+
+        let value = item[header];
+
+        if (value === undefined || value === null) {
+          return "";
         }
-        return val;
+
+        if (typeof value === "object") {
+          return JSON.stringify(value);
+        }
+
+        return value;
       });
-      
-      sheet.appendRow(newRow);
-      return ContentService.createTextOutput(JSON.stringify({ success: true, id: itemData.id }))
+
+      sheet.appendRow(row);
+
+      return ContentService
+        .createTextOutput(
+          JSON.stringify({
+            success: true,
+            id: item.id
+          })
+        )
         .setMimeType(ContentService.MimeType.JSON);
     }
 
-    // Find row index by matching ID column (column A / index 0)
-    let targetRowIndex = -1;
+    // ===== FIND ROW =====
+    let rowNumber = -1;
+
     for (let i = 1; i < values.length; i++) {
-      if (Number(values[i][0]) === Number(itemData.id)) {
-        targetRowIndex = i + 1; // 1-indexed (including headers row)
+
+      if (Number(values[i][0]) === Number(item.id)) {
+
+        rowNumber = i + 1;
         break;
       }
     }
 
-    if (targetRowIndex === -1) {
-      return ContentService.createTextOutput(JSON.stringify({ error: `Record ID ${itemData.id} not found` }))
+    if (rowNumber === -1) {
+
+      return ContentService
+        .createTextOutput(
+          JSON.stringify({
+            success: false,
+            error: "Record not found"
+          })
+        )
         .setMimeType(ContentService.MimeType.JSON);
     }
 
+    // ===== UPDATE =====
     if (action === "update") {
+
       const updatedRow = headers.map(header => {
-        let val = itemData[header];
-        if (val === undefined || val === null) return "";
-        if (typeof val === 'object') {
-          val = JSON.stringify(val);
+
+        let value = item[header];
+
+        if (value === undefined || value === null) {
+          return "";
         }
-        return val;
+
+        if (typeof value === "object") {
+          return JSON.stringify(value);
+        }
+
+        return value;
       });
-      sheet.getRange(targetRowIndex, 1, 1, headers.length).setValues([updatedRow]);
-      return ContentService.createTextOutput(JSON.stringify({ success: true }))
+
+      sheet
+        .getRange(rowNumber, 1, 1, headers.length)
+        .setValues([updatedRow]);
+
+      return ContentService
+        .createTextOutput(
+          JSON.stringify({
+            success: true
+          })
+        )
         .setMimeType(ContentService.MimeType.JSON);
     }
 
+    // ===== DELETE =====
     if (action === "delete") {
-      sheet.deleteRow(targetRowIndex);
-      return ContentService.createTextOutput(JSON.stringify({ success: true }))
+
+      sheet.deleteRow(rowNumber);
+
+      return ContentService
+        .createTextOutput(
+          JSON.stringify({
+            success: true
+          })
+        )
         .setMimeType(ContentService.MimeType.JSON);
     }
 
-    return ContentService.createTextOutput(JSON.stringify({ error: `Unknown action: ${action}` }))
+    return ContentService
+      .createTextOutput(
+        JSON.stringify({
+          success: false,
+          error: "Invalid action"
+        })
+      )
       .setMimeType(ContentService.MimeType.JSON);
 
-  } catch (err) {
-    return ContentService.createTextOutput(JSON.stringify({ error: err.toString() }))
+  } catch (error) {
+
+    return ContentService
+      .createTextOutput(
+        JSON.stringify({
+          success: false,
+          error: error.toString()
+        })
+      )
       .setMimeType(ContentService.MimeType.JSON);
   }
 }
