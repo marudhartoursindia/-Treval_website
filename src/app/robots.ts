@@ -8,6 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
       disallow: [
+        "/admin/",
         "/wp-admin/",
         "/wp-includes/",
         "/api/",

@@ -40,11 +40,32 @@ export function InquiryForm({ packageName }: InquiryFormProps) {
 
   const onSubmit = async (data: InquiryFormValues) => {
     setIsSubmitting(true);
-    // Simulate API submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setSubmitSuccess(true);
-    reset();
+    try {
+      const endpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/placeholder";
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          ...data,
+          packageName: packageName, // include package detail
+        }),
+      });
+      if (response.ok) {
+        setSubmitSuccess(true);
+        reset();
+      } else {
+        const errData = await response.json();
+        alert(errData.error || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Failed to send inquiry. Please check your internet connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
