@@ -12,7 +12,7 @@ export async function POST(request: Request) {
 
     // Upload directly to Vercel Blob storage
     const blob = await put(file.name, file, {
-      access: "public",
+      access: "private",
     });
 
     // Return the uploaded image URL

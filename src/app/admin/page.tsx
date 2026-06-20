@@ -578,8 +578,11 @@ export default function AdminPage() {
                               method: "POST",
                               body: formData,
                             });
-                            if (!res.ok) throw new Error("Upload failed");
-                            const data = await res.json();
+                             if (!res.ok) {
+                               const errData = await res.json().catch(() => ({}));
+                               throw new Error(errData.error || "Upload failed");
+                             }
+                             const data = await res.json();
                             if (data.url) {
                               const updatedData = {
                                 ...formState.data,
