@@ -98,6 +98,51 @@ export default function AdminPage() {
     e.preventDefault();
     if (!formState || !apiEndpoint) return;
     setIsSubmitting(true);
+    
+    const processedData = { ...formState.data };
+    if (formState.sheet === "packages") {
+      processedData.highlights = typeof processedData.highlights === "string" ? processedData.highlights.split("\n").map((s: string) => s.trim()).filter(Boolean) : (processedData.highlights || []);
+      processedData.included_services = typeof processedData.included_services === "string" ? processedData.included_services.split("\n").map((s: string) => s.trim()).filter(Boolean) : (processedData.included_services || []);
+      processedData.excluded_services = typeof processedData.excluded_services === "string" ? processedData.excluded_services.split("\n").map((s: string) => s.trim()).filter(Boolean) : (processedData.excluded_services || []);
+      processedData.gallery_images = typeof processedData.gallery_images === "string" ? processedData.gallery_images.split("\n").map((s: string) => s.trim()).filter(Boolean) : (processedData.gallery_images || []);
+      processedData.categories_names = typeof processedData.categories_names === "string" ? processedData.categories_names.split("\n").map((s: string) => s.trim()).filter(Boolean) : (processedData.categories_names || []);
+
+      if (typeof processedData.day_wise_itinerary === "string") {
+        try {
+          processedData.day_wise_itinerary = JSON.parse(processedData.day_wise_itinerary);
+        } catch (err) {
+          alert("Invalid JSON syntax in Day-wise Itinerary. It must be a valid JSON array.");
+          setIsSubmitting(false);
+          return;
+        }
+      }
+      if (typeof processedData.faq === "string") {
+        try {
+          processedData.faq = JSON.parse(processedData.faq);
+        } catch (err) {
+          alert("Invalid JSON syntax in FAQ. It must be a valid JSON array.");
+          setIsSubmitting(false);
+          return;
+        }
+      }
+      
+      if (processedData.price !== undefined) processedData.price = Number(processedData.price);
+      if (processedData.discount_price !== "" && processedData.discount_price !== undefined && processedData.discount_price !== null) {
+        processedData.discount_price = Number(processedData.discount_price);
+      } else {
+        delete processedData.discount_price;
+      }
+      if (processedData.destination_id !== "" && processedData.destination_id !== undefined && processedData.destination_id !== null) {
+        processedData.destination_id = Number(processedData.destination_id);
+      } else {
+        delete processedData.destination_id;
+      }
+    } else if (formState.sheet === "destinations") {
+      processedData.gallery = typeof processedData.gallery === "string" ? processedData.gallery.split("\n").map((s: string) => s.trim()).filter(Boolean) : (processedData.gallery || []);
+      processedData.popular_attractions = typeof processedData.popular_attractions === "string" ? processedData.popular_attractions.split("\n").map((s: string) => s.trim()).filter(Boolean) : (processedData.popular_attractions || []);
+      processedData.travel_tips = typeof processedData.travel_tips === "string" ? processedData.travel_tips.split("\n").map((s: string) => s.trim()).filter(Boolean) : (processedData.travel_tips || []);
+    }
+
     try {
       const response = await fetch(`/api/admin?endpoint=${encodeURIComponent(apiEndpoint)}`, {
         method: "POST",
@@ -108,7 +153,7 @@ export default function AdminPage() {
           token: SECRET_TOKEN,
           action: formState.action,
           sheet: formState.sheet,
-          data: formState.data
+          data: processedData
         })
       });
 
@@ -141,16 +186,16 @@ export default function AdminPage() {
     if (tab === "packages") {
       initialData = {
         id: "", slug: "", title: "", content: "", excerpt: "", featured_media_url: "",
-        duration: "", price: 0, discount_price: "", highlights: [], overview: "",
-        day_wise_itinerary: [], included_services: [], excluded_services: [],
-        hotel_information: "", transportation_information: "", faq: [],
-        map_location: "", booking_cta: "", gallery_images: [], destination_id: "",
-        categories_names: [], seo_title: "", seo_description: ""
+        duration: "", price: 0, discount_price: "", highlights: "", overview: "",
+        day_wise_itinerary: "[]", included_services: "", excluded_services: "",
+        hotel_information: "", transportation_information: "", faq: "[]",
+        map_location: "", booking_cta: "", gallery_images: "", destination_id: "",
+        categories_names: "", seo_title: "", seo_description: ""
       };
     } else if (tab === "destinations") {
       initialData = {
         id: "", slug: "", title: "", content: "", excerpt: "", featured_media_url: "",
-        gallery: [], popular_attractions: [], best_time_to_visit: "", travel_tips: []
+        gallery: "", popular_attractions: "", best_time_to_visit: "", travel_tips: []
       };
     } else if (tab === "blogs") {
       initialData = {
@@ -173,10 +218,42 @@ export default function AdminPage() {
   };
 
   const openEditModal = (tab: string, item: any) => {
+    const formattedItem = { ...item };
+    if (tab === "packages") {
+      formattedItem.highlights = Array.isArray(item.meta?.highlights || item.highlights) ? (item.meta?.highlights || item.highlights).join("\n") : (item.meta?.highlights || item.highlights || "");
+      formattedItem.included_services = Array.isArray(item.meta?.included_services || item.included_services) ? (item.meta?.included_services || item.included_services).join("\n") : (item.meta?.included_services || item.included_services || "");
+      formattedItem.excluded_services = Array.isArray(item.meta?.excluded_services || item.excluded_services) ? (item.meta?.excluded_services || item.excluded_services).join("\n") : (item.meta?.excluded_services || item.excluded_services || "");
+      formattedItem.gallery_images = Array.isArray(item.meta?.gallery_images || item.gallery_images) ? (item.meta?.gallery_images || item.gallery_images).join("\n") : (item.meta?.gallery_images || item.gallery_images || "");
+      formattedItem.categories_names = Array.isArray(item.categories_names) ? item.categories_names.join("\n") : (item.categories_names || "");
+      
+      const rawItinerary = item.meta?.day_wise_itinerary || item.day_wise_itinerary;
+      formattedItem.day_wise_itinerary = rawItinerary ? (typeof rawItinerary === "string" ? rawItinerary : JSON.stringify(rawItinerary, null, 2)) : "[]";
+      
+      const rawFaq = item.meta?.faq || item.faq;
+      formattedItem.faq = rawFaq ? (typeof rawFaq === "string" ? rawFaq : JSON.stringify(rawFaq, null, 2)) : "[]";
+
+      // Flatten meta properties for editing
+      formattedItem.duration = item.meta?.duration || item.duration || "";
+      formattedItem.price = item.meta?.price !== undefined ? item.meta?.price : (item.price || 0);
+      formattedItem.discount_price = item.meta?.discount_price !== undefined ? item.meta?.discount_price : (item.discount_price || "");
+      formattedItem.overview = item.meta?.overview || item.overview || "";
+      formattedItem.hotel_information = item.meta?.hotel_information || item.hotel_information || "";
+      formattedItem.transportation_information = item.meta?.transportation_information || item.transportation_information || "";
+      formattedItem.map_location = item.meta?.map_location || item.map_location || "";
+      formattedItem.booking_cta = item.meta?.booking_cta || item.booking_cta || "";
+      formattedItem.destination_id = item.meta?.destination_id !== undefined ? item.meta?.destination_id : (item.destination_id || "");
+      formattedItem.seo_title = item.meta?.seo_title || item.seo_title || "";
+      formattedItem.seo_description = item.meta?.seo_description || item.seo_description || "";
+    } else if (tab === "destinations") {
+      formattedItem.gallery = Array.isArray(item.meta?.gallery || item.gallery) ? (item.meta?.gallery || item.gallery).join("\n") : (item.meta?.gallery || item.gallery || "");
+      formattedItem.popular_attractions = Array.isArray(item.meta?.popular_attractions || item.popular_attractions) ? (item.meta?.popular_attractions || item.popular_attractions).join("\n") : (item.meta?.popular_attractions || item.popular_attractions || "");
+      formattedItem.travel_tips = Array.isArray(item.meta?.travel_tips || item.travel_tips) ? (item.meta?.travel_tips || item.travel_tips).join("\n") : (item.meta?.travel_tips || item.travel_tips || "");
+      formattedItem.best_time_to_visit = item.meta?.best_time_to_visit || item.best_time_to_visit || "";
+    }
     setFormState({
       sheet: tab,
       action: "update",
-      data: { ...item }
+      data: formattedItem
     });
     setIsModalOpen(true);
   };
@@ -538,6 +615,230 @@ export default function AdminPage() {
                       })}
                       className="w-full bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground resize-none"
                     />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="space-y-1">
+                      <label className="text-[9px] uppercase tracking-wider text-foreground/50 font-bold block">Destination ID</label>
+                      <input
+                        type="number"
+                        value={formState.data.destination_id || ""}
+                        onChange={(e) => setFormState({
+                          ...formState,
+                          data: { ...formState.data, destination_id: e.target.value }
+                        })}
+                        className="w-full bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground"
+                        placeholder="e.g. 101"
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="text-[9px] uppercase tracking-wider text-foreground/50 font-bold block">Map Location</label>
+                      <input
+                        type="text"
+                        value={formState.data.map_location || ""}
+                        onChange={(e) => setFormState({
+                          ...formState,
+                          data: { ...formState.data, map_location: e.target.value }
+                        })}
+                        className="w-full bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground"
+                        placeholder="e.g. Rajasthan, India"
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="text-[9px] uppercase tracking-wider text-foreground/50 font-bold block">Booking CTA</label>
+                      <input
+                        type="text"
+                        value={formState.data.booking_cta || ""}
+                        onChange={(e) => setFormState({
+                          ...formState,
+                          data: { ...formState.data, booking_cta: e.target.value }
+                        })}
+                        className="w-full bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground"
+                        placeholder="e.g. Book Royal Tour"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <label className="text-[9px] uppercase tracking-wider text-foreground/50 font-bold block">Hotel Information</label>
+                      <input
+                        type="text"
+                        value={formState.data.hotel_information || ""}
+                        onChange={(e) => setFormState({
+                          ...formState,
+                          data: { ...formState.data, hotel_information: e.target.value }
+                        })}
+                        className="w-full bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground"
+                        placeholder="e.g. Taj Rambagh Palace / ITC Rajputana"
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="text-[9px] uppercase tracking-wider text-foreground/50 font-bold block">Transportation Info</label>
+                      <input
+                        type="text"
+                        value={formState.data.transportation_information || ""}
+                        onChange={(e) => setFormState({
+                          ...formState,
+                          data: { ...formState.data, transportation_information: e.target.value }
+                        })}
+                        className="w-full bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground"
+                        placeholder="e.g. Private luxury SUV with chauffeur"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <label className="text-[9px] uppercase tracking-wider text-foreground/50 font-bold block">Highlights (One per line)</label>
+                      <textarea
+                        rows={3}
+                        value={formState.data.highlights || ""}
+                        onChange={(e) => setFormState({
+                          ...formState,
+                          data: { ...formState.data, highlights: e.target.value }
+                        })}
+                        className="w-full bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground"
+                        placeholder="Private VIP tour of Amber Fort..."
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="text-[9px] uppercase tracking-wider text-foreground/50 font-bold block">Gallery Image URLs (One per line)</label>
+                      <textarea
+                        rows={3}
+                        value={formState.data.gallery_images || ""}
+                        onChange={(e) => setFormState({
+                          ...formState,
+                          data: { ...formState.data, gallery_images: e.target.value }
+                        })}
+                        className="w-full bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground"
+                        placeholder="https://images.unsplash.com/..."
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <label className="text-[9px] uppercase tracking-wider text-foreground/50 font-bold block">Included Services (One per line)</label>
+                      <textarea
+                        rows={3}
+                        value={formState.data.included_services || ""}
+                        onChange={(e) => setFormState({
+                          ...formState,
+                          data: { ...formState.data, included_services: e.target.value }
+                        })}
+                        className="w-full bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground"
+                        placeholder="5-star heritage hotel accommodations..."
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="text-[9px] uppercase tracking-wider text-foreground/50 font-bold block">Excluded Services (One per line)</label>
+                      <textarea
+                        rows={3}
+                        value={formState.data.excluded_services || ""}
+                        onChange={(e) => setFormState({
+                          ...formState,
+                          data: { ...formState.data, excluded_services: e.target.value }
+                        })}
+                        className="w-full bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground"
+                        placeholder="Meals not specified..."
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-[9px] uppercase tracking-wider text-foreground/50 font-bold block">Day-wise Itinerary (JSON Format)</label>
+                    <textarea
+                      rows={5}
+                      value={formState.data.day_wise_itinerary || ""}
+                      onChange={(e) => setFormState({
+                        ...formState,
+                        data: { ...formState.data, day_wise_itinerary: e.target.value }
+                      })}
+                      className="w-full bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground font-mono resize-y"
+                      placeholder='[
+  { "day": 1, "title": "Arrival in Jaipur", "description": "Check in..." },
+  { "day": 2, "title": "Amber Fort Conquest", "description": "Explore..." }
+]'
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-[9px] uppercase tracking-wider text-foreground/50 font-bold block">Package FAQ (JSON Format)</label>
+                    <textarea
+                      rows={4}
+                      value={formState.data.faq || ""}
+                      onChange={(e) => setFormState({
+                        ...formState,
+                        data: { ...formState.data, faq: e.target.value }
+                      })}
+                      className="w-full bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground font-mono resize-y"
+                      placeholder='[
+  { "question": "Is this customizable?", "answer": "Yes..." }
+]'
+                    />
+                  </div>
+                </>
+              )}
+
+              {formState.sheet === "destinations" && (
+                <>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <label className="text-[9px] uppercase tracking-wider text-foreground/50 font-bold block">Best Time to Visit</label>
+                      <input
+                        type="text"
+                        value={formState.data.best_time_to_visit || ""}
+                        onChange={(e) => setFormState({
+                          ...formState,
+                          data: { ...formState.data, best_time_to_visit: e.target.value }
+                        })}
+                        className="w-full bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground"
+                        placeholder="e.g. October to March"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="space-y-1">
+                      <label className="text-[9px] uppercase tracking-wider text-foreground/50 font-bold block">Popular Attractions (One per line)</label>
+                      <textarea
+                        rows={3}
+                        value={formState.data.popular_attractions || ""}
+                        onChange={(e) => setFormState({
+                          ...formState,
+                          data: { ...formState.data, popular_attractions: e.target.value }
+                        })}
+                        className="w-full bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground"
+                        placeholder="Hawa Mahal&#10;Amber Fort&#10;City Palace"
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="text-[9px] uppercase tracking-wider text-foreground/50 font-bold block">Gallery Images (One per line)</label>
+                      <textarea
+                        rows={3}
+                        value={formState.data.gallery || ""}
+                        onChange={(e) => setFormState({
+                          ...formState,
+                          data: { ...formState.data, gallery: e.target.value }
+                        })}
+                        className="w-full bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground"
+                        placeholder="https://images.unsplash.com/..."
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="text-[9px] uppercase tracking-wider text-foreground/50 font-bold block">Travel Tips (One per line)</label>
+                      <textarea
+                        rows={3}
+                        value={formState.data.travel_tips || ""}
+                        onChange={(e) => setFormState({
+                          ...formState,
+                          data: { ...formState.data, travel_tips: e.target.value }
+                        })}
+                        className="w-full bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground"
+                        placeholder="Hire a local guide...&#10;Try Makhaniya Lassi..."
+                      />
+                    </div>
                   </div>
                 </>
               )}
