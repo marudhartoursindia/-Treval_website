@@ -213,7 +213,7 @@ export default function GoldenTrianglePage() {
   return (
     <div className="flex flex-col">
       {/* Hero Banner Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center bg-stone-950 py-20 px-6 -mt-[72px] overflow-hidden">
+      <section className="relative min-h-[50vh] md:min-h-[80vh] flex items-center justify-center bg-stone-950 py-20 px-6 -mt-[72px] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/85 z-10" />
         <div className="absolute inset-0 z-0">
           <Image

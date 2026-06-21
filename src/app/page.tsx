@@ -56,7 +56,7 @@ export default async function HomePage() {
   return (
     <div className="flex flex-col">
       {/* 1. Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center bg-stone-950 py-20 px-6 -mt-[72px] overflow-hidden">
+      <section className="relative min-h-[55vh] md:min-h-[90vh] flex items-center justify-center bg-stone-950 py-20 px-6 -mt-[72px] overflow-hidden">
         {/* Background visual */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/80 z-10" />
         <HeroSlideshow />
