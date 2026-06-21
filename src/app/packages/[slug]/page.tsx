@@ -9,6 +9,9 @@ import { PackageCard } from "@/components/package/PackageCard";
 import { Accordion } from "@/components/ui/Accordion";
 import { formatPrice } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }

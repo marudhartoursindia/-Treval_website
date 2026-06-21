@@ -677,19 +677,38 @@ let cachedSheetsData: SheetsData | null = null;
 let lastFetchTime = 0;
 const CACHE_TTL = 10000; // 10 seconds
 
+function parseArrayField(value: any): string[] {
+  if (Array.isArray(value)) {
+    return value.map(item => String(item).trim()).filter(Boolean);
+  }
+  if (typeof value === "string") {
+    const trimmed = value.trim();
+    if (trimmed.startsWith("[") && trimmed.endsWith("]")) {
+      try {
+        const parsed = JSON.parse(trimmed);
+        if (Array.isArray(parsed)) {
+          return parsed.map(item => String(item).trim()).filter(Boolean);
+        }
+      } catch (e) {
+        // ignore and fallback
+      }
+    }
+    return trimmed
+      .split(/\r?\n|,/)
+      .map(item => item.trim())
+      .filter(Boolean);
+  }
+  return [];
+}
+
 async function getSheetsData(): Promise<SheetsData> {
   console.log("getSheetsData called. API URL:", GOOGLE_SHEET_API);
-  const now = Date.now();
-  if (cachedSheetsData && (now - lastFetchTime < CACHE_TTL)) {
-    console.log("Returning cachedSheetsData (cache hit)");
-    return cachedSheetsData;
-  }
   if (!GOOGLE_SHEET_API) {
     throw new Error("Google Sheet API URL is not defined.");
   }
   try {
     const res = await fetch(GOOGLE_SHEET_API, {
-      next: { revalidate: 10 } // Cache for 10 seconds
+      cache: "no-store"
     });
     if (!res.ok) {
       throw new Error(`Failed to fetch from Google Sheets API: ${res.statusText}`);
@@ -706,22 +725,22 @@ async function getSheetsData(): Promise<SheetsData> {
       content: { rendered: p.content || "" },
       excerpt: { rendered: p.excerpt || "" },
       featured_media_url: p.featured_media_url || "",
-      categories_names: Array.isArray(p.categories_names) ? p.categories_names : [],
+      categories_names: parseArrayField(p.categories_names),
       meta: {
         duration: p.duration || "",
         price: Number(p.price || 0),
         discount_price: p.discount_price ? Number(p.discount_price) : undefined,
-        highlights: Array.isArray(p.highlights) ? p.highlights : [],
+        highlights: parseArrayField(p.highlights),
         overview: p.overview || "",
         day_wise_itinerary: Array.isArray(p.day_wise_itinerary) ? p.day_wise_itinerary : [],
-        included_services: Array.isArray(p.included_services) ? p.included_services : [],
-        excluded_services: Array.isArray(p.excluded_services) ? p.excluded_services : [],
+        included_services: parseArrayField(p.included_services),
+        excluded_services: parseArrayField(p.excluded_services),
         hotel_information: p.hotel_information || "",
         transportation_information: p.transportation_information || "",
         faq: Array.isArray(p.faq) ? p.faq : [],
         map_location: p.map_location || "",
         booking_cta: p.booking_cta || "",
-        gallery_images: Array.isArray(p.gallery_images) ? p.gallery_images : [],
+        gallery_images: parseArrayField(p.gallery_images),
         destination_id: p.destination_id ? Number(p.destination_id) : undefined,
         seo_title: p.seo_title || "",
         seo_description: p.seo_description || ""
@@ -735,10 +754,10 @@ async function getSheetsData(): Promise<SheetsData> {
       excerpt: { rendered: d.excerpt || "" },
       featured_media_url: d.featured_media_url || "",
       meta: {
-        gallery: Array.isArray(d.gallery) ? d.gallery : [],
-        popular_attractions: Array.isArray(d.popular_attractions) ? d.popular_attractions : [],
+        gallery: parseArrayField(d.gallery),
+        popular_attractions: parseArrayField(d.popular_attractions),
         best_time_to_visit: d.best_time_to_visit || "",
-        travel_tips: Array.isArray(d.travel_tips) ? d.travel_tips : []
+        travel_tips: parseArrayField(d.travel_tips)
       }
     })),
     blogs: (rawData.blogs || []).map((b: any) => ({
@@ -749,8 +768,8 @@ async function getSheetsData(): Promise<SheetsData> {
       excerpt: { rendered: b.excerpt || "" },
       date: b.date || "",
       featured_media_url: b.featured_media_url || "",
-      categories_names: Array.isArray(b.categories_names) ? b.categories_names : [],
-      tags_names: Array.isArray(b.tags_names) ? b.tags_names : [],
+      categories_names: parseArrayField(b.categories_names),
+      tags_names: parseArrayField(b.tags_names),
       meta: {
         seo_title: b.seo_title || "",
         seo_description: b.seo_description || ""
@@ -776,8 +795,6 @@ async function getSheetsData(): Promise<SheetsData> {
     }))
   };
   
-  cachedSheetsData = formattedData;
-  lastFetchTime = now;
   return formattedData;
   } catch (error: any) {
     console.error("Error in getSheetsData:", error);

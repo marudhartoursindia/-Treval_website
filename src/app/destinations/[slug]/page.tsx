@@ -8,6 +8,9 @@ import { getDestinationSchema } from "@/lib/seo";
 import { PackageCard } from "@/components/package/PackageCard";
 import { Button } from "@/components/ui/Button";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
