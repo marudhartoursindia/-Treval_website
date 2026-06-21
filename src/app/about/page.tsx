@@ -51,7 +51,7 @@ export default function AboutPage() {
 
       {/* Story Details */}
       <section className="py-20 px-6 max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <div className="relative h-96 w-full bg-stone-100 border border-[var(--border-color)]">
+        <div className="relative h-100 w-full bg-stone-100 border border-[var(--border-color)]">
           <Image
             src="/about.jpeg"
             alt="Scenic sailing vessel representing voyage"
