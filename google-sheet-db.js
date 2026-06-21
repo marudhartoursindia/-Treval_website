@@ -226,9 +226,10 @@ function doPost(e) {
     let rowNumber = -1;
 
     for (let i = 1; i < values.length; i++) {
+      const rowId = String(values[i][0]).trim();
+      const itemId = String(item.id).trim();
 
-      if (Number(values[i][0]) === Number(item.id)) {
-
+      if (rowId === itemId || (Number(rowId) === Number(itemId) && !isNaN(Number(rowId)) && !isNaN(Number(itemId)))) {
         rowNumber = i + 1;
         break;
       }
