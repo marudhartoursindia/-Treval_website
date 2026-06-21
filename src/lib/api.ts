@@ -654,21 +654,33 @@ async function fetchFromWP<T>(endpoint: string, tags?: string[]): Promise<T> {
 
 export async function getDestinations(): Promise<Destination[]> {
   try {
+    let destinations: Destination[] = [];
     if (GOOGLE_SHEET_API) {
       const data = await getSheetsData();
-      return data.destinations;
+      destinations = data.destinations || [];
+    } else if (WP_API_URL) {
+      const data = await fetchFromWP<any[]>("destination", ["destinations"]);
+      destinations = data.map(item => ({
+        id: item.id,
+        slug: item.slug,
+        title: item.title,
+        content: item.content,
+        excerpt: item.excerpt,
+        featured_media_url: item._embedded?.["wp:featuredmedia"]?.[0]?.source_url || item.featured_media_url,
+        meta: item.meta || { gallery: [], popular_attractions: [], best_time_to_visit: "", travel_tips: [] }
+      }));
     }
-    if (!WP_API_URL) return MOCK_DESTINATIONS;
-    const data = await fetchFromWP<any[]>("destination", ["destinations"]);
-    return data.map(item => ({
-      id: item.id,
-      slug: item.slug,
-      title: item.title,
-      content: item.content,
-      excerpt: item.excerpt,
-      featured_media_url: item._embedded?.["wp:featuredmedia"]?.[0]?.source_url || item.featured_media_url,
-      meta: item.meta || { gallery: [], popular_attractions: [], best_time_to_visit: "", travel_tips: [] }
-    }));
+
+    if (destinations.length === 0) {
+      return MOCK_DESTINATIONS;
+    }
+    const combined = [...destinations];
+    for (const mock of MOCK_DESTINATIONS) {
+      if (!combined.some(d => d.slug === mock.slug)) {
+        combined.push(mock);
+      }
+    }
+    return combined;
   } catch (error) {
     console.warn("getDestinations: Failed fetching from API. Falling back to mock data.", error);
     return MOCK_DESTINATIONS;
@@ -679,23 +691,25 @@ export async function getDestinationBySlug(slug: string): Promise<Destination | 
   try {
     if (GOOGLE_SHEET_API) {
       const data = await getSheetsData();
-      return data.destinations.find(d => d.slug === slug) || null;
+      const found = data.destinations.find(d => d.slug === slug);
+      if (found) return found;
     }
-    if (!WP_API_URL) {
-      return MOCK_DESTINATIONS.find(d => d.slug === slug) || null;
+    if (WP_API_URL) {
+      const data = await fetchFromWP<any[]>(`destination?slug=${slug}`, [`destination-${slug}`]);
+      if (data.length) {
+        const item = data[0];
+        return {
+          id: item.id,
+          slug: item.slug,
+          title: item.title,
+          content: item.content,
+          excerpt: item.excerpt,
+          featured_media_url: item._embedded?.["wp:featuredmedia"]?.[0]?.source_url,
+          meta: item.meta
+        };
+      }
     }
-    const data = await fetchFromWP<any[]>(`destination?slug=${slug}`, [`destination-${slug}`]);
-    if (!data.length) return null;
-    const item = data[0];
-    return {
-      id: item.id,
-      slug: item.slug,
-      title: item.title,
-      content: item.content,
-      excerpt: item.excerpt,
-      featured_media_url: item._embedded?.["wp:featuredmedia"]?.[0]?.source_url,
-      meta: item.meta
-    };
+    return MOCK_DESTINATIONS.find(d => d.slug === slug) || null;
   } catch (error) {
     console.warn(`getDestinationBySlug(${slug}): Falling back to mock data.`, error);
     return MOCK_DESTINATIONS.find(d => d.slug === slug) || null;
@@ -704,22 +718,34 @@ export async function getDestinationBySlug(slug: string): Promise<Destination | 
 
 export async function getTravelPackages(): Promise<TravelPackage[]> {
   try {
+    let packages: TravelPackage[] = [];
     if (GOOGLE_SHEET_API) {
       const data = await getSheetsData();
-      return data.packages;
+      packages = data.packages || [];
+    } else if (WP_API_URL) {
+      const data = await fetchFromWP<any[]>("travel-package", ["packages"]);
+      packages = data.map(item => ({
+        id: item.id,
+        slug: item.slug,
+        title: item.title,
+        content: item.content,
+        excerpt: item.excerpt,
+        featured_media_url: item._embedded?.["wp:featuredmedia"]?.[0]?.source_url || item.featured_media_url,
+        categories_names: item._embedded?.["wp:term"]?.[0]?.map((t: any) => t.name) || [],
+        meta: item.meta
+      }));
     }
-    if (!WP_API_URL) return MOCK_PACKAGES;
-    const data = await fetchFromWP<any[]>("travel-package", ["packages"]);
-    return data.map(item => ({
-      id: item.id,
-      slug: item.slug,
-      title: item.title,
-      content: item.content,
-      excerpt: item.excerpt,
-      featured_media_url: item._embedded?.["wp:featuredmedia"]?.[0]?.source_url || item.featured_media_url,
-      categories_names: item._embedded?.["wp:term"]?.[0]?.map((t: any) => t.name) || [],
-      meta: item.meta
-    }));
+
+    if (packages.length === 0) {
+      return MOCK_PACKAGES;
+    }
+    const combined = [...packages];
+    for (const mock of MOCK_PACKAGES) {
+      if (!combined.some(p => p.slug === mock.slug)) {
+        combined.push(mock);
+      }
+    }
+    return combined;
   } catch (error) {
     console.warn("getTravelPackages: Failed fetching from API. Falling back to mock data.", error);
     return MOCK_PACKAGES;
@@ -730,24 +756,26 @@ export async function getTravelPackageBySlug(slug: string): Promise<TravelPackag
   try {
     if (GOOGLE_SHEET_API) {
       const data = await getSheetsData();
-      return data.packages.find(p => p.slug === slug) || null;
+      const found = data.packages.find(p => p.slug === slug);
+      if (found) return found;
     }
-    if (!WP_API_URL) {
-      return MOCK_PACKAGES.find(p => p.slug === slug) || null;
+    if (WP_API_URL) {
+      const data = await fetchFromWP<any[]>(`travel-package?slug=${slug}`, [`package-${slug}`]);
+      if (data.length) {
+        const item = data[0];
+        return {
+          id: item.id,
+          slug: item.slug,
+          title: item.title,
+          content: item.content,
+          excerpt: item.excerpt,
+          featured_media_url: item._embedded?.["wp:featuredmedia"]?.[0]?.source_url,
+          categories_names: item._embedded?.["wp:term"]?.[0]?.map((t: any) => t.name) || [],
+          meta: item.meta
+        };
+      }
     }
-    const data = await fetchFromWP<any[]>(`travel-package?slug=${slug}`, [`package-${slug}`]);
-    if (!data.length) return null;
-    const item = data[0];
-    return {
-      id: item.id,
-      slug: item.slug,
-      title: item.title,
-      content: item.content,
-      excerpt: item.excerpt,
-      featured_media_url: item._embedded?.["wp:featuredmedia"]?.[0]?.source_url,
-      categories_names: item._embedded?.["wp:term"]?.[0]?.map((t: any) => t.name) || [],
-      meta: item.meta
-    };
+    return MOCK_PACKAGES.find(p => p.slug === slug) || null;
   } catch (error) {
     console.warn(`getTravelPackageBySlug(${slug}): Falling back to mock data.`, error);
     return MOCK_PACKAGES.find(p => p.slug === slug) || null;
@@ -756,18 +784,30 @@ export async function getTravelPackageBySlug(slug: string): Promise<TravelPackag
 
 export async function getTestimonials(): Promise<Testimonial[]> {
   try {
+    let testimonials: Testimonial[] = [];
     if (GOOGLE_SHEET_API) {
       const data = await getSheetsData();
-      return data.testimonials;
+      testimonials = data.testimonials || [];
+    } else if (WP_API_URL) {
+      const data = await fetchFromWP<any[]>("testimonial", ["testimonials"]);
+      testimonials = data.map(item => ({
+        id: item.id,
+        title: item.title,
+        content: item.content,
+        meta: item.meta
+      }));
     }
-    if (!WP_API_URL) return MOCK_TESTIMONIALS;
-    const data = await fetchFromWP<any[]>("testimonial", ["testimonials"]);
-    return data.map(item => ({
-      id: item.id,
-      title: item.title,
-      content: item.content,
-      meta: item.meta
-    }));
+
+    if (testimonials.length === 0) {
+      return MOCK_TESTIMONIALS;
+    }
+    const combined = [...testimonials];
+    for (const mock of MOCK_TESTIMONIALS) {
+      if (!combined.some(t => t.id === mock.id)) {
+        combined.push(mock);
+      }
+    }
+    return combined;
   } catch (error) {
     console.warn("getTestimonials: Falling back to mock data.", error);
     return MOCK_TESTIMONIALS;
@@ -776,17 +816,29 @@ export async function getTestimonials(): Promise<Testimonial[]> {
 
 export async function getFAQs(): Promise<FAQ[]> {
   try {
+    let faqs: FAQ[] = [];
     if (GOOGLE_SHEET_API) {
       const data = await getSheetsData();
-      return data.faqs;
+      faqs = data.faqs || [];
+    } else if (WP_API_URL) {
+      const data = await fetchFromWP<any[]>("faq", ["faqs"]);
+      faqs = data.map(item => ({
+        id: item.id,
+        title: item.title,
+        meta: item.meta
+      }));
     }
-    if (!WP_API_URL) return MOCK_FAQS;
-    const data = await fetchFromWP<any[]>("faq", ["faqs"]);
-    return data.map(item => ({
-      id: item.id,
-      title: item.title,
-      meta: item.meta
-    }));
+
+    if (faqs.length === 0) {
+      return MOCK_FAQS;
+    }
+    const combined = [...faqs];
+    for (const mock of MOCK_FAQS) {
+      if (!combined.some(f => f.id === mock.id)) {
+        combined.push(mock);
+      }
+    }
+    return combined;
   } catch (error) {
     console.warn("getFAQs: Falling back to mock data.", error);
     return MOCK_FAQS;
@@ -795,27 +847,39 @@ export async function getFAQs(): Promise<FAQ[]> {
 
 export async function getBlogs(): Promise<Blog[]> {
   try {
+    let blogs: Blog[] = [];
     if (GOOGLE_SHEET_API) {
       const data = await getSheetsData();
-      return data.blogs;
+      blogs = data.blogs || [];
+    } else if (WP_API_URL) {
+      const data = await fetchFromWP<any[]>("posts", ["blogs"]);
+      blogs = data.map(item => ({
+        id: item.id,
+        slug: item.slug,
+        title: item.title,
+        content: item.content,
+        excerpt: item.excerpt,
+        date: item.date,
+        featured_media_url: item._embedded?.["wp:featuredmedia"]?.[0]?.source_url,
+        categories_names: item._embedded?.["wp:term"]?.[0]?.map((t: any) => t.name) || [],
+        tags_names: item._embedded?.["wp:term"]?.[1]?.map((t: any) => t.name) || [],
+        meta: {
+          seo_title: item.meta?.seo_title,
+          seo_description: item.meta?.seo_description
+        }
+      }));
     }
-    if (!WP_API_URL) return MOCK_BLOGS;
-    const data = await fetchFromWP<any[]>("posts", ["blogs"]);
-    return data.map(item => ({
-      id: item.id,
-      slug: item.slug,
-      title: item.title,
-      content: item.content,
-      excerpt: item.excerpt,
-      date: item.date,
-      featured_media_url: item._embedded?.["wp:featuredmedia"]?.[0]?.source_url,
-      categories_names: item._embedded?.["wp:term"]?.[0]?.map((t: any) => t.name) || [],
-      tags_names: item._embedded?.["wp:term"]?.[1]?.map((t: any) => t.name) || [],
-      meta: {
-        seo_title: item.meta?.seo_title,
-        seo_description: item.meta?.seo_description
+
+    if (blogs.length === 0) {
+      return MOCK_BLOGS;
+    }
+    const combined = [...blogs];
+    for (const mock of MOCK_BLOGS) {
+      if (!combined.some(b => b.slug === mock.slug)) {
+        combined.push(mock);
       }
-    }));
+    }
+    return combined;
   } catch (error) {
     console.warn("getBlogs: Falling back to mock data.", error);
     return MOCK_BLOGS;
@@ -826,31 +890,35 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
   try {
     if (GOOGLE_SHEET_API) {
       const data = await getSheetsData();
-      return data.blogs.find(b => b.slug === slug) || null;
+      const found = data.blogs.find(b => b.slug === slug);
+      if (found) return found;
     }
-    if (!WP_API_URL) {
-      return MOCK_BLOGS.find(b => b.slug === slug) || null;
-    }
-    const data = await fetchFromWP<any[]>(`posts?slug=${slug}`, [`blog-${slug}`]);
-    if (!data.length) return null;
-    const item = data[0];
-    return {
-      id: item.id,
-      slug: item.slug,
-      title: item.title,
-      content: item.content,
-      excerpt: item.excerpt,
-      date: item.date,
-      featured_media_url: item._embedded?.["wp:featuredmedia"]?.[0]?.source_url,
-      categories_names: item._embedded?.["wp:term"]?.[0]?.map((t: any) => t.name) || [],
-      tags_names: item._embedded?.["wp:term"]?.[1]?.map((t: any) => t.name) || [],
-      meta: {
-        seo_title: item.meta?.seo_title,
-        seo_description: item.meta?.seo_description
+    if (WP_API_URL) {
+      const data = await fetchFromWP<any[]>(`posts?slug=${slug}`, [`blog-${slug}`]);
+      if (data.length) {
+        const item = data[0];
+        return {
+          id: item.id,
+          slug: item.slug,
+          title: item.title,
+          content: item.content,
+          excerpt: item.excerpt,
+          date: item.date,
+          featured_media_url: item._embedded?.["wp:featuredmedia"]?.[0]?.source_url,
+          categories_names: item._embedded?.["wp:term"]?.[0]?.map((t: any) => t.name) || [],
+          tags_names: item._embedded?.["wp:term"]?.[1]?.map((t: any) => t.name) || [],
+          meta: {
+            seo_title: item.meta?.seo_title,
+            seo_description: item.meta?.seo_description
+          }
+        };
       }
-    };
+    }
+    return MOCK_BLOGS.find(b => b.slug === slug) || null;
   } catch (error) {
     console.warn(`getBlogBySlug(${slug}): Falling back to mock data.`, error);
     return MOCK_BLOGS.find(b => b.slug === slug) || null;
   }
 }
+
+

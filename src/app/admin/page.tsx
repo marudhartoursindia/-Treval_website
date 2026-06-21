@@ -77,7 +77,7 @@ export default function AdminPage() {
     setIsLoading(true);
     setErrorMsg("");
     try {
-      const res = await fetch(`/api/admin?endpoint=${encodeURIComponent(url)}`);
+      const res = await fetch(`/api/admin?endpoint=${encodeURIComponent(url)}&t=${Date.now()}`);
       if (!res.ok) throw new Error("Failed to load spreadsheet database");
       const data = await res.json();
       setDbData({
