@@ -12,10 +12,10 @@
 }
 
 :root {
-  --background: #faf8f5;
-  --foreground: #1e1b18;
+  --background: #f9f5ed;
+  --foreground: #332822;
   --card-bg: #ffffff;
-  --border-color: #e5e0d8;
+  --border-color: #ebdcb9;
   --accent-rgb: 217, 180, 112;
 }
 
