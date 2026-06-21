@@ -143,7 +143,13 @@ export function Header() {
             {theme === "dark" ? <Sun size={18} className="text-accent" /> : <Moon size={18} className="text-accent" />}
           </button>
           <Link href="/custom-package">
-            <Button variant={isTransparent ? "outline" : "primary"} size="sm" className="border-accent hover:border-accent hover:bg-accent hover:text-primary">
+            <Button
+              variant={isTransparent ? "outline" : "accent"}
+              size="sm"
+              className={cn(
+                isTransparent && "text-white border-white hover:bg-white hover:text-primary"
+              )}
+            >
               Plan Custom Trip
             </Button>
           </Link>
