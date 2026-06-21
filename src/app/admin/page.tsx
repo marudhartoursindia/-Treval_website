@@ -72,7 +72,7 @@ export default function AdminPage() {
     localStorage.removeItem("mti_admin_auth");
   };
 
-  const fetchData = async (url: string) => {
+  async function fetchData(url: string) {
     if (!url) return;
     setIsLoading(true);
     setErrorMsg("");
@@ -92,7 +92,7 @@ export default function AdminPage() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }
 
   const handleAction = async (e: React.FormEvent) => {
     e.preventDefault();
