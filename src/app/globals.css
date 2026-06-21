@@ -3,20 +3,23 @@
 @theme {
   --color-primary: #251c17;
   --color-primary-light: #382c25;
-  --color-accent: #d9b470;
-  --color-accent-hover: #ba9656;
-  --color-accent-light: #fcfaf5;
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-light: var(--accent-light);
   --color-luxury-dark: #16110e;
   --color-luxury-gray: #1f1815;
   --font-playfair: 'Playfair Display', Georgia, serif;
 }
 
 :root {
-  --background: #faf8f5;
-  --foreground: #1e1b18;
+  --background: #fafaf9;
+  --foreground: #1c1917;
   --card-bg: #ffffff;
-  --border-color: #e5e0d8;
-  --accent-rgb: 217, 180, 112;
+  --border-color: #e7e5e4;
+  --accent: #0f4c81; /* Premium Royal Blue */
+  --accent-hover: #0b355b;
+  --accent-light: #f0f7fc;
+  --accent-rgb: 15, 76, 129;
 }
 
 html.dark {
@@ -24,6 +27,10 @@ html.dark {
   --foreground: #fcf9f5;
   --card-bg: #251c17;
   --border-color: #3d3027;
+  --accent: #d9b470; /* Luxury Gold */
+  --accent-hover: #ba9656;
+  --accent-light: #1f1815;
+  --accent-rgb: 217, 180, 112;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,6 +39,10 @@ html.dark {
     --foreground: #fcf9f5;
     --card-bg: #251c17;
     --border-color: #3d3027;
+    --accent: #d9b470;
+    --accent-hover: #ba9656;
+    --accent-light: #1f1815;
+    --accent-rgb: 217, 180, 112;
   }
 }
 
