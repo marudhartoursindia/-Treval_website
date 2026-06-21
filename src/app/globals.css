@@ -88,3 +88,7 @@ body {
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite linear;
 }
+
+.text-accent {
+  color: #b18420;
+}

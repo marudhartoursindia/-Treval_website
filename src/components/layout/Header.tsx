@@ -22,6 +22,7 @@ export function Header() {
   const [scrolled, setScrolled] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [theme, setTheme] = React.useState<"light" | "dark">("light");
+  const [isMobile, setIsMobile] = React.useState(false);
   const pathname = usePathname();
 
   React.useEffect(() => {
@@ -30,6 +31,15 @@ export function Header() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   // Close mobile menu on route change
@@ -68,7 +78,7 @@ export function Header() {
     );
   }, [pathname]);
 
-  const isTransparent = !scrolled && hasDarkHero;
+  const isTransparent = !scrolled && hasDarkHero && !isMobile;
 
   return (
     <header
@@ -184,8 +194,8 @@ export function Header() {
 
       {/* Mobile Drawer Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-x-0 bottom-0 top-[70px] z-40 bg-[var(--background)]/98 backdrop-blur-lg lg:hidden flex flex-col px-8 py-12 animate-fade-in border-t border-[var(--border-color)]">
-          <div className="flex flex-col space-y-6">
+        <div className="fixed inset-x-0 top-[72px] z-40 bg-[var(--background)] backdrop-blur-lg lg:hidden flex flex-col px-8 pt-6 pb-8 h-auto max-h-[calc(100vh-72px)] overflow-y-auto animate-fade-in border-b border-[var(--border-color)] shadow-xl">
+          <div className="flex flex-col space-y-5">
             {NAVIGATION_ITEMS.map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -193,7 +203,7 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "text-lg font-playfair font-semibold tracking-wider transition-colors",
+                    "text-base font-playfair font-semibold tracking-wider transition-colors",
                     isActive ? "text-accent" : "text-foreground hover:text-accent"
                   )}
                 >
@@ -203,7 +213,7 @@ export function Header() {
             })}
           </div>
 
-          <div className="mt-auto border-t border-[var(--border-color)] pt-8 space-y-6">
+          <div className="mt-6 border-t border-[var(--border-color)] pt-6 space-y-5">
             <div className="flex items-center space-x-3 text-sm text-foreground/70">
               <PhoneCall size={18} className="text-accent" />
               <span>+91-95095-99502</span>
