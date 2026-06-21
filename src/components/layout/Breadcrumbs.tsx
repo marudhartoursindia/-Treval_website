@@ -6,7 +6,7 @@ import { ChevronRight, Home } from "lucide-react";
 
 export function Breadcrumbs() {
   const pathname = usePathname();
-  if (pathname === "/" || pathname === "/golden-triangle") return null;
+  if (pathname === "/" || pathname === "/golden-triangle" || pathname.startsWith("/destinations/")) return null;
 
   const segments = pathname.split("/").filter(Boolean);
 

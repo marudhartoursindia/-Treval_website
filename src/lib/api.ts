@@ -468,26 +468,162 @@ const MOCK_TESTIMONIALS: Testimonial[] = [
 const MOCK_FAQS: FAQ[] = [
   {
     id: 401,
-    title: { rendered: "What is included in Marudhar Tours India packages?" },
+    title: { rendered: "Do you only operate in Rajasthan, or other states too?" },
     meta: {
-      answer: "Our premium packages typically include stays at 5-star or luxury heritage properties, private AC vehicle with dedicated driver, certified local guides, custom activities (like boat cruises, camel safaris, and cultural shows), and daily breakfasts.",
-      category: "Booking & Pricing"
+      answer: "Our core specialization is Rajasthan, though we also arrange Golden Triangle extensions (Delhi–Agra) on request.",
+      category: "Destinations"
     }
   },
   {
     id: 402,
-    title: { rendered: "Can we request a fully custom package?" },
+    title: { rendered: "Can I customize a package instead of booking a fixed itinerary?" },
     meta: {
-      answer: "Absolutely. Marudhar Tours India specializes in bespoke itineraries. You can specify which cities you want to visit, your budget, preferred accommodation level, and type of experiences, and we will build a unique itinerary for you.",
+      answer: "Yes — every package shown on our site is a starting template. We adjust duration, hotels, and stops to match your needs.",
       category: "Customization"
     }
   },
   {
     id: 403,
-    title: { rendered: "Do you offer tours outside of Rajasthan?" },
+    title: { rendered: "What's the best time of year to visit Rajasthan?" },
     meta: {
-      answer: "Yes. While our primary focus is Rajasthan, we regularly organize luxury tours to Delhi, Agra, Varanasi, Khajuraho, and other major tourist circuits across India based on customer preferences.",
+      answer: "October to March offers the most comfortable weather for sightseeing and desert activities; summers (April–June) are best avoided for daytime touring.",
       category: "Destinations"
+    }
+  },
+  {
+    id: 404,
+    title: { rendered: "Do your packages include hotel stays?" },
+    meta: {
+      answer: "Most packages include accommodation; you can also book hotels separately through our Hotel Booking service if you only need lodging.",
+      category: "Booking & Pricing"
+    }
+  },
+  {
+    id: 405,
+    title: { rendered: "Is airport or railway station pickup included?" },
+    meta: {
+      answer: "Yes, pickup and drop are included in most multi-day packages — confirm specifics for your itinerary at enquiry.",
+      category: "Booking & Pricing"
+    }
+  },
+  {
+    id: 406,
+    title: { rendered: "Can you arrange a private cab without a full tour package?" },
+    meta: {
+      answer: "Yes, our Cab Rental service is available standalone for point-to-point travel or full-day hire.",
+      category: "Transport"
+    }
+  },
+  {
+    id: 407,
+    title: { rendered: "Do your packages include all meals?" },
+    meta: {
+      answer: "Meal inclusions vary by package — most include breakfast, with options to add full-board plans.",
+      category: "Booking & Pricing"
+    }
+  },
+  {
+    id: 408,
+    title: { rendered: "Do you offer family-friendly itineraries?" },
+    meta: {
+      answer: "Yes — our Family Tours are designed with shorter drive times, kid-friendly stops, and flexible pacing.",
+      category: "Packages"
+    }
+  },
+  {
+    id: 409,
+    title: { rendered: "What's included in a desert safari package?" },
+    meta: {
+      answer: "Typically jeep or camel safari, cultural performances, and either a sunset experience or an overnight desert camp stay, depending on the package chosen.",
+      category: "Packages"
+    }
+  },
+  {
+    id: 410,
+    title: { rendered: "Do you arrange honeymoon packages with private experiences?" },
+    meta: {
+      answer: "Yes, our Honeymoon Tours include options like private candlelight dinners, palace-view stays, and couple-focused itineraries.",
+      category: "Packages"
+    }
+  },
+  {
+    id: 411,
+    title: { rendered: "How far in advance should I book?" },
+    meta: {
+      answer: "We recommend at least 3–4 weeks ahead in peak season (Oct–Mar) and festival periods, though we do accommodate shorter-notice requests when possible.",
+      category: "Booking & Pricing"
+    }
+  },
+  {
+    id: 412,
+    title: { rendered: "What documents do I need for booking?" },
+    meta: {
+      answer: "A valid government ID (Aadhaar/Passport) for hotel check-ins is generally required; foreign nationals should carry passport and visa documents.",
+      category: "Safety & Booking"
+    }
+  },
+  {
+    id: 413,
+    title: { rendered: "Do you provide English-speaking guides?" },
+    meta: {
+      answer: "Yes, English-speaking guides are available; other language options can be arranged on request, subject to availability.",
+      category: "Customization"
+    }
+  },
+  {
+    id: 414,
+    title: { rendered: "Is travel insurance included?" },
+    meta: {
+      answer: "Travel insurance is not included by default but can be added to your package on request.",
+      category: "Safety"
+    }
+  },
+  {
+    id: 415,
+    title: { rendered: "What's your cancellation policy?" },
+    meta: {
+      answer: "Cancellation terms vary by how far in advance you cancel — full details are on our Cancellation Policy page.",
+      category: "Cancellation"
+    }
+  },
+  {
+    id: 416,
+    title: { rendered: "Can you accommodate dietary restrictions?" },
+    meta: {
+      answer: "Yes, vegetarian, Jain, vegan, and other dietary needs can be communicated in advance and accommodated at most properties.",
+      category: "Customization"
+    }
+  },
+  {
+    id: 417,
+    title: { rendered: "Do you organize corporate or group trips?" },
+    meta: {
+      answer: "Yes, we handle corporate offsites, incentive travel, and large group tours with dedicated coordination.",
+      category: "Packages"
+    }
+  },
+  {
+    id: 418,
+    title: { rendered: "What's the difference between budget, standard, and luxury packages?" },
+    meta: {
+      answer: "They differ mainly in hotel category, vehicle type, and included experiences — our team can map this clearly to your budget during enquiry.",
+      category: "Booking & Pricing"
+    }
+  },
+  {
+    id: 419,
+    title: { rendered: "Can I make payment in installments?" },
+    meta: {
+      answer: "Yes, typically a booking advance followed by balance payment before travel — exact terms shared at booking.",
+      category: "Payment"
+    }
+  },
+  {
+    id: 420,
+    title: { rendered: "How do I get a custom quote?" },
+    meta: {
+      answer: "Use the 'Enquire Now' button anywhere on the site, or contact us directly via call or WhatsApp — we'll respond with a tailored itinerary and quote.",
+      category: "Booking & Pricing"
     }
   }
 ];
