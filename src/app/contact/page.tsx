@@ -47,12 +47,12 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone size={18} className="text-accent shrink-0" />
-                <span>+91-95095-99502 / +91-95888-42767</span>
+                <span>+91-95095-99502</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={18} className="text-accent shrink-0" />
                 <a href="mailto:marudhartoursindia@gmail.com" className="hover:text-accent transition-colors">
-                  marudhartoursindia@gmail.com
+                  sonusingh1985@gmail.com 
                 </a>
               </div>
             </div>

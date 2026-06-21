@@ -12,6 +12,7 @@ const NAVIGATION_ITEMS = [
   { label: "Home", href: "/" },
   { label: "Destinations", href: "/destinations" },
   { label: "Packages", href: "/packages" },
+  { label: "Golden Triangle", href: "/golden-triangle" },
   { label: "Custom Package", href: "/custom-package" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
@@ -74,6 +75,7 @@ export function Header() {
   const hasDarkHero = React.useMemo(() => {
     return (
       pathname === "/" ||
+      pathname === "/golden-triangle" ||
       (pathname.startsWith("/destinations/") && pathname !== "/destinations")
     );
   }, [pathname]);
@@ -89,32 +91,34 @@ export function Header() {
           : "bg-[var(--background)] backdrop-blur-md border-b border-[var(--border-color)] py-3 shadow-sm"
       )}
     >
-      <div className="max-w-[1360px] mx-auto px-6 flex items-center justify-between">
+      <div className="w-full px-6 md:px-12 grid grid-cols-2 lg:grid-cols-[1fr_auto_1fr] items-center">
         {/* Logo */}
-        <Link href="/" className="group flex items-center space-x-3">
-          <div className="relative w-12 h-12 overflow-hidden rounded-full border border-accent/20 bg-stone-900 flex-shrink-0">
-            <Image
-              src="/mti-logo.jpg"
-              alt="Marudhar Tours India Logo"
-              fill
-              className="object-cover scale-105"
-            />
-          </div>
-          <div className="flex flex-col">
-            <span className={cn(
-              "font-playfair text-base md:text-lg font-bold tracking-widest transition-colors leading-none",
-              isTransparent ? "text-white group-hover:text-accent" : "text-foreground group-hover:text-accent"
-            )}>
-              MARUDHAR
-            </span>
-            <span className="text-[11px] tracking-[0.3em] uppercase text-accent font-semibold leading-none mt-1">
-              Tours India
-            </span>
-          </div>
-        </Link>
+        <div className="flex justify-start">
+          <Link href="/" className="group flex items-center space-x-3">
+            <div className="relative w-12 h-12 overflow-hidden rounded-full border border-accent/20 bg-stone-900 flex-shrink-0">
+              <Image
+                src="/mti-logo.jpg"
+                alt="Marudhar Tours India Logo"
+                fill
+                className="object-cover scale-105"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className={cn(
+                "font-playfair text-base md:text-lg font-bold tracking-widest transition-colors leading-none",
+                isTransparent ? "text-white group-hover:text-accent" : "text-foreground group-hover:text-accent"
+              )}>
+                MARUDHAR
+              </span>
+              <span className="text-[11px] tracking-[0.3em] uppercase text-accent font-semibold leading-none mt-1">
+                Tours India
+              </span>
+            </div>
+          </Link>
+        </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6 2xl:space-x-8">
+        <nav className="hidden lg:flex items-center justify-center space-x-6 xl:space-x-8 2xl:space-x-10">
           {NAVIGATION_ITEMS.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -139,7 +143,7 @@ export function Header() {
         </nav>
 
         {/* Call to Action */}
-        <div className="hidden lg:flex items-center space-x-4">
+        <div className="hidden lg:flex justify-end items-center space-x-4">
           <button
             onClick={toggleTheme}
             className={cn(
@@ -166,7 +170,7 @@ export function Header() {
         </div>
 
         {/* Mobile Toggle & Theme Switcher */}
-        <div className="flex items-center space-x-2 lg:hidden">
+        <div className="flex items-center justify-end space-x-2 lg:hidden">
           <button
             onClick={toggleTheme}
             className={cn(

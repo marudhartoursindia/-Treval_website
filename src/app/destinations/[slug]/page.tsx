@@ -53,7 +53,7 @@ export default async function DestinationDetailPage({ params }: PageProps) {
       />
 
       {/* Hero Banner */}
-      <section className="relative h-[50vh] md:h-[60vh] bg-stone-900 overflow-hidden flex items-center justify-center -mt-[85px]">
+      <section className="relative h-[50vh] md:h-[60vh] bg-stone-900 overflow-hidden flex items-center justify-center -mt-[72px]">
         <div className="absolute inset-0 bg-black/60 z-10" />
         {dest.featured_media_url ? (
           <Image

@@ -226,6 +226,25 @@ const MOCK_DESTINATIONS: Destination[] = [
       best_time_to_visit: "October to March",
       travel_tips: ["Experience the spectacular Ganga Aarti at sunset.", "Take a morning boat ride along the ghats for sunrise views."]
     }
+  },
+  {
+    id: 109,
+    slug: "ranakpur",
+    title: { rendered: "Ranakpur, Rajasthan" },
+    excerpt: { rendered: "A tranquil valley home to the spectacular 15th-century Ranakpur Jain Temple, renowned for its intricate marble carvings." },
+    content: { rendered: "<p>Ranakpur is a village near Sadri town in the Pali district of Rajasthan in western India. It is located between Jodhpur and Udaipur in a valley on the western side of the Aravalli Range. Ranakpur is widely known for its marble Jain temple, dedicated to Adinatha, which is considered one of the most spectacular Jain temples in the world.</p><p>With over 1,440 exquisitely carved pillars—each unique in design—and stunning domes, the temple stands as a supreme monument of devotion and craftsmanship.</p>" },
+    featured_media_url: "/ranakpur.jpg",
+    meta: {
+      gallery: [
+        "/ranakpur.jpg"
+      ],
+      popular_attractions: ["Chaumukha Mandir (Jain Temple)", "Sadri Town", "Muchhal Mahavir Temple", "Ranakpur Dam"],
+      best_time_to_visit: "October to March",
+      travel_tips: [
+        "Dress modestly (knees and shoulders covered). Leather products like belts, wallets, and bags are prohibited inside.",
+        "Visit during mid-day when the sun is overhead to see the marble pillars change color."
+      ]
+    }
   }
 ];
 

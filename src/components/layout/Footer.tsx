@@ -103,7 +103,7 @@ export function Footer() {
             </li>
             <li>
               <Link href="/packages/golden-triangle-and-spiritual-india" className="hover:text-accent transition-colors">
-                Golden Triangle & Varanasi
+                Golden Triangle & khajuraho
               </Link>
             </li>
           </ul>
@@ -121,12 +121,12 @@ export function Footer() {
             </li>
             <li className="flex items-center space-x-3">
               <Phone size={18} className="text-accent shrink-0" />
-              <span>+91 98290 12345</span>
+              <span>+91 9509599502</span>
             </li>
             <li className="flex items-center space-x-3">
               <Mail size={18} className="text-accent shrink-0" />
               <a href="mailto:yuvraj.kilawat@gmail.com" className="hover:text-accent transition-colors">
-                yuvraj.kilawat@gmail.com
+                sonusingh1985@gmail.com
               </a>
             </li>
           </ul>

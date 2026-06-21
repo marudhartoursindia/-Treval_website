@@ -148,11 +148,12 @@ export function ContactForm() {
                 className="w-full bg-[var(--background)] border border-[var(--border-color)] px-4 py-2.5 text-xs focus:outline-none focus:border-accent text-foreground font-light cursor-pointer"
               >
                 <option value="">-- Select Destination --</option>
-                <option value="Japan">Kyoto, Japan</option>
-                <option value="Serengeti">Serengeti, Tanzania</option>
-                <option value="Alps">Swiss Alps, Switzerland</option>
-                <option value="Maldives">The Maldives</option>
-                <option value="Other">Other / Unsure</option>
+                <option value="Rajasthan">Rajasthan (Jaipur, Udaipur, Jodhpur, Jaisalmer)</option>
+                <option value="Ranakpur">Ranakpur Jain Temple</option>
+                <option value="Varanasi">Varanasi (Spiritual Ganges)</option>
+                <option value="Agra">Agra (Taj Mahal)</option>
+                <option value="Delhi">Delhi & Golden Triangle</option>
+                <option value="Other">Other / Custom Route</option>
               </select>
               {errors.destination && (
                 <p className="text-[10px] text-red-500 flex items-center mt-0.5">

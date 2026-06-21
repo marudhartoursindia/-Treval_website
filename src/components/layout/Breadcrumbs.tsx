@@ -6,12 +6,12 @@ import { ChevronRight, Home } from "lucide-react";
 
 export function Breadcrumbs() {
   const pathname = usePathname();
-  if (pathname === "/") return null;
+  if (pathname === "/" || pathname === "/golden-triangle") return null;
 
   const segments = pathname.split("/").filter(Boolean);
 
   return (
-    <nav aria-label="Breadcrumb" className="py-4 border-b border-[var(--border-color)] bg-stone-50 dark:bg-stone-900/20 px-6">
+    <nav aria-label="Breadcrumb" className="py-4 border-b border-[var(--border-color)] bg-[var(--background)] px-6">
       <div className="max-w-7xl mx-auto flex items-center space-x-2 text-xs font-light tracking-wider uppercase">
         <Link href="/" className="hover:text-accent transition-colors flex items-center text-foreground/60">
           <Home size={14} className="mr-1" />

@@ -15,19 +15,19 @@ const TEAM_MEMBERS = [
     name: "Genevieve Thorne",
     role: "Founder & Lead Curator",
     photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400",
-    bio: "With over 18 years in luxury hospitality, Genevieve curates bespoke itineraries for VIP explorers."
+    bio: "With over 18 years in luxury hospitality, Genevieve curates bespoke itineraries across India for international VIP explorers."
   },
   {
     name: "Christian Vance",
-    role: "Senior Safari Specialist",
+    role: "Senior Wildlife & Nature Specialist",
     photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400",
-    bio: "A native of East Africa, Christian has charted over 150 wildlife tracks in Serengeti and Ngorongoro."
+    bio: "Christian curates immersive wildlife safaris in India's premier reserves, from tracking Bengal tigers in Ranthambore to exploring Kaziranga."
   },
   {
     name: "Mika Tanaka",
-    role: "East Asia Curator",
+    role: "Spiritual & Heritage Curator",
     photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400",
-    bio: "Mika specializes in Japanese ryokans, temple ceremonies, and off-the-beaten-path cultural tours."
+    bio: "Mika specializes in cultural immersion, temple ceremonies, and off-the-beaten-path heritage tours across Rajasthan and spiritual hubs."
   }
 ];
 
@@ -68,7 +68,7 @@ export default function AboutPage() {
             Curating the Sublime
           </h2>
           <p className="text-sm text-foreground/85 leading-relaxed font-light">
-            We reject pre-packaged tourist routes. Our mission is to understand your unique rhythm—whether that means waking at dawn to explore hidden temples in Kyoto, dining in private concessions in Serengeti, or meditating over coral reefs in Maldives.
+            We reject pre-packaged tourist routes. Our mission is to understand your unique rhythm—whether that means waking at dawn to explore the stunning marble pillars of Ranakpur Jain Temple, embarking on private tiger safaris in Ranthambore, or cruising the peaceful backwaters of Kerala.
           </p>
           <p className="text-sm text-foreground/85 leading-relaxed font-light">
             We maintain direct relationships with lodge owners, master chefs, and resident guides to guarantee top-tier service, exclusivity, and safety throughout your journey.

@@ -117,7 +117,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
             {post.tags_names.map((tag) => (
               <span
                 key={tag}
-                className="bg-stone-100 dark:bg-stone-900 border border-[var(--border-color)] px-3 py-1 font-light text-foreground/75"
+                className="bg-[var(--border-color)]/20 border border-[var(--border-color)] px-3 py-1 text-xs font-medium text-foreground"
               >
                 #{tag}
               </span>

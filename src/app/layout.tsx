@@ -21,9 +21,9 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: {
     template: "%s | Marudhar Tours India",
-    default: "Marudhar Tours India - Custom Rajasthan & India Tour Packages",
+    default: "Marudhar Tours India - Luxury Custom India Tour Packages",
   },
-  description: "Premium travel agency specializing in custom Rajasthan tour packages, desert safaris, and luxury itineraries across India.",
+  description: "Bespoke luxury tour packages and private custom itineraries across India for travelers from the USA, UK, Japan, Switzerland, France, and Italy. Discover Rajasthan, Taj Mahal, Varanasi, and hidden gems with native expert guides.",
   metadataBase: new URL("https://marudhartours.com"),
   alternates: {
     canonical: "/",
@@ -88,7 +88,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col font-sans">
         <Header />
-        <main className="flex-grow pt-[85px]">
+        <main className="flex-grow pt-[72px]">
           <Breadcrumbs />
           {children}
         </main>
