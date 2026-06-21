@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, PhoneCall } from "lucide-react";
+import { Menu, X, PhoneCall, Sun, Moon } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/Button";
@@ -21,6 +21,7 @@ const NAVIGATION_ITEMS = [
 export function Header() {
   const [scrolled, setScrolled] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const [theme, setTheme] = React.useState<"light" | "dark">("light");
   const pathname = usePathname();
 
   React.useEffect(() => {
@@ -35,6 +36,29 @@ export function Header() {
   React.useEffect(() => {
     setMobileMenuOpen(false);
   }, [pathname]);
+
+  React.useEffect(() => {
+    // Detect initial theme on client mount
+    if (document.documentElement.classList.contains("dark")) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    if (theme === "light") {
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+      setTheme("dark");
+    } else {
+      document.documentElement.classList.add("light");
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      setTheme("light");
+    }
+  };
 
   // Determine if the current page has a dark header overlay (Home page & Destination details)
   const hasDarkHero = React.useMemo(() => {
@@ -106,6 +130,18 @@ export function Header() {
 
         {/* Call to Action */}
         <div className="hidden lg:flex items-center space-x-4">
+          <button
+            onClick={toggleTheme}
+            className={cn(
+              "p-2 rounded-full border transition-all duration-300 flex items-center justify-center cursor-pointer",
+              isTransparent
+                ? "border-white/20 text-white hover:bg-white/10"
+                : "border-[var(--border-color)] text-foreground hover:bg-[var(--border-color)]/25"
+            )}
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun size={18} className="text-accent" /> : <Moon size={18} className="text-accent" />}
+          </button>
           <Link href="/custom-package">
             <Button variant={isTransparent ? "outline" : "primary"} size="sm" className="border-accent hover:border-accent hover:bg-accent hover:text-primary">
               Plan Custom Trip
@@ -113,17 +149,31 @@ export function Header() {
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className={cn(
-            "lg:hidden p-2 focus:outline-none transition-colors",
-            isTransparent ? "text-white" : "text-foreground"
-          )}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Toggle & Theme Switcher */}
+        <div className="flex items-center space-x-2 lg:hidden">
+          <button
+            onClick={toggleTheme}
+            className={cn(
+              "p-2 rounded-full border transition-all duration-300 flex items-center justify-center cursor-pointer",
+              isTransparent
+                ? "border-white/20 text-white hover:bg-white/10"
+                : "border-[var(--border-color)] text-foreground hover:bg-[var(--border-color)]/25"
+            )}
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun size={18} className="text-accent" /> : <Moon size={18} className="text-accent" />}
+          </button>
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className={cn(
+              "p-2 focus:outline-none transition-colors",
+              isTransparent ? "text-white" : "text-foreground"
+            )}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer Overlay */}
@@ -150,7 +200,7 @@ export function Header() {
           <div className="mt-auto border-t border-[var(--border-color)] pt-8 space-y-6">
             <div className="flex items-center space-x-3 text-sm text-foreground/70">
               <PhoneCall size={18} className="text-accent" />
-              <span>+1-800-555-0199</span>
+              <span>+91-95095-99502</span>
             </div>
             <Link href="/custom-package" className="block w-full">
               <Button variant="accent" className="w-full text-center">

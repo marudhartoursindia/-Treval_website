@@ -43,21 +43,21 @@ export default function ContactPage() {
             <div className="space-y-4 text-xs font-light text-foreground/85">
               <div className="flex items-start space-x-3">
                 <MapPin size={18} className="text-accent shrink-0 mt-0.5" />
-                <span>100 Luxury Way, Suite 500, Beverly Hills, CA 90210</span>
+                <span>P No2, Kamal Gatta Colony, Talkatora Road, Jaipur, Rajasthan, 302002</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone size={18} className="text-accent shrink-0" />
-                <span>+1-800-555-0199</span>
+                <span>+91-95095-99502 / +91-95888-42767</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={18} className="text-accent shrink-0" />
-                <a href="mailto:yuvraj.kilawat@gmail.com" className="hover:text-accent transition-colors">
-                  yuvraj.kilawat@gmail.com
+                <a href="mailto:marudhartoursindia@gmail.com" className="hover:text-accent transition-colors">
+                  marudhartoursindia@gmail.com
                 </a>
               </div>
             </div>
           </div>
-
+ 
           {/* WhatsApp Direct */}
           <div className="bg-primary text-white p-8 space-y-4 border border-white/5 shadow-md">
             <h3 className="font-playfair text-lg font-bold flex items-center">
@@ -68,7 +68,7 @@ export default function ContactPage() {
               Prefer to connect instantly? Chat directly with one of our online curators via WhatsApp.
             </p>
             <a
-              href="https://wa.me/18005550199"
+              href="https://wa.me/919509599502"
               target="_blank"
               rel="noopener noreferrer"
               className="block pt-2"
@@ -78,7 +78,7 @@ export default function ContactPage() {
               </button>
             </a>
           </div>
-
+ 
           {/* Map Representation */}
           <div className="relative h-60 w-full bg-stone-200 border border-[var(--border-color)] overflow-hidden">
             {/* Standard mock maps placeholder with high premium styling */}
@@ -88,7 +88,7 @@ export default function ContactPage() {
                 Interactive Office Map
               </span>
               <p className="text-[9px] text-white/60 font-light max-w-[200px]">
-                Beverly Hills HQ, California. Secure parking on level P2.
+                Jaipur HQ, Rajasthan. Near Kamal Gatta Colony.
               </p>
             </div>
           </div>

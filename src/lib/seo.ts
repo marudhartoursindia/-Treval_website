@@ -10,10 +10,10 @@ export function getTravelAgencySchema() {
     "image": `${SITE_URL}/mti-logo.jpg`,
     "@id": `${SITE_URL}/#agency`,
     "url": SITE_URL,
-    "telephone": "+91-98290-12345",
+    "telephone": "+91-95095-99502",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "MTI Plaza, Near Hawa Mahal",
+      "streetAddress": "P No2, Kamal Gatta Colony, Talkatora Road",
       "addressLocality": "Jaipur",
       "addressRegion": "Rajasthan",
       "postalCode": "302002",

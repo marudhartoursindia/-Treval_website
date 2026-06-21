@@ -320,7 +320,7 @@ export default function CustomPackagePage() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     className="w-full bg-[var(--background)] border border-[var(--border-color)] px-3 py-2 text-xs focus:outline-none focus:border-accent text-foreground font-light"
-                    placeholder="e.g. +91 98290 12345"
+                    placeholder="e.g. +91 95095 99502"
                   />
                 </div>
 

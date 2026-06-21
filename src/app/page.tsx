@@ -415,7 +415,7 @@ export default async function HomePage() {
                 Request Custom Itinerary
               </Button>
             </Link>
-            <a href="https://wa.me/919829012345" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/919509599502" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="lg" className="border-white/20 hover:border-white text-white hover:bg-white hover:text-primary">
                 Chat on WhatsApp
               </Button>
