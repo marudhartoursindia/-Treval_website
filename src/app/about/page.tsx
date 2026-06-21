@@ -51,12 +51,13 @@ export default function AboutPage() {
 
       {/* Story Details */}
       <section className="py-20 px-6 max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <div className="relative h-100 w-full bg-stone-100 border border-[var(--border-color)]">
+        <div className="border border-[var(--border-color)] max-w-md mx-auto w-full overflow-hidden">
           <Image
             src="/about.jpeg"
             alt="Scenic sailing vessel representing voyage"
-            fill
-            className="object-cover"
+            width={600}
+            height={800}
+            className="w-full h-auto"
           />
         </div>
         <div className="space-y-6">
