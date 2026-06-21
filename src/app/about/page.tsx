@@ -53,7 +53,7 @@ export default function AboutPage() {
       <section className="py-20 px-6 max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <div className="relative h-96 w-full bg-stone-100 border border-[var(--border-color)]">
           <Image
-            src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1000"
+            src="/about.jpeg"
             alt="Scenic sailing vessel representing voyage"
             fill
             className="object-cover"
