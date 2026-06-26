@@ -711,94 +711,107 @@ async function getSheetsData(): Promise<SheetsData> {
       cache: "no-store"
     });
     if (!res.ok) {
-      throw new Error(`Failed to fetch from Google Sheets API: ${res.statusText}`);
+      console.warn(`getSheetsData: Failed to fetch from Google Sheets API: ${res.statusText}`);
+      return {
+        packages: [],
+        destinations: [],
+        blogs: [],
+        testimonials: [],
+        faqs: []
+      };
     }
     const rawData = await res.json();
     console.log("Received rawData keys from sheets:", Object.keys(rawData));
     console.log("Raw packages count:", rawData.packages?.length);
   
-  const formattedData: SheetsData = {
-    packages: (rawData.packages || []).map((p: any) => ({
-      id: Number(p.id),
-      slug: p.slug,
-      title: { rendered: p.title || "" },
-      content: { rendered: p.content || "" },
-      excerpt: { rendered: p.excerpt || "" },
-      featured_media_url: p.featured_media_url || "",
-      categories_names: parseArrayField(p.categories_names),
-      meta: {
-        duration: p.duration || "",
-        price: Number(p.price || 0),
-        discount_price: p.discount_price ? Number(p.discount_price) : undefined,
-        highlights: parseArrayField(p.highlights),
-        overview: p.overview || "",
-        day_wise_itinerary: Array.isArray(p.day_wise_itinerary) ? p.day_wise_itinerary : [],
-        included_services: parseArrayField(p.included_services),
-        excluded_services: parseArrayField(p.excluded_services),
-        hotel_information: p.hotel_information || "",
-        transportation_information: p.transportation_information || "",
-        faq: Array.isArray(p.faq) ? p.faq : [],
-        map_location: p.map_location || "",
-        booking_cta: p.booking_cta || "",
-        gallery_images: parseArrayField(p.gallery_images),
-        destination_id: p.destination_id ? Number(p.destination_id) : undefined,
-        seo_title: p.seo_title || "",
-        seo_description: p.seo_description || ""
-      }
-    })),
-    destinations: (rawData.destinations || []).map((d: any) => ({
-      id: Number(d.id),
-      slug: d.slug,
-      title: { rendered: d.title || "" },
-      content: { rendered: d.content || "" },
-      excerpt: { rendered: d.excerpt || "" },
-      featured_media_url: d.featured_media_url || "",
-      meta: {
-        gallery: parseArrayField(d.gallery),
-        popular_attractions: parseArrayField(d.popular_attractions),
-        best_time_to_visit: d.best_time_to_visit || "",
-        travel_tips: parseArrayField(d.travel_tips)
-      }
-    })),
-    blogs: (rawData.blogs || []).map((b: any) => ({
-      id: Number(b.id),
-      slug: b.slug,
-      title: { rendered: b.title || "" },
-      content: { rendered: b.content || "" },
-      excerpt: { rendered: b.excerpt || "" },
-      date: b.date || "",
-      featured_media_url: b.featured_media_url || "",
-      categories_names: parseArrayField(b.categories_names),
-      tags_names: parseArrayField(b.tags_names),
-      meta: {
-        seo_title: b.seo_title || "",
-        seo_description: b.seo_description || ""
-      }
-    })),
-    testimonials: (rawData.testimonials || []).map((t: any) => ({
-      id: Number(t.id),
-      title: { rendered: t.title || "" },
-      content: { rendered: t.content || "" },
-      meta: {
-        rating: Number(t.rating || 5),
-        location: t.location || "",
-        photo: t.photo || ""
-      }
-    })),
-    faqs: (rawData.faqs || []).map((f: any) => ({
-      id: Number(f.id),
-      title: { rendered: f.title || "" },
-      meta: {
-        answer: f.answer || "",
-        category: f.category || ""
-      }
-    }))
-  };
-  
-  return formattedData;
+    const formattedData: SheetsData = {
+      packages: (rawData.packages || []).map((p: any) => ({
+        id: Number(p.id),
+        slug: p.slug,
+        title: { rendered: p.title || "" },
+        content: { rendered: p.content || "" },
+        excerpt: { rendered: p.excerpt || "" },
+        featured_media_url: p.featured_media_url || "",
+        categories_names: parseArrayField(p.categories_names),
+        meta: {
+          duration: p.duration || "",
+          price: Number(p.price || 0),
+          discount_price: p.discount_price ? Number(p.discount_price) : undefined,
+          highlights: parseArrayField(p.highlights),
+          overview: p.overview || "",
+          day_wise_itinerary: Array.isArray(p.day_wise_itinerary) ? p.day_wise_itinerary : [],
+          included_services: parseArrayField(p.included_services),
+          excluded_services: parseArrayField(p.excluded_services),
+          hotel_information: p.hotel_information || "",
+          transportation_information: p.transportation_information || "",
+          faq: Array.isArray(p.faq) ? p.faq : [],
+          map_location: p.map_location || "",
+          booking_cta: p.booking_cta || "",
+          gallery_images: parseArrayField(p.gallery_images),
+          destination_id: p.destination_id ? Number(p.destination_id) : undefined,
+          seo_title: p.seo_title || "",
+          seo_description: p.seo_description || ""
+        }
+      })),
+      destinations: (rawData.destinations || []).map((d: any) => ({
+        id: Number(d.id),
+        slug: d.slug,
+        title: { rendered: d.title || "" },
+        content: { rendered: d.content || "" },
+        excerpt: { rendered: d.excerpt || "" },
+        featured_media_url: d.featured_media_url || "",
+        meta: {
+          gallery: parseArrayField(d.gallery),
+          popular_attractions: parseArrayField(d.popular_attractions),
+          best_time_to_visit: d.best_time_to_visit || "",
+          travel_tips: parseArrayField(d.travel_tips)
+        }
+      })),
+      blogs: (rawData.blogs || []).map((b: any) => ({
+        id: Number(b.id),
+        slug: b.slug,
+        title: { rendered: b.title || "" },
+        content: { rendered: b.content || "" },
+        excerpt: { rendered: b.excerpt || "" },
+        date: b.date || "",
+        featured_media_url: b.featured_media_url || "",
+        categories_names: parseArrayField(b.categories_names),
+        tags_names: parseArrayField(b.tags_names),
+        meta: {
+          seo_title: b.seo_title || "",
+          seo_description: b.seo_description || ""
+        }
+      })),
+      testimonials: (rawData.testimonials || []).map((t: any) => ({
+        id: Number(t.id),
+        title: { rendered: t.title || "" },
+        content: { rendered: t.content || "" },
+        meta: {
+          rating: Number(t.rating || 5),
+          location: t.location || "",
+          photo: t.photo || ""
+        }
+      })),
+      faqs: (rawData.faqs || []).map((f: any) => ({
+        id: Number(f.id),
+        title: { rendered: f.title || "" },
+        meta: {
+          answer: f.answer || "",
+          category: f.category || ""
+        }
+      }))
+    };
+    
+    return formattedData;
   } catch (error: any) {
-    console.error("Error in getSheetsData:", error);
-    throw error;
+    console.error("Error in getSheetsData (returning fallback data):", error);
+    return {
+      packages: [],
+      destinations: [],
+      blogs: [],
+      testimonials: [],
+      faqs: []
+    };
   }
 }
 
