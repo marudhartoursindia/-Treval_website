@@ -294,8 +294,8 @@ export default function AdminPage() {
   // Render auth gate if not logged in
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-stone-950 flex items-center justify-center py-12 px-6">
-        <div className="max-w-md w-full bg-stone-900 border border-accent p-8 space-y-6 text-center shadow-[0_0_50px_rgba(197,155,39,0.15)]">
+      <div className="min-h-screen bg-[#FAF9F6] flex items-center justify-center py-12 px-6">
+        <div className="max-w-md w-full bg-white border border-accent p-8 space-y-6 text-center shadow-[0_10px_50px_rgba(197,155,39,0.1)]">
           <div className="mx-auto w-12 h-12 rounded-full border border-accent/40 flex items-center justify-center text-accent bg-accent/5">
             <Lock size={20} />
           </div>
@@ -303,7 +303,7 @@ export default function AdminPage() {
             <h1 className="font-playfair text-2xl font-bold !text-accent tracking-wide uppercase">
               Marudhar Tours Admin Panel
             </h1>
-            <p className="text-xs text-white/60 font-light">
+            <p className="text-xs text-stone-600 font-light">
               Enter credentials to securely manage packages, blogs, and testimonials.
             </p>
           </div>
@@ -318,7 +318,7 @@ export default function AdminPage() {
                 required
                 value={adminName}
                 onChange={(e) => setAdminName(e.target.value)}
-                className="w-full bg-stone-950 border border-stone-800 px-3 py-2 text-xs focus:outline-none focus:border-accent text-white font-light"
+                className="w-full bg-[#FAF9F6] border border-stone-200 px-3 py-2 text-xs focus:outline-none focus:border-accent text-stone-900 font-light"
                 placeholder="Enter admin username"
               />
             </div>
@@ -332,19 +332,19 @@ export default function AdminPage() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-stone-950 border border-stone-800 px-3 py-2 text-xs focus:outline-none focus:border-accent text-white font-light"
+                className="w-full bg-[#FAF9F6] border border-stone-200 px-3 py-2 text-xs focus:outline-none focus:border-accent text-stone-900 font-light"
                 placeholder="Enter password"
               />
             </div>
 
             {authError && (
-              <p className="text-[10px] text-red-400 font-medium flex items-center justify-center">
+              <p className="text-[10px] text-red-500 font-medium flex items-center justify-center">
                 <AlertCircle size={12} className="mr-1" />
                 {authError}
               </p>
             )}
 
-            <Button type="submit" variant="accent" className="w-full py-2.5 text-xs font-semibold uppercase tracking-wider bg-accent hover:bg-accent-hover text-stone-950">
+            <Button type="submit" variant="accent" className="w-full py-2.5 text-xs font-semibold uppercase tracking-wider bg-accent hover:bg-accent-hover text-white">
               Authenticate Admin
             </Button>
           </form>
@@ -356,16 +356,16 @@ export default function AdminPage() {
 
 
   return (
-    <div className="min-h-screen bg-stone-950 text-stone-100 py-12 px-6">
+    <div className="min-h-screen bg-[#FAF9F6] text-stone-900 py-12 px-6">
       <div className="max-w-[1360px] mx-auto space-y-8">
         
         {/* Admin Header */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-stone-800 pb-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-stone-200 pb-6">
           <div className="space-y-2">
             <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
               Bespoke CMS Control Panel
             </span>
-            <h1 className="font-playfair text-3xl md:text-5xl font-bold text-accent tracking-wide">
+            <h1 className="font-playfair text-3xl md:text-5xl font-bold !text-accent tracking-wide">
               Marudhar Tours Admin Panel
             </h1>
           </div>
@@ -375,7 +375,7 @@ export default function AdminPage() {
               size="sm"
               onClick={() => fetchData(apiEndpoint)}
               disabled={isLoading}
-              className="border-accent text-accent hover:bg-accent hover:text-stone-950"
+              className="border-accent text-accent hover:bg-accent hover:text-white"
             >
               <RefreshCw size={14} className={`mr-2 ${isLoading ? "animate-spin" : ""}`} />
               Sync Sheets Data
@@ -384,7 +384,7 @@ export default function AdminPage() {
               variant="ghost"
               size="sm"
               onClick={handleLogout}
-              className="text-red-400 border border-red-500/20 hover:bg-red-500/10"
+              className="text-red-500 border border-red-200 hover:bg-red-50"
             >
               <LogOut size={14} className="mr-2" />
               Sign Out
@@ -393,7 +393,7 @@ export default function AdminPage() {
         </div>
 
         {/* Tab Selection */}
-        <div className="flex flex-wrap gap-2 border-b border-stone-800 pb-3">
+        <div className="flex flex-wrap gap-2 border-b border-stone-200 pb-3">
           {["packages", "destinations", "blogs", "testimonials", "faqs"].map(tab => (
             <button
               key={tab}
@@ -401,7 +401,7 @@ export default function AdminPage() {
               className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
                 activeTab === tab 
                   ? "border-b-2 border-accent text-accent" 
-                  : "text-stone-400 hover:text-white"
+                  : "text-stone-500 hover:text-stone-950"
               }`}
             >
               {tab} ({dbData[tab]?.length || 0})
@@ -410,15 +410,15 @@ export default function AdminPage() {
         </div>
 
         {/* Action Header */}
-        <div className="flex justify-between items-center bg-stone-900 border border-stone-800 p-4 shadow-lg">
-          <span className="text-xs text-stone-300 font-light">
+        <div className="flex justify-between items-center bg-white border border-stone-200 p-4 shadow-sm">
+          <span className="text-xs text-stone-600 font-light">
             Managing active spreadsheet records under sheet <strong className="text-accent uppercase">'{activeTab}'</strong>.
           </span>
           <Button
             variant="accent"
             size="sm"
             onClick={() => openAddModal(activeTab)}
-            className="bg-accent hover:bg-accent-hover text-stone-950"
+            className="bg-accent hover:bg-accent-hover text-white font-semibold"
           >
             <Plus size={14} className="mr-2" />
             Add New Item
@@ -429,19 +429,19 @@ export default function AdminPage() {
         {isLoading ? (
           <div className="py-20 text-center flex flex-col items-center justify-center space-y-4">
             <Loader2 size={36} className="animate-spin text-accent" />
-            <p className="text-xs text-stone-400">Fetching database schema from Google Sheets...</p>
+            <p className="text-xs text-stone-500">Fetching database schema from Google Sheets...</p>
           </div>
         ) : errorMsg ? (
-          <div className="py-12 bg-red-950/20 border border-red-900/50 text-center text-red-300 p-6 space-y-2">
-            <AlertCircle className="mx-auto text-red-400" size={24} />
+          <div className="py-12 bg-red-50 border border-red-200 text-center text-red-700 p-6 space-y-2">
+            <AlertCircle className="mx-auto text-red-500" size={24} />
             <p className="text-sm font-semibold">Connection failed</p>
             <p className="text-xs font-light">{errorMsg}</p>
           </div>
         ) : (
-          <div className="bg-stone-900 border border-stone-800 shadow-xl overflow-x-auto">
+          <div className="bg-white border border-stone-200 shadow-sm overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="bg-stone-950 border-b border-stone-800 uppercase tracking-wider text-[10px] text-stone-400 font-semibold">
+                <tr className="bg-stone-50 border-b border-stone-200 uppercase tracking-wider text-[10px] text-stone-500 font-semibold">
                   <th className="p-4 w-16">ID</th>
                   <th className="p-4">Title / Label</th>
                   <th className="p-4">Slug / Reference</th>
@@ -453,39 +453,39 @@ export default function AdminPage() {
                   <th className="p-4 w-28 text-center">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-stone-800">
+              <tbody className="divide-y divide-stone-200">
                 {dbData[activeTab]?.length === 0 ? (
                   <tr>
-                    <td colSpan={6} className="p-8 text-center text-stone-500 font-light">
+                    <td colSpan={6} className="p-8 text-center text-stone-400 font-light">
                       No records found in spreadsheet tab. Click "Add New Item" to populate.
                     </td>
                   </tr>
                 ) : (
                   dbData[activeTab]?.map((item: any) => (
-                    <tr key={item.id} className="hover:bg-stone-850/50 transition-colors">
+                    <tr key={item.id} className="hover:bg-stone-50/50 transition-colors">
                       <td className="p-4 font-bold text-accent">{item.id}</td>
-                      <td className="p-4 font-medium text-stone-100">
+                      <td className="p-4 font-medium text-stone-900">
                         {item.title?.rendered || item.title || "Untitled"}
                       </td>
-                      <td className="p-4 text-stone-400 font-mono text-[10px]">
+                      <td className="p-4 text-stone-500 font-mono text-[10px]">
                         {item.slug || item.category || "-"}
                       </td>
                       {activeTab === "packages" && <td className="p-4 text-accent font-semibold">${item.meta?.price || item.price || 0}</td>}
-                      {activeTab === "packages" && <td className="p-4 text-stone-400">{item.meta?.duration || item.duration || "-"}</td>}
+                      {activeTab === "packages" && <td className="p-4 text-stone-500">{item.meta?.duration || item.duration || "-"}</td>}
                       {activeTab === "testimonials" && <td className="p-4 font-semibold text-accent">{item.meta?.rating || item.rating || 5} ★</td>}
-                      {activeTab === "testimonials" && <td className="p-4 text-stone-400">{item.meta?.location || item.location || "-"}</td>}
-                      {activeTab === "faqs" && <td className="p-4 text-stone-400">{item.meta?.category || item.category || "-"}</td>}
+                      {activeTab === "testimonials" && <td className="p-4 text-stone-500">{item.meta?.location || item.location || "-"}</td>}
+                      {activeTab === "faqs" && <td className="p-4 text-stone-500">{item.meta?.category || item.category || "-"}</td>}
                       <td className="p-4 flex items-center justify-center space-x-2">
                         <button
                           onClick={() => openEditModal(activeTab, item)}
-                          className="p-1.5 border border-stone-800 hover:border-accent text-stone-400 hover:text-accent transition-colors"
+                          className="p-1.5 border border-stone-200 hover:border-accent text-stone-500 hover:text-accent transition-colors"
                           title="Edit"
                         >
                           <Edit size={12} />
                         </button>
                         <button
                           onClick={() => handleDelete(activeTab, item)}
-                          className="p-1.5 border border-red-900/30 text-red-400 hover:bg-red-500/10 transition-colors"
+                          className="p-1.5 border border-red-100 text-red-500 hover:bg-red-50 transition-colors"
                           title="Delete"
                         >
                           <Trash2 size={12} />
@@ -502,15 +502,15 @@ export default function AdminPage() {
 
       {/* Dynamic Edit/Create Form Overlay Modal */}
       {isModalOpen && formState && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-6 overflow-y-auto backdrop-blur-sm">
-          <div className="bg-stone-900 border border-stone-800 w-full max-w-2xl shadow-2xl flex flex-col max-h-[85vh] text-stone-100">
-            <div className="p-6 border-b border-stone-800 flex justify-between items-center bg-stone-950">
+        <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-6 overflow-y-auto backdrop-blur-sm">
+          <div className="bg-white border border-stone-200 w-full max-w-2xl shadow-xl flex flex-col max-h-[85vh] text-stone-900">
+            <div className="p-6 border-b border-stone-200 flex justify-between items-center bg-stone-50">
               <h2 className="font-playfair text-xl font-bold uppercase tracking-wide text-accent">
                 {formState.action === "create" ? "Create New" : "Edit"} Record ({formState.sheet})
               </h2>
               <button 
                 onClick={() => { setIsModalOpen(false); setFormState(null); }}
-                className="text-stone-400 hover:text-accent text-sm font-semibold transition-colors"
+                className="text-stone-500 hover:text-accent text-sm font-semibold transition-colors"
               >
                 ✕ Close
               </button>
