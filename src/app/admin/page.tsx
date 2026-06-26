@@ -39,6 +39,8 @@ export default function AdminPage() {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isUploadingImage, setIsUploadingImage] = React.useState(false);
 
+  const [adminName, setAdminName] = React.useState("");
+
   React.useEffect(() => {
     // Load config from environment or local storage
     const storedAuth = localStorage.getItem("mti_admin_auth") === "true";
@@ -52,9 +54,13 @@ export default function AdminPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
+    if (adminName.toLowerCase() !== "admin" && adminName.toLowerCase() !== "marudhar") {
+      setAuthError("Invalid Admin Name.");
+      return;
+    }
     if (password === "admin123") {
       if (!apiEndpoint) {
-        setAuthError("Please configure the Google Sheet API URL first.");
+        setAuthError("Google Sheets API URL is not configured in .env file.");
         return;
       }
       setIsAuthenticated(true);
@@ -294,7 +300,7 @@ export default function AdminPage() {
             <Lock size={20} />
           </div>
           <div className="space-y-2">
-            <h1 className="font-playfair text-2xl font-bold text-accent tracking-wide uppercase">
+            <h1 className="font-playfair text-2xl font-bold !text-accent tracking-wide uppercase">
               Marudhar Tours Admin Panel
             </h1>
             <p className="text-xs text-white/60 font-light">
@@ -305,15 +311,15 @@ export default function AdminPage() {
           <form onSubmit={handleLogin} className="space-y-4">
             <div className="space-y-1 text-left">
               <label className="text-[9px] uppercase tracking-widest text-accent font-semibold block">
-                Google Sheets API Url
+                Admin Name
               </label>
               <input
                 type="text"
                 required
-                value={apiEndpoint}
-                onChange={(e) => setApiEndpoint(e.target.value)}
+                value={adminName}
+                onChange={(e) => setAdminName(e.target.value)}
                 className="w-full bg-stone-950 border border-stone-800 px-3 py-2 text-xs focus:outline-none focus:border-accent text-white font-light"
-                placeholder="https://script.google.com/macros/s/.../exec"
+                placeholder="Enter admin username"
               />
             </div>
 
@@ -327,7 +333,7 @@ export default function AdminPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full bg-stone-950 border border-stone-800 px-3 py-2 text-xs focus:outline-none focus:border-accent text-white font-light"
-                placeholder="Enter password (default: admin123)"
+                placeholder="Enter password"
               />
             </div>
 
@@ -346,6 +352,7 @@ export default function AdminPage() {
       </div>
     );
   }
+
 
 
   return (
