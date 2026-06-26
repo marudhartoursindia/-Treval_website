@@ -11,8 +11,8 @@ import Script from "next/script";
 //   TAWKTO_PROPERTY_ID  → e.g. "683c4f9b..."
 //   TAWKTO_WIDGET_ID    → e.g. "1iscnk..."
 // =====================================================
-const TAWKTO_PROPERTY_ID = "6a3e226094471a1d4dea3c66";
-const TAWKTO_WIDGET_ID = "1js1bcipk";
+const TAWKTO_PROPERTY_ID = "64a40d5a94cf5d49dc61756e";
+const TAWKTO_WIDGET_ID = "1h4gd8bfh";
 
 export function FloatingButtons() {
   const [isChatOpen, setIsChatOpen] = useState(false);
