@@ -6,7 +6,7 @@ import { InquiryForm } from "@/components/package/InquiryForm";
 import { Accordion } from "@/components/ui/Accordion";
 
 export const metadata: Metadata = {
-  title: "Golden Triangle & Khajuraho Luxury Tour - 9 Days Itinerary",
+  title: "Golden Triangle Luxury Tour - 9 Days Itinerary",
   description: "Embark on a luxury custom tour covering Delhi, Agra, Jaipur, and the UNESCO heritage temples of Khajuraho with private transfers and native guides.",
   alternates: {
     canonical: "/golden-triangle",
@@ -168,7 +168,7 @@ export default function GoldenTrianglePage() {
     },
     {
       title: "Is the internal flight from Khajuraho to Delhi included?",
-      content: "Yes, our luxury curators can bundle the domestic flight from Khajuraho back to Delhi inside your customized quote, ensuring seamless check-ins."
+      content: "Yes, our luxury can bundle the domestic flight from Khajuraho back to Delhi inside your customized quote, ensuring seamless check-ins."
     },
     {
       title: "Are there specific dress codes for temple visits?",
@@ -229,9 +229,9 @@ export default function GoldenTrianglePage() {
           <span className="text-[10px] md:text-xs tracking-[0.6em] uppercase text-accent font-semibold block">
             Signature India Journeys
           </span>
-          <h1 className="font-playfair text-3xl md:text-6xl font-bold text-white tracking-wide leading-tight">
+          <h1 className="font-playfair text-3xl md:text-6xl font-bold !text-accent tracking-wide leading-tight">
             Golden Triangle <br className="hidden md:inline" />
-            <span className="text-accent italic font-normal">& Khajuraho</span>
+            <span className="text-white italic font-normal"></span>
           </h1>
           <p className="text-sm md:text-base text-white/85 max-w-2xl mx-auto font-light leading-relaxed">
             The ultimate blend of India's royal palaces, Mughal grandeur, and the finest ancient temple craftsmanship in Khajuraho. A bespoke 9-day luxury expedition.
@@ -258,7 +258,7 @@ export default function GoldenTrianglePage() {
                 This signature route connects India's famous **Golden Triangle**—the historical power center of **Delhi**, the romantic Mughal capital of **Agra** (home to the Taj Mahal), and the royal pink city of **Jaipur**—with the legendary architectural temples of **Khajuraho**. 
               </p>
               <p className="text-sm text-foreground/85 leading-relaxed font-light">
-                Designed specifically for luxury travelers from the USA, UK, Europe, and Japan, this tour promises unmatched heritage access, premium 5-star lodging, dedicated private transport, and local expert curators who bring centuries of history to life.
+                Designed specifically for luxury travelers from the USA, UK, Europe, and Japan, this tour promises unmatched heritage access, premium 5-star lodging, dedicated private transport, and local expert who bring centuries of history to life.
               </p>
             </section>
 
@@ -468,7 +468,7 @@ export default function GoldenTrianglePage() {
               </div>
 
               {/* Inquiry Form component */}
-              <InquiryForm packageName="Golden Triangle & Khajuraho Tour" />
+              <InquiryForm packageName="Golden Triangle Tour" />
             </div>
           </div>
 

@@ -8,7 +8,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Bespoke Journal - Luxury Travel Insights",
-  description: "Read our curators' journals, packing lists, and local guides for your next adventure.",
+  description: "Read our ' journals, packing lists, and local guides for your next adventure.",
   alternates: {
     canonical: "/blog",
   },
@@ -71,7 +71,7 @@ export default async function BlogListingPage() {
                 </span>
                 <span className="flex items-center">
                   <User size={12} className="text-accent mr-1.5" />
-                  By Curator
+                  
                 </span>
               </div>
 

@@ -77,7 +77,7 @@ export function InquiryForm({ packageName }: InquiryFormProps) {
           </div>
           <h3 className="font-playfair text-xl font-bold text-foreground">Inquiry Received</h3>
           <p className="text-xs text-foreground/70 leading-relaxed font-light">
-            Thank you for contacting Bespoke Travels. One of our luxury travel curators will review your preferences for the <span className="font-semibold text-accent">{packageName}</span> package and connect with you within 24 hours.
+            Thank you for contacting Marudhar Tours. One of our luxury travel will review your preferences for the <span className="font-semibold text-accent">{packageName}</span> package and connect with you within 24 hours.
           </p>
           <Button
             variant="outline"

@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, PhoneCall, Sun, Moon } from "lucide-react";
+import { Menu, X, PhoneCall } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/Button";
@@ -22,7 +22,6 @@ const NAVIGATION_ITEMS = [
 export function Header() {
   const [scrolled, setScrolled] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-  const [theme, setTheme] = React.useState<"light" | "dark">("light");
   const [isMobile, setIsMobile] = React.useState(false);
   const pathname = usePathname();
 
@@ -48,29 +47,6 @@ export function Header() {
     setMobileMenuOpen(false);
   }, [pathname]);
 
-  React.useEffect(() => {
-    // Detect initial theme on client mount
-    if (document.documentElement.classList.contains("dark")) {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    if (theme === "light") {
-      document.documentElement.classList.add("dark");
-      document.documentElement.classList.remove("light");
-      localStorage.setItem("theme", "dark");
-      setTheme("dark");
-    } else {
-      document.documentElement.classList.add("light");
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setTheme("light");
-    }
-  };
-
   // Determine if the current page has a dark header overlay (Home page & Destination details)
   const hasDarkHero = React.useMemo(() => {
     return (
@@ -88,7 +64,7 @@ export function Header() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isTransparent
           ? "bg-transparent py-4"
-          : "bg-[var(--background)] backdrop-blur-md border-b border-[var(--border-color)] py-3 shadow-sm"
+          : "bg-primary border-b border-accent/20 py-3 shadow-md"
       )}
     >
       <div className="w-full px-6 md:px-12 grid grid-cols-2 lg:grid-cols-[1fr_auto_1fr] items-center">
@@ -104,10 +80,7 @@ export function Header() {
               />
             </div>
             <div className="flex flex-col">
-              <span className={cn(
-                "font-playfair text-base md:text-lg font-bold tracking-widest transition-colors leading-none",
-                isTransparent ? "text-white group-hover:text-accent" : "text-foreground group-hover:text-accent"
-              )}>
+              <span className="font-playfair text-base md:text-lg font-bold tracking-widest transition-colors leading-none text-white group-hover:text-accent">
                 MARUDHAR
               </span>
               <span className="text-[11px] tracking-[0.3em] uppercase text-accent font-semibold leading-none mt-1">
@@ -129,9 +102,7 @@ export function Header() {
                   "text-sm uppercase tracking-widest transition-colors relative py-2 font-medium",
                   isActive
                     ? "text-accent font-semibold"
-                    : isTransparent
-                    ? "text-white/95 hover:text-accent"
-                    : "text-foreground/80 hover:text-accent",
+                    : "text-white/90 hover:text-accent",
                   // Underline animation
                   "after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left"
                 )}
@@ -144,24 +115,12 @@ export function Header() {
 
         {/* Call to Action */}
         <div className="hidden lg:flex justify-end items-center space-x-4">
-          <button
-            onClick={toggleTheme}
-            className={cn(
-              "p-2 rounded-full border transition-all duration-300 flex items-center justify-center cursor-pointer",
-              isTransparent
-                ? "border-white/20 text-white hover:bg-white/10"
-                : "border-[var(--border-color)] text-foreground hover:bg-[var(--border-color)]/25"
-            )}
-            aria-label="Toggle theme"
-          >
-            {theme === "dark" ? <Sun size={18} className="text-accent" /> : <Moon size={18} className="text-accent" />}
-          </button>
           <Link href="/custom-package">
             <Button
               variant={isTransparent ? "outline" : "accent"}
               size="sm"
               className={cn(
-                isTransparent && "text-white border-white hover:bg-white hover:text-primary"
+                isTransparent && "text-white border-white hover:bg-accent hover:text-white"
               )}
             >
               Plan Custom Trip
@@ -169,26 +128,11 @@ export function Header() {
           </Link>
         </div>
 
-        {/* Mobile Toggle & Theme Switcher */}
+        {/* Mobile Toggle */}
         <div className="flex items-center justify-end space-x-2 lg:hidden">
           <button
-            onClick={toggleTheme}
-            className={cn(
-              "p-2 rounded-full border transition-all duration-300 flex items-center justify-center cursor-pointer",
-              isTransparent
-                ? "border-white/20 text-white hover:bg-white/10"
-                : "border-[var(--border-color)] text-foreground hover:bg-[var(--border-color)]/25"
-            )}
-            aria-label="Toggle theme"
-          >
-            {theme === "dark" ? <Sun size={18} className="text-accent" /> : <Moon size={18} className="text-accent" />}
-          </button>
-          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={cn(
-              "p-2 focus:outline-none transition-colors",
-              isTransparent ? "text-white" : "text-foreground"
-            )}
+            className="p-2 focus:outline-none transition-colors text-white"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -198,7 +142,7 @@ export function Header() {
 
       {/* Mobile Drawer Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-x-0 top-[72px] z-40 bg-[var(--background)] backdrop-blur-lg lg:hidden flex flex-col px-8 pt-6 pb-8 h-auto max-h-[calc(100vh-72px)] overflow-y-auto animate-fade-in border-b border-[var(--border-color)] shadow-xl">
+        <div className="fixed inset-x-0 top-[72px] z-40 bg-primary/95 backdrop-blur-lg lg:hidden flex flex-col px-8 pt-6 pb-8 h-auto max-h-[calc(100vh-72px)] overflow-y-auto animate-fade-in border-b border-accent/20 shadow-xl">
           <div className="flex flex-col space-y-5">
             {NAVIGATION_ITEMS.map((item) => {
               const isActive = pathname === item.href;
@@ -208,7 +152,7 @@ export function Header() {
                   href={item.href}
                   className={cn(
                     "text-base font-playfair font-semibold tracking-wider transition-colors",
-                    isActive ? "text-accent" : "text-foreground hover:text-accent"
+                    isActive ? "text-accent" : "text-white/90 hover:text-accent"
                   )}
                 >
                   {item.label}
@@ -217,8 +161,8 @@ export function Header() {
             })}
           </div>
 
-          <div className="mt-6 border-t border-[var(--border-color)] pt-6 space-y-5">
-            <div className="flex items-center space-x-3 text-sm text-foreground/70">
+          <div className="mt-6 border-t border-accent/20 pt-6 space-y-5">
+            <div className="flex items-center space-x-3 text-sm text-white/80">
               <PhoneCall size={18} className="text-accent" />
               <span>+91-95095-99502</span>
             </div>

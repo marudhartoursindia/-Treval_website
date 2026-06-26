@@ -55,7 +55,7 @@ export function PackageCard({ pkg }: PackageCardProps) {
           <span>{duration}</span>
         </div>
 
-        <h3 className="font-playfair text-lg md:text-xl font-bold mb-3 text-foreground group-hover:text-accent transition-colors">
+        <h3 className="font-playfair text-lg md:text-xl font-bold mb-3 text-primary group-hover:text-accent transition-colors">
           <Link href={`/packages/${pkg.slug}`}>{pkg.title.rendered}</Link>
         </h3>
 
@@ -92,7 +92,7 @@ export function PackageCard({ pkg }: PackageCardProps) {
                 </span>
               </div>
             ) : (
-              <span className="text-base font-semibold text-foreground">
+              <span className="text-base font-semibold text-accent">
                 {formatPrice(price)}
               </span>
             )}
@@ -103,7 +103,7 @@ export function PackageCard({ pkg }: PackageCardProps) {
 
           <Link
             href={`/packages/${pkg.slug}`}
-            className="text-sm uppercase tracking-widest text-foreground font-semibold hover:text-accent transition-colors flex items-center space-x-1"
+            className="text-sm uppercase tracking-widest text-primary font-semibold hover:text-accent transition-colors flex items-center space-x-1"
           >
             <span>Details</span>
             <span>→</span>

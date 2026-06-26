@@ -58,16 +58,16 @@ export default async function HomePage() {
       {/* 1. Hero Section */}
       <section className="relative min-h-[55vh] md:min-h-[90vh] flex items-center justify-center bg-stone-950 py-20 px-6 -mt-[72px] overflow-hidden">
         {/* Background visual */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/80 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-stone-950/95 z-10" />
         <HeroSlideshow />
 
         <div className="relative z-20 max-w-5xl mx-auto text-center space-y-8">
           <span className="text-[10px] md:text-xs tracking-[0.6em] uppercase text-accent font-semibold block animate-pulse">
-            Royal Indian Heritage Curators
+            Royal Indian Heritage 
           </span>
-          <h1 className="font-playfair text-4xl md:text-7xl font-bold text-white tracking-wide leading-tight">
+          <h1 className="font-playfair text-4xl md:text-7xl font-bold !text-accent tracking-wide leading-tight">
             Discover Royal <br className="hidden md:inline" />
-            <span className="text-accent italic font-normal">Rajasthan</span> & India
+            <span className="text-white italic font-normal">Rajasthan</span> & India
           </h1>
           <p className="text-base md:text-lg text-white/85 max-w-2xl mx-auto font-light leading-relaxed">
             Experience bespoke luxury tours, Thar desert camel safaris, and custom itineraries curated by Marudhar Tours India. Tailored entirely to your choices.
@@ -80,17 +80,15 @@ export default async function HomePage() {
       </section>
 
       {/* 2. Popular Destinations */}
-      <section className="py-24 px-6 max-w-7xl mx-auto w-full">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
-          <div className="space-y-4">
-            <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
-              Popular Rajasthan Destinations
-            </span>
-            <h2 className="font-playfair text-3xl md:text-5xl font-bold tracking-wide">
-              Popular Destinations
-            </h2>
-          </div>
-          <p className="text-base text-foreground/75 max-w-md font-light leading-relaxed mt-4 md:mt-0">
+      <section className="py-12 md:py-16 px-6 max-w-7xl mx-auto w-full">
+        <div className="max-w-3xl mb-12 space-y-3">
+          <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
+            Popular Rajasthan Destinations
+          </span>
+          <h2 className="font-playfair text-3xl md:text-5xl font-bold tracking-wide">
+            Popular Destinations
+          </h2>
+          <p className="text-sm md:text-base text-stone-500 font-light leading-relaxed">
             From the Pink City's bazaars to the Golden City's dunes, each Rajasthan destination has its own personality. Here's where most journeys begin.
           </p>
         </div>
@@ -120,7 +118,7 @@ export default async function HomePage() {
       </section>
 
       {/* 3. Why Choose Us (Split-Screen Premium Layout) */}
-      <section className="bg-stone-50 dark:bg-stone-900/10 py-24 px-6 border-y border-[var(--border-color)]">
+      <section className="bg-background text-foreground py-12 md:py-16 px-6 border-y border-[var(--border-color)]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left: Beautiful Decorative Image */}
@@ -145,10 +143,10 @@ export default async function HomePage() {
               <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
                 The Marudhar Standard
               </span>
-              <h2 className="font-playfair text-3xl md:text-4xl font-bold tracking-wide">
+              <h2 className="font-playfair text-3xl md:text-4xl font-bold tracking-wide text-primary">
                 Why Travelers Choose Marudhar Tours India
               </h2>
-              <p className="text-sm text-foreground/75 font-light leading-relaxed">
+              <p className="text-sm text-foreground/85 font-light leading-relaxed">
                 We've spent over a decade learning Rajasthan's back roads, festival calendars, and best-kept rooftop views — so your trip runs smoothly and feels personal, not packaged.
               </p>
             </div>
@@ -220,22 +218,22 @@ export default async function HomePage() {
 
 
       {/* 4. Popular Packages */}
-      <section className="py-24 px-6 max-w-7xl mx-auto w-full">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
-          <div className="space-y-4">
+      <section className="py-12 md:py-16 px-6 max-w-7xl mx-auto w-full">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div className="max-w-2xl space-y-3">
             <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
               Featured Tour Packages
             </span>
             <h2 className="font-playfair text-3xl md:text-5xl font-bold tracking-wide">
               Featured Packages
             </h2>
-          </div>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-4 md:mt-0">
-            <p className="text-sm text-foreground/75 max-w-md font-light leading-relaxed">
+            <p className="text-sm md:text-base text-stone-500 font-light leading-relaxed">
               Start with one of our most-booked itineraries — then tell us what you'd change.
             </p>
+          </div>
+          <div className="shrink-0">
             <Link href="/packages">
-              <Button variant="outline" className="border-accent hover:bg-accent hover:text-primary whitespace-nowrap">
+              <Button variant="outline" className="whitespace-nowrap">
                 View All Packages
               </Button>
             </Link>
@@ -251,8 +249,8 @@ export default async function HomePage() {
 
 
       {/* 6. Testimonials */}
-      <section className="py-24 px-6 max-w-7xl mx-auto w-full">
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+      <section className="py-12 md:py-16 px-6 max-w-7xl mx-auto w-full">
+        <div className="text-center max-w-2xl mx-auto mb-12 space-y-4">
           <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
             Traveler Diaries
           </span>
@@ -261,27 +259,38 @@ export default async function HomePage() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {testimonials.map((test) => (
             <div
               key={test.id}
-              className="bg-[var(--card-bg)] border border-[var(--border-color)] p-8 flex flex-col justify-between"
+              className="bg-[var(--card-bg)] border border-[var(--border-color)] p-6 flex flex-col"
             >
-              <div>
-                <div className="flex items-center space-x-1 text-accent mb-4">
-                  {[...Array(test.meta.rating)].map((_, i) => (
-                    <Star key={i} size={14} fill="currentColor" />
-                  ))}
-                </div>
-                <div
-                  className="text-sm text-foreground/80 leading-relaxed font-light italic mb-6"
-                  dangerouslySetInnerHTML={{ __html: test.content.rendered }}
-                />
+              {/* Quote mark */}
+              <span className="text-4xl text-accent/30 font-serif leading-none mb-2 select-none">&ldquo;</span>
+
+              {/* Stars */}
+              <div className="flex items-center space-x-1 text-accent mb-3">
+                {[...Array(test.meta.rating)].map((_, i) => (
+                  <Star key={i} size={13} fill="currentColor" />
+                ))}
               </div>
 
-              <div className="flex items-center space-x-4 border-t border-[var(--border-color)] pt-4">
+              {/* Review text — capped at 5 lines */}
+              <div
+                className="text-sm text-foreground/75 leading-relaxed font-light italic mb-6 flex-grow overflow-hidden"
+                style={{
+                  display: "-webkit-box",
+                  WebkitLineClamp: 5,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
+                }}
+                dangerouslySetInnerHTML={{ __html: test.content.rendered }}
+              />
+
+              {/* Author */}
+              <div className="flex items-center space-x-3 border-t border-[var(--border-color)] pt-4 mt-auto">
                 {test.meta.photo && (
-                  <div className="relative w-10 h-10 overflow-hidden bg-stone-100">
+                  <div className="relative w-10 h-10 overflow-hidden bg-stone-100 rounded-full shrink-0">
                     <Image
                       src={test.meta.photo}
                       alt={test.title.rendered}
@@ -291,10 +300,10 @@ export default async function HomePage() {
                   </div>
                 )}
                 <div>
-                  <h4 className="font-playfair text-sm font-bold text-foreground">
+                  <h4 className="font-playfair text-sm font-bold text-foreground leading-tight">
                     {test.title.rendered}
                   </h4>
-                  <span className="text-[10px] text-foreground/50 uppercase tracking-wider block">
+                  <span className="text-[10px] text-foreground/50 uppercase tracking-wider block mt-0.5">
                     {test.meta.location}
                   </span>
                 </div>
@@ -304,10 +313,9 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 7.5 Travel Process */}
-      <section className="py-24 px-6 bg-[#eae6df] dark:bg-stone-900/20 border-y border-[var(--border-color)]">
+      <section className="py-12 md:py-16 px-6 bg-background border-y border-[var(--border-color)]">
         <div className="max-w-7xl mx-auto w-full">
-          <div className="text-center mb-16 space-y-4">
+          <div className="text-center mb-12 space-y-4">
             <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
               Seamless Bespoke Planning
             </span>
@@ -395,8 +403,8 @@ export default async function HomePage() {
 
       {/* 8. FAQ Section */}
       {faqItems.length > 0 && (
-        <section className="py-24 px-6 max-w-4xl mx-auto w-full">
-          <div className="text-center mb-16 space-y-4">
+        <section className="py-12 md:py-16 px-6 max-w-4xl mx-auto w-full">
+          <div className="text-center mb-12 space-y-4">
             <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
               Common Queries
             </span>
@@ -408,36 +416,7 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* 9. Contact CTA */}
-      <section className="relative py-24 px-6 bg-[#eae6df] dark:bg-gradient-to-b dark:from-primary-light dark:to-primary text-foreground dark:text-white overflow-hidden text-center border-t border-[var(--border-color)] dark:border-white/5">
-        {/* Dark mode overlay */}
-        <div className="absolute inset-0 bg-black/40 z-10 hidden dark:block" />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-light to-primary opacity-90 z-10 hidden dark:block" />
-        
-        <div className="relative z-20 max-w-2xl mx-auto space-y-8">
-          <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
-            Begin Your Voyage
-          </span>
-          <h2 className="font-playfair text-3xl md:text-5xl font-bold tracking-wide leading-tight">
-            Your Rajasthan Story Is Waiting to Begin
-          </h2>
-          <p className="text-base text-foreground/80 dark:text-white/80 font-light leading-relaxed">
-            Tell us a few details about your trip, and we'll come back with an itinerary built around you — not a one-size-fits-all package.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
-            <Link href="/custom-package">
-              <Button variant="accent" size="lg">
-                Start Planning My Trip
-              </Button>
-            </Link>
-            <a href="https://wa.me/919509599502" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="lg" className="border-accent dark:border-white/25 text-foreground dark:text-white hover:bg-accent hover:text-primary transition-all duration-300">
-                Chat on WhatsApp
-              </Button>
-            </a>
-          </div>
-        </div>
-      </section>
+
     </div>
   );
 }

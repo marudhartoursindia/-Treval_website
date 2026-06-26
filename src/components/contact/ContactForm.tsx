@@ -66,7 +66,7 @@ export function ContactForm() {
           </div>
           <h3 className="font-playfair text-xl font-bold text-foreground">Message Dispatched</h3>
           <p className="text-xs text-foreground/70 leading-relaxed font-light">
-            Thank you for contacting Bespoke Travels. One of our destination curators will review your custom coordinates and connect with you shortly.
+            Thank you for contacting Marudhar Tours. One of our destination will review your custom coordinates and connect with you shortly.
           </p>
           <Button
             variant="outline"

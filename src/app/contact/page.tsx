@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle, Clock, Globe } from "lucide-react";
+// Icons used in office details card
 import { ContactForm } from "@/components/contact/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact Our Luxury Travel Specialists",
-  description: "Connect with our luxury travel curators to begin planning your bespoke vacation or private safari.",
+  description: "Connect with our luxury travel to begin planning your bespoke vacation or private safari.",
   alternates: {
     canonical: "/contact",
   },
@@ -12,88 +13,121 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="py-16 px-6 max-w-7xl mx-auto w-full">
-      {/* Title Header */}
-      <div className="max-w-3xl mb-16 space-y-4">
-        <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
-          Inquiries
-        </span>
-        <h1 className="font-playfair text-4xl md:text-5xl font-bold tracking-wide">
-          Connect With A Curator
-        </h1>
-        <p className="text-sm text-foreground/60 font-light leading-relaxed">
-          Ready to map your next itinerary? Provide your travel preferences below, and one of our destination specialists will reach out to schedule a private consultation.
-        </p>
+    <div className="flex flex-col">
+
+      {/* ── Map (top) ── */}
+      <div className="w-full h-72 md:h-[400px]">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d889.2806866249015!2d75.8253116696275!3d26.931322894201944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db14f38d0d77b%3A0x39de143d5c60f180!2sPrity%20Guest%20House!5e0!3m2!1sen!2sin!4v1782444377706!5m2!1sen!2sin"
+          className="w-full h-full border-0"
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+          title="Marudhar Tours India Office Map"
+        />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-        {/* Left Column: Form */}
-        <div className="lg:col-span-2">
-          <ContactForm />
-        </div>
+      {/* ── Main Content ── */}
+      <section className="py-16 px-6 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
-        {/* Right Column: Contact info */}
-        <div className="lg:col-span-1 space-y-8">
-          {/* Quick info list */}
-          <div className="bg-stone-50 dark:bg-stone-900/10 border border-[var(--border-color)] p-8 space-y-6">
-            <h3 className="font-playfair text-lg font-bold border-b border-[var(--border-color)] pb-3">
-              Office Details
-            </h3>
-
-            <div className="space-y-4 text-xs font-light text-foreground/85">
-              <div className="flex items-start space-x-3">
-                <MapPin size={18} className="text-accent shrink-0 mt-0.5" />
-                <span>P No2, Kamal Gatta Colony, Talkatora Road, Jaipur, Rajasthan, 302002</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone size={18} className="text-accent shrink-0" />
-                <span>+91-95095-99502</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail size={18} className="text-accent shrink-0" />
-                <a href="mailto:marudhartoursindia@gmail.com" className="hover:text-accent transition-colors">
-                  sonusingh1985@gmail.com 
-                </a>
-              </div>
-            </div>
-          </div>
- 
-          {/* WhatsApp Direct */}
-          <div className="bg-primary text-white p-8 space-y-4 border border-white/5 shadow-md">
-            <h3 className="font-playfair text-lg font-bold flex items-center">
-              <MessageCircle size={20} className="text-accent mr-2" />
-              Instant Chat
-            </h3>
-            <p className="text-xs text-white/70 leading-relaxed font-light">
-              Prefer to connect instantly? Chat directly with one of our online curators via WhatsApp.
-            </p>
-            <a
-              href="https://wa.me/919509599502"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block pt-2"
-            >
-              <button className="w-full bg-[#25D366] hover:bg-[#20ba56] text-white py-3 uppercase tracking-wider text-xs font-bold transition-colors cursor-pointer">
-                Message On WhatsApp
-              </button>
-            </a>
-          </div>
- 
-          {/* Map Representation */}
-          <div className="relative h-60 w-full bg-stone-200 border border-[var(--border-color)] overflow-hidden">
-            {/* Standard mock maps placeholder with high premium styling */}
-            <div className="absolute inset-0 bg-stone-900 flex flex-col items-center justify-center text-white/80 p-6 text-center space-y-2 select-none">
-              <MapPin size={24} className="text-accent animate-bounce" />
-              <span className="text-[10px] uppercase tracking-widest font-semibold text-accent">
-                Interactive Office Map
+          {/* LEFT: Contact Form */}
+          <div className="lg:col-span-2">
+            <div className="mb-8 space-y-1">
+              <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
+                Send an Inquiry
               </span>
-              <p className="text-[9px] text-white/60 font-light max-w-[200px]">
-                Jaipur HQ, Rajasthan. Near Kamal Gatta Colony.
-              </p>
+              <h2 className="font-playfair text-2xl md:text-3xl font-bold tracking-wide">
+                Plan Your Bespoke Journey
+              </h2>
             </div>
+            <ContactForm />
+          </div>
+
+          {/* RIGHT: Info Cards */}
+          <div className="space-y-6">
+
+            {/* Office Details Card */}
+            <div className="bg-[var(--card-bg)] border border-[var(--border-color)] p-6 shadow-sm space-y-5">
+              <h3 className="font-playfair text-base font-bold border-b border-[var(--border-color)] pb-3 !text-foreground flex items-center gap-2">
+                <Globe size={16} className="text-accent" />
+                Office Details
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
+                    <MapPin size={14} className="text-accent" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-foreground/50 font-semibold mb-0.5">Address</p>
+                    <p className="text-xs text-foreground/80 font-light leading-relaxed">
+                      P No2, Kamal Gatta Colony, Talkatora Road,<br />Jaipur, Rajasthan — 302002
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-accent/10 flex items-center justify-center shrink-0">
+                    <Phone size={14} className="text-accent" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-foreground/50 font-semibold mb-0.5">Phone</p>
+                    <a href="tel:+919509599502" className="text-xs text-foreground/80 font-light hover:text-accent transition-colors">
+                      +91 95095 99502
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-accent/10 flex items-center justify-center shrink-0">
+                    <Mail size={14} className="text-accent" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-foreground/50 font-semibold mb-0.5">Email</p>
+                    <a href="mailto:sonusingh1985@gmail.com" className="text-xs text-foreground/80 font-light hover:text-accent transition-colors">
+                      sonusingh1985@gmail.com
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-accent/10 flex items-center justify-center shrink-0">
+                    <Clock size={14} className="text-accent" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-foreground/50 font-semibold mb-0.5">Working Hours</p>
+                    <p className="text-xs text-foreground/80 font-light">Mon – Sat: 9:00 AM – 7:00 PM IST</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* WhatsApp Card */}
+            <div className="bg-white p-6 space-y-4 border border-[var(--border-color)] shadow-md relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-bl-full" />
+              <h3 className="font-playfair text-base font-bold flex items-center text-foreground gap-2 relative z-10">
+                <MessageCircle size={16} className="text-accent" />
+                Instant Chat
+              </h3>
+              <p className="text-xs text-foreground/70 leading-relaxed font-light relative z-10">
+                Prefer to connect instantly? Chat directly with one of our online via WhatsApp — typically responds within minutes.
+              </p>
+              <a
+                href="https://wa.me/919509599502"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block relative z-10"
+              >
+                <button className="w-full bg-accent hover:bg-accent-hover text-white py-3 uppercase tracking-wider text-xs font-bold transition-colors cursor-pointer flex items-center justify-center gap-2">
+                  <MessageCircle size={13} />
+                  Message On WhatsApp
+                </button>
+              </a>
+            </div>
+
           </div>
         </div>
-      </div>
+      </section>
+
+
+
     </div>
   );
 }

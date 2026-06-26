@@ -84,7 +84,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
             </span>
             <span className="flex items-center">
               <User size={12} className="text-accent mr-1.5" />
-              By Curator
+             
             </span>
           </div>
         </div>

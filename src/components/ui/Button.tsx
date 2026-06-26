@@ -18,14 +18,14 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           "inline-flex items-center justify-center font-medium transition-all duration-300 rounded-none cursor-pointer tracking-wider uppercase text-xs",
           {
-            // Primary
-            "bg-primary text-white hover:bg-primary-light border border-primary":
+            // Primary (Secondary Button: Royal Gold)
+            "bg-accent text-white hover:bg-accent-hover hover:text-white hover:border-accent-hover border border-accent":
               variant === "primary",
-            // Accent (Luxury Gold)
-            "bg-accent text-primary hover:bg-accent-hover hover:text-white border border-accent":
+            // Accent (Primary Button: Royal Gold)
+            "bg-accent text-white hover:bg-accent-hover hover:text-white hover:border-accent-hover border border-accent ":
               variant === "accent",
             // Outline
-            "bg-transparent text-foreground border border-current hover:bg-foreground hover:text-background":
+            "bg-transparent text-accent border border-accent hover:bg-accent hover:text-white":
               variant === "outline",
             // Ghost
             "bg-transparent text-foreground hover:bg-accent-light hover:text-accent":

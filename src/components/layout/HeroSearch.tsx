@@ -32,8 +32,8 @@ export function HeroSearch({ destinations }: HeroSearchProps) {
     >
       {/* Search Input */}
       <div className="flex flex-col justify-center border-b md:border-b-0 md:border-r border-[var(--border-color)] pb-3 md:pb-0 md:pr-4">
-        <label className="text-[10px] uppercase tracking-widest text-accent font-semibold mb-1 flex items-center">
-          <Search size={12} className="mr-1" />
+        <label className="text-[10px] uppercase tracking-widest text-primary font-semibold mb-1 flex items-center">
+          <Search size={12} className="mr-1 text-accent" />
           Keyword Search
         </label>
         <input
@@ -41,14 +41,14 @@ export function HeroSearch({ destinations }: HeroSearchProps) {
           placeholder="e.g. Safari, Cultural"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="bg-transparent border-0 p-0 text-sm focus:outline-none focus:ring-0 text-foreground placeholder:text-foreground/40 font-light"
+          className="bg-transparent border-0 p-0 text-sm focus:outline-none focus:ring-0 text-foreground placeholder:text-foreground/65 font-light"
         />
       </div>
 
       {/* Destination Dropdown */}
       <div className="flex flex-col justify-center border-b md:border-b-0 md:border-r border-[var(--border-color)] pb-3 md:pb-0 md:pr-4">
-        <label className="text-[10px] uppercase tracking-widest text-accent font-semibold mb-1 flex items-center">
-          <MapPin size={12} className="mr-1" />
+        <label className="text-[10px] uppercase tracking-widest text-primary font-semibold mb-1 flex items-center">
+          <MapPin size={12} className="mr-1 text-accent" />
           Destination
         </label>
         <select
@@ -71,8 +71,8 @@ export function HeroSearch({ destinations }: HeroSearchProps) {
 
       {/* Duration Range */}
       <div className="flex flex-col justify-center border-b md:border-b-0 pb-3 md:pb-0 md:pr-4">
-        <label className="text-[10px] uppercase tracking-widest text-accent font-semibold mb-1 flex items-center">
-          <Calendar size={12} className="mr-1" />
+        <label className="text-[10px] uppercase tracking-widest text-primary font-semibold mb-1 flex items-center">
+          <Calendar size={12} className="mr-1 text-accent" />
           Duration
         </label>
         <select

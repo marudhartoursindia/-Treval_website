@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const TEAM_MEMBERS = [
   {
     name: "Genevieve Thorne",
-    role: "Founder & Lead Curator",
+    role: "Founder & Lead ",
     photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400",
     bio: "With over 18 years in luxury hospitality, Genevieve curates bespoke itineraries across India for international VIP explorers."
   },
@@ -25,7 +25,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Mika Tanaka",
-    role: "Spiritual & Heritage Curator",
+    role: "Spiritual & Heritage",
     photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400",
     bio: "Mika specializes in cultural immersion, temple ceremonies, and off-the-beaten-path heritage tours across Rajasthan and spiritual hubs."
   }
@@ -121,7 +121,7 @@ export default function AboutPage() {
             Our Travel Specialists
           </h2>
           <p className="text-xs text-foreground/60 font-light">
-            Meet the experienced destination curators who design and coordinate our signature itineraries.
+            Meet the experienced destination who design and coordinate our signature itineraries.
           </p>
         </div>
 

@@ -36,7 +36,7 @@ export function DestinationCard({ destination }: DestinationCardProps) {
           <span>{destination.meta.best_time_to_visit ? "Seasonal" : "Discover"}</span>
         </div>
 
-        <h3 className="font-playfair text-xl md:text-2xl font-bold mb-2 tracking-wide group-hover:text-accent transition-colors">
+        <h3 className="font-playfair text-xl md:text-2xl font-bold mb-2 tracking-wide !text-white group-hover:!text-accent transition-colors">
           {destination.title.rendered}
         </h3>
 

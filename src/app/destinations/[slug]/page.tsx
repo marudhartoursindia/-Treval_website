@@ -74,7 +74,7 @@ export default async function DestinationDetailPage({ params }: PageProps) {
           <span className="text-[10px] md:text-xs tracking-[0.6em] uppercase text-accent font-semibold block animate-pulse">
             Bespoke Travel Guide
           </span>
-          <h1 className="font-playfair text-4xl md:text-6xl font-bold text-white tracking-wide">
+          <h1 className="font-playfair text-4xl md:text-6xl font-bold !text-accent tracking-wide">
             {dest.title.rendered}
           </h1>
         </div>
@@ -180,11 +180,11 @@ export default async function DestinationDetailPage({ params }: PageProps) {
           <div className="bg-primary text-white p-8 space-y-4 border border-white/5">
             <h4 className="font-playfair text-lg font-bold">Plan A Custom Trip</h4>
             <p className="text-xs text-white/70 leading-relaxed font-light">
-              Want to see {dest.title.rendered}? Our luxury curators can craft a bespoke itinerary tailored just for you.
+              Want to see {dest.title.rendered}? Our luxury can craft a bespoke itinerary tailored just for you.
             </p>
             <Link href="/contact" className="block pt-2">
               <Button variant="accent" className="w-full text-center">
-                Contact Curator
+                Contact
               </Button>
             </Link>
           </div>
@@ -211,7 +211,7 @@ export default async function DestinationDetailPage({ params }: PageProps) {
             </div>
           ) : (
             <p className="text-sm text-foreground/50 font-light">
-              We are currently drafting new private itineraries for this destination. Check back soon or contact our curators to request a custom plan.
+              We are currently drafting new private itineraries for this destination. Check back soon or contact our to request a custom plan.
             </p>
           )}
         </div>

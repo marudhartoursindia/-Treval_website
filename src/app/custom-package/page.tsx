@@ -112,7 +112,7 @@ export default function CustomPackagePage() {
             Design Your Custom Itinerary
           </h1>
           <p className="text-base text-foreground/75 max-w-2xl mx-auto font-light leading-relaxed">
-            Tell us about your dream trip. Whether you want a royal Rajasthani getaway, a spiritual Varanasi experience, or a tour extending outside Rajasthan, our curators at Marudhar Tours India will build a tailor-made plan for you.
+            Tell us about your dream trip. Whether you want a royal Rajasthani getaway, a spiritual Varanasi experience, or a tour extending outside Rajasthan, ours at Marudhar Tours India will build a tailor-made plan for you.
           </p>
         </div>
 

@@ -1,38 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #251c17;
-  --color-primary-light: #382c25;
-  --color-accent: #d9b470;
-  --color-accent-hover: #ba9656;
-  --color-accent-light: #fcfaf5;
-  --color-luxury-dark: #16110e;
-  --color-luxury-gray: #1f1815;
+  --color-primary: #0B1F3B;
+  --color-primary-light: #163660;
+  --color-secondary: #C59B27;
+  --color-secondary-hover: #ab851a;
+  --color-accent: #C59B27;
+  --color-accent-hover: #ab851a;
+  --color-accent-light: #FAF9F6;
+  --color-luxury-dark: #071426;
+  --color-luxury-gray: #0b1f3a;
+  --color-stone-50: #FAF9F6;
+  --color-stone-100: #F1F5F9;
+  --color-stone-200: #E2E8F0;
+  --color-stone-300: #CBD5E1;
+  --color-stone-500: #64748B;
+  --color-stone-800: #1E293B;
+  --color-stone-900: #0F172A;
+  --color-stone-950: #020617;
   --font-playfair: 'Playfair Display', Georgia, serif;
 }
 
 :root {
-  --background: #f9f5ed;
-  --foreground: #332822;
+  --background: #FAF9F6;
+  --foreground: #1E1E1E;
   --card-bg: #ffffff;
-  --border-color: #ebdcb9;
-  --accent-rgb: 217, 180, 112;
-}
-
-html.dark {
-  --background: #16110e;
-  --foreground: #fcf9f5;
-  --card-bg: #251c17;
-  --border-color: #3d3027;
-}
-
-@media (prefers-color-scheme: dark) {
-  html:not(.light) {
-    --background: #16110e;
-    --foreground: #fcf9f5;
-    --card-bg: #251c17;
-    --border-color: #3d3027;
-  }
+  --border-color: #E2E8F0;
+  --accent-rgb: 197, 155, 39;
 }
 
 body {
@@ -43,6 +37,16 @@ body {
   scroll-behavior: smooth;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-primary);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--color-accent) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 1px var(--color-accent) !important;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -51,11 +55,11 @@ body {
   background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #c5a880;
+  background: var(--color-primary);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #b0936b;
+  background: var(--color-primary-light);
 }
 
 /* Glassmorphism Helper */
@@ -89,6 +93,4 @@ body {
   animation: shimmer 1.5s infinite linear;
 }
 
-.text-accent {
-  color: #b18420;
-}
+
