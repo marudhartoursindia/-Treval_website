@@ -14,6 +14,7 @@ import { DestinationCard } from "@/components/destination/DestinationCard";
 import { HeroSearch } from "@/components/layout/HeroSearch";
 import { HeroSlideshow } from "@/components/layout/HeroSlideshow";
 import { StatsSection } from "@/components/layout/StatsSection";
+import { TestimonialsSlider } from "@/components/layout/TestimonialsSlider";
 import { Button } from "@/components/ui/Button";
 import { Accordion } from "@/components/ui/Accordion";
 import { formatPrice } from "@/lib/utils";
@@ -259,58 +260,7 @@ export default async function HomePage() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-          {testimonials.map((test) => (
-            <div
-              key={test.id}
-              className="bg-[var(--card-bg)] border border-[var(--border-color)] p-6 flex flex-col"
-            >
-              {/* Quote mark */}
-              <span className="text-4xl text-accent/30 font-serif leading-none mb-2 select-none">&ldquo;</span>
-
-              {/* Stars */}
-              <div className="flex items-center space-x-1 text-accent mb-3">
-                {[...Array(test.meta.rating)].map((_, i) => (
-                  <Star key={i} size={13} fill="currentColor" />
-                ))}
-              </div>
-
-              {/* Review text — capped at 5 lines */}
-              <div
-                className="text-sm text-foreground/75 leading-relaxed font-light italic mb-6 flex-grow overflow-hidden"
-                style={{
-                  display: "-webkit-box",
-                  WebkitLineClamp: 5,
-                  WebkitBoxOrient: "vertical",
-                  overflow: "hidden",
-                }}
-                dangerouslySetInnerHTML={{ __html: test.content.rendered }}
-              />
-
-              {/* Author */}
-              <div className="flex items-center space-x-3 border-t border-[var(--border-color)] pt-4 mt-auto">
-                {test.meta.photo && (
-                  <div className="relative w-10 h-10 overflow-hidden bg-stone-100 rounded-full shrink-0">
-                    <Image
-                      src={test.meta.photo}
-                      alt={test.title.rendered}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                )}
-                <div>
-                  <h4 className="font-playfair text-sm font-bold text-foreground leading-tight">
-                    {test.title.rendered}
-                  </h4>
-                  <span className="text-[10px] text-foreground/50 uppercase tracking-wider block mt-0.5">
-                    {test.meta.location}
-                  </span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <TestimonialsSlider testimonials={testimonials} />
       </section>
 
       <section className="py-12 md:py-16 px-6 bg-background border-y border-[var(--border-color)]">
