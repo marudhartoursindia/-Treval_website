@@ -6,6 +6,8 @@ import { Calendar, User, ArrowLeft, Tag } from "lucide-react";
 import { getBlogBySlug, getBlogs } from "@/lib/api";
 import { getBlogSchema } from "@/lib/seo";
 
+export const revalidate = 0;
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Calendar, User, ArrowRight } from "lucide-react";
 import { getBlogs } from "@/lib/api";
 
-export const revalidate = 3600;
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Bespoke Journal - Luxury Travel Insights",
