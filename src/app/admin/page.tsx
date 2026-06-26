@@ -358,8 +358,8 @@ export default function AdminPage() {
             <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
               Bespoke CMS Control Panel
             </span>
-            <h1 className="font-playfair text-3xl md:text-5xl font-bold text-white">
-              Spreadsheet Database Manager
+            <h1 className="font-playfair text-3xl md:text-5xl font-bold text-accent tracking-wide">
+              Marudhar Tours Admin Panel
             </h1>
           </div>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
