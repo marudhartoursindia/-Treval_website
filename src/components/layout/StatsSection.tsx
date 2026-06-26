@@ -81,7 +81,7 @@ export function StatsSection() {
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[300px] h-[300px] bg-accent/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[300px] h-[300px] bg-accent/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative z-20 max-w-7xl mx-auto w-full">
+      <div className="relative z-20 max-w-[1600px] mx-auto w-full">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           <StatItem 
             icon={<Users size={24} />} 

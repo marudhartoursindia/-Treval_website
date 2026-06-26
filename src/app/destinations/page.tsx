@@ -16,7 +16,7 @@ export default async function DestinationsPage() {
   const destinations = await getDestinations();
 
   return (
-    <div className="py-16 px-6 max-w-7xl mx-auto w-full">
+    <div className="py-16 px-6 max-w-[1600px] mx-auto w-full">
       <div className="max-w-3xl mb-16 space-y-4">
         <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
           Curated Regions

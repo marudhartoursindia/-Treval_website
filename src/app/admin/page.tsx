@@ -394,7 +394,7 @@ export default function AdminPage() {
 
         {/* Tab Selection */}
         <div className="flex flex-wrap gap-2 border-b border-stone-200 pb-3">
-          {["packages", "destinations", "blogs", "testimonials", "faqs"].map(tab => (
+          {["packages", "destinations", "testimonials", "faqs"].map(tab => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}

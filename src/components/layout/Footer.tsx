@@ -10,7 +10,7 @@ export function Footer() {
       <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-accent to-transparent opacity-30" />
 
       {/* ── Main Footer Grid ── */}
-      <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="max-w-[1600px] mx-auto px-6 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
         {/* Column 1: Brand */}
         <div className="space-y-5 sm:col-span-2 lg:col-span-1">
@@ -99,11 +99,6 @@ export function Footer() {
                 Our Story
               </Link>
             </li>
-            <li>
-              <Link href="/blog" className="hover:text-accent transition-colors hover:pl-1 duration-200 block">
-                Bespoke Journal
-              </Link>
-            </li>
           </ul>
         </div>
 
@@ -164,7 +159,7 @@ export function Footer() {
 
       {/* ── Bottom Bar ── */}
       <div className="border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] text-white/35 font-light">
+        <div className="max-w-[1600px] mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] text-white/35 font-light">
           <p>© {new Date().getFullYear()} Marudhar Tours India. All rights reserved.</p>
           <div className="flex items-center space-x-6">
             <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>

@@ -12,7 +12,7 @@ export function Breadcrumbs() {
 
   return (
     <nav aria-label="Breadcrumb" className="py-4 border-b border-[var(--border-color)] bg-[var(--background)] px-6">
-      <div className="max-w-7xl mx-auto flex items-center space-x-2 text-xs font-light tracking-wider uppercase">
+      <div className="max-w-[1600px] mx-auto flex items-center space-x-2 text-xs font-light tracking-wider uppercase">
         <Link href="/" className="hover:text-accent transition-colors flex items-center text-foreground/60">
           <Home size={14} className="mr-1" />
           Home

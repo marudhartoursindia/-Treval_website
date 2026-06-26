@@ -6,8 +6,8 @@ import { InquiryForm } from "@/components/package/InquiryForm";
 import { Accordion } from "@/components/ui/Accordion";
 
 export const metadata: Metadata = {
-  title: "Golden Triangle Luxury Tour - 9 Days Itinerary",
-  description: "Embark on a luxury custom tour covering Delhi, Agra, Jaipur, and the UNESCO heritage temples of Khajuraho with private transfers and native guides.",
+  title: "Golden Triangle Luxury Tour - 6 Days Itinerary",
+  description: "Embark on a luxury custom tour covering Delhi, Agra, and Jaipur with private transfers and native guides.",
   alternates: {
     canonical: "/golden-triangle",
   },
@@ -46,27 +46,9 @@ export default function GoldenTrianglePage() {
       )
     },
     {
-      title: "Day 6: Train to Jhansi & Drive to Orchha Medieval Town",
+      title: "Day 6: Drive back to Delhi & International Departure",
       content: (
-        <p>Board the air-conditioned Shatabdi Express train to Jhansi. Drive to the medieval town of Orchha. Explore the architectural wonders of Orchha Fort, Jehangir Mahal, and the royal cenotaphs lining the Betwa River.</p>
-      )
-    },
-    {
-      title: "Day 7: Drive to Khajuraho - The Temple Artistry",
-      content: (
-        <p>Drive to the UNESCO World Heritage town of Khajuraho. Check into your luxury resort. In the evening, attend the spectacular Light and Sound Show at the temple complex, narrating the history of the Chandela dynasty.</p>
-      )
-    },
-    {
-      title: "Day 8: Ancient Temples of Khajuraho",
-      content: (
-        <p>Spend the day exploring the Western and Eastern groups of temples. Admire the exquisite sandstone carvings depicting life, divinity, and sensuality, including the famous Kandariya Mahadev and Lakshmana Temples.</p>
-      )
-    },
-    {
-      title: "Day 9: Flight to Delhi & International Departure",
-      content: (
-        <p>Fly from Khajuraho back to Delhi. Access the VIP lounge at Delhi Airport before boarding your international flight back home, carrying memories of an unforgettable voyage.</p>
+        <p>Drive back from Jaipur to Delhi in your private vehicle. Spend some time for last-minute shopping or relax at a lounge, before transferring to Delhi Airport for your international flight back home.</p>
       )
     }
   ];
@@ -74,33 +56,25 @@ export default function GoldenTrianglePage() {
   const faqItems = [
     {
       title: "What is the best season for this tour?",
-      content: "The best time to travel is between October and March when the weather in North India and Madhya Pradesh is pleasant, perfect for heritage walks and temple tours."
-    },
-    {
-      title: "Is the internal flight from Khajuraho to Delhi included?",
-      content: "Yes, our luxury can bundle the domestic flight from Khajuraho back to Delhi inside your customized quote, ensuring seamless check-ins."
+      content: "The best time to travel is between October and March when the weather in North India is pleasant, perfect for heritage walks and sight-seeing."
     },
     {
       title: "Are there specific dress codes for temple visits?",
-      content: "Yes, visitors should dress modestly (knees and shoulders covered) at active temples in Delhi and Orchha. Leather items such as belts, wallets, and bags must be left outside the main Ranakpur or Khajuraho temple sanctuaries."
+      content: "Yes, visitors should dress modestly (knees and shoulders covered) at active temples. Leather items such as belts, wallets, and bags must be left outside the main temple sanctuaries."
     }
   ];
 
   const galleryImages = [
     "/agra.jpg",
     "/delhi.jpg",
-    "/jaipur_fort.jpg",
-    "/khajuraho.jpg"
+    "/jaipur_fort.jpg"
   ];
 
   const highlights = [
     "Private sunrise guided tour of the Taj Mahal in Agra",
     "Comprehensive historical excursions in Old & New Delhi",
     "Royal fort explorations & Jeep transfer in Jaipur",
-    "Tour of the spectacular medieval palaces and cenotaphs of Orchha",
-    "Detailed guide to the UNESCO World Heritage temples of Khajuraho",
-    "Luxury air-conditioned private vehicle and expert drivers throughout",
-    "Bespoke domestic travel arrangements (Express Train & Flight)"
+    "Luxury air-conditioned private vehicle and expert drivers throughout"
   ];
 
   const inclusions = [
@@ -108,14 +82,12 @@ export default function GoldenTrianglePage() {
     "Daily gourmet buffet breakfasts at all hotels",
     "Dedicated private air-conditioned SUV with professional chauffeur",
     "Expert English-speaking local guides at each city",
-    "Air-conditioned Shatabdi Express Train tickets (Delhi - Jhansi)",
     "All applicable monument entrance tickets and camera fees",
     "Private Jeep ride to Amber Fort in Jaipur"
   ];
 
   const exclusions = [
     "International flight tickets and Indian tourist visa fees",
-    "Domestic flight ticket (Khajuraho - Delhi) - can be quoted extra",
     "Lunch and dinner meals (unless specified)",
     "Personal expenses (laundry, telephone, tips, shopping)"
   ];
@@ -124,13 +96,13 @@ export default function GoldenTrianglePage() {
     <div className="flex flex-col">
       {/* Hero Banner Section */}
       <section className="relative min-h-[50vh] md:min-h-[80vh] flex items-center justify-center bg-stone-950 py-20 px-6 -mt-[72px] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/85 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/15 to-black/40 z-10" />
         <div className="absolute inset-0 z-0">
           <Image
-            src="/agra.jpg"
-            alt="Taj Mahal Agra representing Golden Triangle Tour"
+            src="/golden-triangle-banner.jpg"
+            alt="Golden Triangle landmarks including Hawa Mahal, Red Fort, and Taj Mahal"
             fill
-            className="object-cover object-center opacity-45"
+            className="object-cover object-center opacity-50"
             priority
           />
         </div>
@@ -144,13 +116,13 @@ export default function GoldenTrianglePage() {
             <span className="text-white italic font-normal"></span>
           </h1>
           <p className="text-sm md:text-base text-white/85 max-w-2xl mx-auto font-light leading-relaxed">
-            The ultimate blend of India's royal palaces, Mughal grandeur, and the finest ancient temple craftsmanship in Khajuraho. A bespoke 9-day luxury expedition.
+            The ultimate blend of India's royal palaces, Mughal grandeur, and cultural heritage. A bespoke 6-day luxury expedition.
           </p>
         </div>
       </section>
 
       {/* Main Content Layout */}
-      <div className="py-16 px-6 max-w-7xl mx-auto w-full">
+      <div className="py-16 px-6 max-w-[1600px] mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           
           {/* Left Panel: Content details */}
@@ -165,10 +137,10 @@ export default function GoldenTrianglePage() {
                 Journey Overview
               </h2>
               <p className="text-sm text-foreground/85 leading-relaxed font-light">
-                This signature route connects India's famous **Golden Triangle**—the historical power center of **Delhi**, the romantic Mughal capital of **Agra** (home to the Taj Mahal), and the royal pink city of **Jaipur**—with the legendary architectural temples of **Khajuraho**. 
+                This signature route connects India's famous **Golden Triangle**—the historical power center of **Delhi**, the romantic Mughal capital of **Agra** (home to the Taj Mahal), and the royal pink city of **Jaipur**.
               </p>
               <p className="text-sm text-foreground/85 leading-relaxed font-light">
-                Designed specifically for luxury travelers from the USA, UK, Europe, and Japan, this tour promises unmatched heritage access, premium 5-star lodging, dedicated private transport, and local expert who bring centuries of history to life.
+                Designed specifically for luxury travelers from the USA, UK, Europe, and Japan, this tour promises unmatched heritage access, premium 5-star lodging, dedicated private transport, and local expert guides who bring centuries of history to life.
               </p>
             </section>
 
@@ -180,7 +152,7 @@ export default function GoldenTrianglePage() {
               <h2 className="font-playfair text-2xl md:text-3xl font-bold text-foreground border-b border-[var(--border-color)] pb-3">
                 Destinations Along the Route
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Delhi */}
                 <div className="border border-[var(--border-color)] bg-[var(--card-bg)] group overflow-hidden">
                   <div className="relative h-56 overflow-hidden">
@@ -243,27 +215,6 @@ export default function GoldenTrianglePage() {
                     </p>
                   </div>
                 </div>
-
-                {/* Khajuraho */}
-                <div className="border border-[var(--border-color)] bg-[var(--card-bg)] group overflow-hidden">
-                  <div className="relative h-56 overflow-hidden">
-                    <Image
-                      src="/khajuraho.jpg"
-                      alt="Khajuraho Ancient Sculpted Temples"
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-103"
-                    />
-                    <div className="absolute top-4 left-4 bg-primary text-white text-[9px] uppercase tracking-widest px-3 py-1 font-semibold border border-accent/20">
-                      Day 6 - 8
-                    </div>
-                  </div>
-                  <div className="p-4 space-y-2">
-                    <h3 className="font-playfair text-lg font-bold text-foreground">Khajuraho & Orchha: Ancient Artistry</h3>
-                    <p className="text-xs text-foreground/75 leading-relaxed font-light">
-                      Discover the medieval fortress towers of Orchha and the UNESCO-listed sandstone temples of Khajuraho, renowned for their ancient sculptures.
-                    </p>
-                  </div>
-                </div>
               </div>
             </section>
 
@@ -309,7 +260,7 @@ export default function GoldenTrianglePage() {
 
               <div className="space-y-4">
                 <h3 className="font-playfair text-lg font-bold flex items-center text-foreground">
-                  <ShieldX size={18} className="text-red-500 mr-2" />
+                  <ShieldCheck size={18} className="text-red-500 mr-2" />
                   What's Excluded
                 </h3>
                 <ul className="space-y-2 text-xs text-foreground/80 font-light">
@@ -331,7 +282,7 @@ export default function GoldenTrianglePage() {
                   Superb Accommodations
                 </h3>
                 <p className="text-xs text-foreground/80 leading-relaxed font-light">
-                  Stay in top-rated luxury properties such as The Leela Palace Delhi, The Oberoi Amarvilas (Agra), Taj Rambagh Palace (Jaipur), and The Lalit Temple View (Khajuraho).
+                  Stay in top-rated luxury properties such as The Leela Palace Delhi, The Oberoi Amarvilas (Agra), and Taj Rambagh Palace (Jaipur).
                 </p>
               </div>
               <div className="space-y-3">

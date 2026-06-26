@@ -50,7 +50,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story Details */}
-      <section className="py-20 px-6 max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <section className="py-20 px-6 max-w-[1600px] mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <div className="border border-[var(--border-color)] max-w-md mx-auto w-full overflow-hidden">
           <Image
             src="/about.jpeg"
@@ -78,7 +78,7 @@ export default function AboutPage() {
 
       {/* Mission & Vision */}
       <section className="bg-stone-50 dark:bg-stone-900/10 py-20 px-6 border-y border-[var(--border-color)]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="space-y-4">
             <div className="w-10 h-10 flex items-center justify-center bg-accent/10 rounded-full text-accent">
               <Compass size={20} />
@@ -112,7 +112,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="py-24 px-6 max-w-7xl mx-auto w-full">
+      <section className="py-24 px-6 max-w-[1600px] mx-auto w-full">
         <div className="text-center max-w-xl mx-auto mb-16 space-y-4">
           <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
             Specialists

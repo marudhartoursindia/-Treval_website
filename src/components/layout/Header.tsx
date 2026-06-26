@@ -14,7 +14,6 @@ const NAVIGATION_ITEMS = [
   { label: "Packages", href: "/packages" },
   { label: "Golden Triangle", href: "/golden-triangle" },
   { label: "Custom Package", href: "/custom-package" },
-  { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];

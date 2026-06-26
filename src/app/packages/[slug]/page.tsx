@@ -78,7 +78,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
         />
       )}
 
-      <div className="py-12 px-6 max-w-7xl mx-auto w-full">
+      <div className="py-12 px-6 max-w-[1600px] mx-auto w-full">
         {/* Title Header */}
         <div className="space-y-4 mb-10">
           <div className="flex items-center space-x-3 text-accent text-xs font-semibold uppercase tracking-widest">

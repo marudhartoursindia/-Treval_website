@@ -80,7 +80,7 @@ export default async function DestinationDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      <div className="py-16 px-6 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-16">
+      <div className="py-16 px-6 max-w-[1600px] mx-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-16">
         {/* Left 2 Columns: Guide Content */}
         <div className="lg:col-span-2 space-y-12">
           {/* Overview */}
@@ -193,7 +193,7 @@ export default async function DestinationDetailPage({ params }: PageProps) {
 
       {/* Packages in this destination */}
       <section className="py-16 px-6 border-t border-[var(--border-color)] bg-stone-50/50 dark:bg-stone-950/20">
-        <div className="max-w-7xl mx-auto w-full space-y-10">
+        <div className="max-w-[1600px] mx-auto w-full space-y-10">
           <div className="space-y-2">
             <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
               Trip Suggestions

@@ -28,7 +28,7 @@ export default function ContactPage() {
       </div>
 
       {/* ── Main Content ── */}
-      <section className="py-16 px-6 max-w-7xl mx-auto w-full">
+      <section className="py-16 px-6 max-w-[1600px] mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
           {/* LEFT: Contact Form */}

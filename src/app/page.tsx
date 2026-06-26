@@ -81,7 +81,7 @@ export default async function HomePage() {
       </section>
 
       {/* 2. Popular Destinations */}
-      <section className="py-12 md:py-16 px-6 max-w-7xl mx-auto w-full">
+      <section className="py-12 md:py-16 px-6 max-w-[1600px] mx-auto w-full">
         <div className="max-w-3xl mb-12 space-y-3">
           <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
             Popular Rajasthan Destinations
@@ -120,7 +120,7 @@ export default async function HomePage() {
 
       {/* 3. Why Choose Us (Split-Screen Premium Layout) */}
       <section className="bg-background text-foreground py-12 md:py-16 px-6 border-y border-[var(--border-color)]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left: Beautiful Decorative Image */}
           <div className="lg:col-span-5 relative aspect-[4/3] w-full overflow-hidden border-2 border-accent/20 p-2 bg-stone-100">
@@ -219,7 +219,7 @@ export default async function HomePage() {
 
 
       {/* 4. Popular Packages */}
-      <section className="py-12 md:py-16 px-6 max-w-7xl mx-auto w-full">
+      <section className="py-12 md:py-16 px-6 max-w-[1600px] mx-auto w-full">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl space-y-3">
             <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
@@ -250,7 +250,7 @@ export default async function HomePage() {
 
 
       {/* 6. Testimonials */}
-      <section className="py-12 md:py-16 px-6 max-w-7xl mx-auto w-full">
+      <section className="py-12 md:py-16 px-6 max-w-[1600px] mx-auto w-full">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-4">
           <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
             Traveler Diaries
@@ -264,7 +264,7 @@ export default async function HomePage() {
       </section>
 
       <section className="py-12 md:py-16 px-6 bg-background border-y border-[var(--border-color)]">
-        <div className="max-w-7xl mx-auto w-full">
+        <div className="max-w-[1600px] mx-auto w-full">
           <div className="text-center mb-12 space-y-4">
             <span className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold block">
               Seamless Bespoke Planning
