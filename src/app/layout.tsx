@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
@@ -26,9 +26,7 @@ export const metadata: Metadata = {
   },
   description: "Bespoke luxury tour packages and private custom itineraries across India for travelers from the USA, UK, Japan, Switzerland, France, and Italy. Discover Rajasthan, Taj Mahal, Varanasi, and hidden gems with native expert guides.",
   metadataBase: new URL("https://marudhartours.com"),
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Marudhar Tours India",
     description: "Bespoke travel itineraries, private tours & desert safaris to Rajasthan and major Indian destinations.",
@@ -51,6 +49,23 @@ export const metadata: Metadata = {
     description: "Bespoke travel itineraries, private tours & desert safaris to Rajasthan and major Indian destinations.",
     images: ["https://images.unsplash.com/photo-1477584322811-5a3ecfb790f3?q=80&w=1200"],
   },
+  appleWebApp: {
+    capable: true,
+    title: "Marudhar Tours",
+    statusBarStyle: "default",
+  },
+};
+
+// Separate viewport export — required by Next.js 16+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FAF9F6" },
+    { media: "(prefers-color-scheme: dark)", color: "#0B1F3B" },
+  ],
 };
 
 export default function RootLayout({
@@ -63,6 +78,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} h-full antialiased`}>
       <head>
+        {/* Cross-browser compatibility meta tags */}
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}

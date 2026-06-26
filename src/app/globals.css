@@ -93,4 +93,61 @@ input:focus, textarea:focus, select:focus {
   animation: shimmer 1.5s infinite linear;
 }
 
+/* ── Cross-Browser Compatibility ───────────────────── */
 
+/* Font smoothing — Chrome, Safari, Firefox */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Line clamp utility — all browsers */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-5 {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Backdrop filter — Safari prefix */
+.glass-panel,
+.glass-panel-light {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+/* Focus visible — keyboard navigation for all browsers */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Smooth scroll — with prefers-reduced-motion respect */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Touch highlight removal — iOS Safari */
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Image dragging prevention */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* Safe area padding — iPhone notch/dynamic island */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}

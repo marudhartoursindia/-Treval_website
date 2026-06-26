@@ -18,145 +18,55 @@ export default function GoldenTrianglePage() {
     {
       title: "Day 1: Arrival in Delhi - Welcome to India",
       content: (
-        <div className="space-y-4">
-          <p>Land at Indira Gandhi International Airport. Meet our representative for a VIP transfer to your luxury hotel. Spend the evening relaxing or enjoying a premium dining experience at the hotel.</p>
-          <div className="relative w-full h-[200px] md:h-[280px] overflow-hidden border border-[var(--border-color)]">
-            <Image
-              src="/delhi.jpg"
-              alt="Delhi Arrival"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
+        <p>Land at Indira Gandhi International Airport. Meet our representative for a VIP transfer to your luxury hotel. Spend the evening relaxing or enjoying a premium dining experience at the hotel.</p>
       )
     },
     {
       title: "Day 2: Old & New Delhi Heritage Exploration",
       content: (
-        <div className="space-y-4">
-          <p>Explore the dual histories of Delhi. Visit the imposing Red Fort and Jama Masjid in Old Delhi, followed by a rickshaw ride through Chandni Chowk. In the afternoon, explore New Delhi's Humayun's Tomb, Qutub Minar, and drive past India Gate and Rashtrapati Bhavan.</p>
-          <div className="relative w-full h-[200px] md:h-[280px] overflow-hidden border border-[var(--border-color)]">
-            <Image
-              src="/delhi.jpg"
-              alt="Qutub Minar, Delhi"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
+        <p>Explore the dual histories of Delhi. Visit the imposing Red Fort and Jama Masjid in Old Delhi, followed by a rickshaw ride through Chandni Chowk. In the afternoon, explore New Delhi's Humayun's Tomb, Qutub Minar, and drive past India Gate and Rashtrapati Bhavan.</p>
       )
     },
     {
       title: "Day 3: Journey to Agra & Taj Mahal Sunset",
       content: (
-        <div className="space-y-4">
-          <p>Drive to Agra in a private luxury vehicle. Check into your boutique hotel. In the afternoon, explore the massive red sandstone Agra Fort. As the sun sets, witness the spectacular view of the Taj Mahal from Mehtab Bagh.</p>
-          <div className="relative w-full h-[200px] md:h-[280px] overflow-hidden border border-[var(--border-color)]">
-            <Image
-              src="/agra.jpg"
-              alt="Agra Fort"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
+        <p>Drive to Agra in a private luxury vehicle. Check into your boutique hotel. In the afternoon, explore the massive red sandstone Agra Fort. As the sun sets, witness the spectacular view of the Taj Mahal from Mehtab Bagh.</p>
       )
     },
     {
       title: "Day 4: Sunrise at Taj Mahal & Drive to Jaipur via Fatehpur Sikri",
       content: (
-        <div className="space-y-4">
-          <p>Witness the eternal monument of love, the Taj Mahal, at sunrise when the marble changes colors with the morning light. After breakfast, drive to Jaipur, visiting the ghost city of Fatehpur Sikri and the historic stepwell Chand Baori en route.</p>
-          <div className="relative w-full h-[200px] md:h-[280px] overflow-hidden border border-[var(--border-color)]">
-            <Image
-              src="/agra.jpg"
-              alt="Taj Mahal Sunrise"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
+        <p>Witness the eternal monument of love, the Taj Mahal, at sunrise when the marble changes colors with the morning light. After breakfast, drive to Jaipur, visiting the ghost city of Fatehpur Sikri and the historic stepwell Chand Baori en route.</p>
       )
     },
     {
       title: "Day 5: Royal Heritage of the Pink City (Jaipur)",
       content: (
-        <div className="space-y-4">
-          <p>Enjoy a private guided tour of the Amber Fort with Jeep transfers. In the afternoon, visit the City Palace museum, the ancient observatory Jantar Mantar, and stop for photos at the iconic Hawa Mahal (Palace of Winds).</p>
-          <div className="relative w-full h-[200px] md:h-[280px] overflow-hidden border border-[var(--border-color)]">
-            <Image
-              src="/jaipur_fort.jpg"
-              alt="Amber Fort, Jaipur"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
+        <p>Enjoy a private guided tour of the Amber Fort with Jeep transfers. In the afternoon, visit the City Palace museum, the ancient observatory Jantar Mantar, and stop for photos at the iconic Hawa Mahal (Palace of Winds).</p>
       )
     },
     {
       title: "Day 6: Train to Jhansi & Drive to Orchha Medieval Town",
       content: (
-        <div className="space-y-4">
-          <p>Board the air-conditioned Shatabdi Express train to Jhansi. Drive to the medieval town of Orchha. Explore the architectural wonders of Orchha Fort, Jehangir Mahal, and the royal cenotaphs lining the Betwa River.</p>
-          <div className="relative w-full h-[200px] md:h-[280px] overflow-hidden border border-[var(--border-color)]">
-            <Image
-              src="https://images.unsplash.com/photo-1612892305545-2f47053e1983?q=80&w=800"
-              alt="Orchha Cenotaphs"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
+        <p>Board the air-conditioned Shatabdi Express train to Jhansi. Drive to the medieval town of Orchha. Explore the architectural wonders of Orchha Fort, Jehangir Mahal, and the royal cenotaphs lining the Betwa River.</p>
       )
     },
     {
       title: "Day 7: Drive to Khajuraho - The Temple Artistry",
       content: (
-        <div className="space-y-4">
-          <p>Drive to the UNESCO World Heritage town of Khajuraho. Check into your luxury resort. In the evening, attend the spectacular Light and Sound Show at the temple complex, narrating the history of the Chandela dynasty.</p>
-          <div className="relative w-full h-[200px] md:h-[280px] overflow-hidden border border-[var(--border-color)]">
-            <Image
-              src="/khajuraho.jpg"
-              alt="Khajuraho temple"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
+        <p>Drive to the UNESCO World Heritage town of Khajuraho. Check into your luxury resort. In the evening, attend the spectacular Light and Sound Show at the temple complex, narrating the history of the Chandela dynasty.</p>
       )
     },
     {
       title: "Day 8: Ancient Temples of Khajuraho",
       content: (
-        <div className="space-y-4">
-          <p>Spend the day exploring the Western and Eastern groups of temples. Admire the exquisite sandstone carvings depicting life, divinity, and sensuality, including the famous Kandariya Mahadev and Lakshmana Temples.</p>
-          <div className="relative w-full h-[200px] md:h-[280px] overflow-hidden border border-[var(--border-color)]">
-            <Image
-              src="/khajuraho.jpg"
-              alt="Carvings of Khajuraho"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
+        <p>Spend the day exploring the Western and Eastern groups of temples. Admire the exquisite sandstone carvings depicting life, divinity, and sensuality, including the famous Kandariya Mahadev and Lakshmana Temples.</p>
       )
     },
     {
       title: "Day 9: Flight to Delhi & International Departure",
       content: (
-        <div className="space-y-4">
-          <p>Fly from Khajuraho back to Delhi. Access the VIP lounge at Delhi Airport before boarding your international flight back home, carrying memories of an unforgettable voyage.</p>
-          <div className="relative w-full h-[200px] md:h-[280px] overflow-hidden border border-[var(--border-color)]">
-            <Image
-              src="https://images.unsplash.com/photo-1582298538104-fc2c3055b089?q=80&w=800"
-              alt="Delhi International Airport"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
+        <p>Fly from Khajuraho back to Delhi. Access the VIP lounge at Delhi Airport before boarding your international flight back home, carrying memories of an unforgettable voyage.</p>
       )
     }
   ];
