@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Script from "next/script";
 
 // =====================================================
@@ -14,9 +15,33 @@ const TAWKTO_PROPERTY_ID = "6a3e226094471a1d4dea3c66";
 const TAWKTO_WIDGET_ID = "1js1bcipk";
 
 export function FloatingButtons() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+  useEffect(() => {
+    const handleStatusChange = (e: Event) => {
+      const customEvent = e as CustomEvent<{ isOpen: boolean }>;
+      setIsChatOpen(customEvent.detail.isOpen);
+    };
+
+    window.addEventListener("tawkto-chat-status", handleStatusChange);
+    return () => {
+      window.removeEventListener("tawkto-chat-status", handleStatusChange);
+    };
+  }, []);
+
   const handleTawktoClick = () => {
-    if (typeof window !== "undefined" && (window as any).Tawk_API) {
-      (window as any).Tawk_API.toggle();
+    if (
+      typeof window !== "undefined" &&
+      (window as any).Tawk_API &&
+      typeof (window as any).Tawk_API.toggle === "function"
+    ) {
+      if (isChatOpen && typeof (window as any).Tawk_API.minimize === "function") {
+        (window as any).Tawk_API.minimize();
+      } else {
+        (window as any).Tawk_API.maximize();
+      }
+    } else {
+      console.warn("Tawk.to chat widget is still loading...");
     }
   };
 
@@ -25,11 +50,25 @@ export function FloatingButtons() {
       {/* ── Tawk.to Script (auto-load) ── */}
       <Script
         id="tawkto-widget"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             var Tawk_API = Tawk_API || {};
             var Tawk_LoadStart = new Date();
+            Tawk_API.onLoad = function() {
+              if (typeof Tawk_API.hideWidget === 'function') {
+                Tawk_API.hideWidget();
+              }
+            };
+            Tawk_API.onChatMaximized = function() {
+              window.dispatchEvent(new CustomEvent('tawkto-chat-status', { detail: { isOpen: true } }));
+            };
+            Tawk_API.onChatMinimized = function() {
+              window.dispatchEvent(new CustomEvent('tawkto-chat-status', { detail: { isOpen: false } }));
+            };
+            Tawk_API.onChatHidden = function() {
+              window.dispatchEvent(new CustomEvent('tawkto-chat-status', { detail: { isOpen: false } }));
+            };
             (function(){
               var s1 = document.createElement("script");
               var s0 = document.getElementsByTagName("script")[0];
@@ -85,34 +124,58 @@ export function FloatingButtons() {
         {/* 2. Tawk.to Live Chat Button */}
         <button
           onClick={handleTawktoClick}
-          aria-label="Open Live Chat"
-          title="Live Chat Support"
+          aria-label={isChatOpen ? "Close Live Chat" : "Open Live Chat"}
+          title={isChatOpen ? "Close Live Chat" : "Live Chat Support"}
           style={{
             width: 52,
             height: 52,
-            background: "#03A9F4",
+            background: isChatOpen ? "#EF4444" : "#03A9F4",
             borderRadius: "50%",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             border: "none",
             cursor: "pointer",
-            boxShadow: "0 4px 14px rgba(3,169,244,0.45)",
-            transition: "transform 0.2s, box-shadow 0.2s",
+            boxShadow: isChatOpen
+              ? "0 4px 14px rgba(239,68,68,0.45)"
+              : "0 4px 14px rgba(3,169,244,0.45)",
+            transition: "transform 0.2s, background-color 0.2s, box-shadow 0.2s",
           }}
           onMouseEnter={e => {
             (e.currentTarget as HTMLElement).style.transform = "scale(1.12)";
-            (e.currentTarget as HTMLElement).style.boxShadow = "0 6px 20px rgba(3,169,244,0.6)";
+            (e.currentTarget as HTMLElement).style.boxShadow = isChatOpen
+              ? "0 6px 20px rgba(239,68,68,0.6)"
+              : "0 6px 20px rgba(3,169,244,0.6)";
           }}
           onMouseLeave={e => {
             (e.currentTarget as HTMLElement).style.transform = "scale(1)";
-            (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 14px rgba(3,169,244,0.45)";
+            (e.currentTarget as HTMLElement).style.boxShadow = isChatOpen
+              ? "0 4px 14px rgba(239,68,68,0.45)"
+              : "0 4px 14px rgba(3,169,244,0.45)";
           }}
         >
-          {/* Chat Bubble SVG Icon */}
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="white">
-            <path d="M12 2C6.477 2 2 6.254 2 11.5c0 2.657 1.153 5.058 3 6.752V22l3.723-2.01A10.84 10.84 0 0012 21c5.523 0 10-4.254 10-9.5S17.523 2 12 2zm0 17a8.866 8.866 0 01-2.963-.507L7 19.5v-2.04C5.16 16.063 4 13.9 4 11.5 4 7.358 7.582 4 12 4s8 3.358 8 7.5S16.418 19 12 19zm-4-8h8v1.5H8V11zm0 3h5v1.5H8V14z" />
-          </svg>
+          {isChatOpen ? (
+            /* Close 'X' SVG Icon */
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="white"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          ) : (
+            /* Chat Bubble SVG Icon */
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="white">
+              <path d="M12 2C6.477 2 2 6.254 2 11.5c0 2.657 1.153 5.058 3 6.752V22l3.723-2.01A10.84 10.84 0 0012 21c5.523 0 10-4.254 10-9.5S17.523 2 12 2zm0 17a8.866 8.866 0 01-2.963-.507L7 19.5v-2.04C5.16 16.063 4 13.9 4 11.5 4 7.358 7.582 4 12 4s8 3.358 8 7.5S16.418 19 12 19zm-4-8h8v1.5H8V11zm0 3h5v1.5H8V14z" />
+            </svg>
+          )}
         </button>
 
       </div>

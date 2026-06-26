@@ -77,7 +77,7 @@ export default function RootLayout({
   const schema = getTravelAgencySchema();
 
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} h-full antialiased`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} h-full antialiased`} suppressHydrationWarning>
       <head>
         {/* Cross-browser compatibility meta tags */}
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -95,19 +95,6 @@ export default function RootLayout({
         </main>
         <Footer />
         <FloatingButtons />
-        <Script id="tawk-to" strategy="afterInteractive">
-          {`
-            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-            (function(){
-              var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-              s1.async=true;
-              s1.src='https://embed.tawk.to/6a3e226094471a1d4dea3c66/1js1bcipk';
-              s1.charset='UTF-8';
-              s1.setAttribute('crossorigin','*');
-              s0.parentNode.insertBefore(s1,s0);
-            })();
-          `}
-        </Script>
       </body>
     </html>
   );
