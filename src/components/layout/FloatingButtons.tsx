@@ -10,8 +10,8 @@ import Script from "next/script";
 //   TAWKTO_PROPERTY_ID  → e.g. "683c4f9b..."
 //   TAWKTO_WIDGET_ID    → e.g. "1iscnk..."
 // =====================================================
-const TAWKTO_PROPERTY_ID = "YOUR_PROPERTY_ID";
-const TAWKTO_WIDGET_ID = "YOUR_WIDGET_ID";
+const TAWKTO_PROPERTY_ID = "6a3e226094471a1d4dea3c66";
+const TAWKTO_WIDGET_ID = "1js1bcipk";
 
 export function FloatingButtons() {
   const handleTawktoClick = () => {
